@@ -54,7 +54,13 @@ const INDOOR_SERVICES = [
 ];
 
 // --- REUSABLE SLIDER COMPONENT ---
-const ServiceSlider = ({ title, services, reverse = false }) => {
+interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+const ServiceSlider = ({ title, services, reverse = false }: { title: string; services: ServiceItem[]; reverse?: boolean }) => {
   // Duplicate items for infinite loop
   // We quadruple the list to ensure there's always enough content for a seamless loop
   const loopServices = [...services, ...services, ...services, ...services]; 

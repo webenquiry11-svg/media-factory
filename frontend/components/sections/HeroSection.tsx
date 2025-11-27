@@ -59,7 +59,7 @@ export default function HeroSection() {
   // --- ANIMATION CLASSES ---
 
   // 1. SLIDE WRAPPER (Movement)
-  const getSlideWrapperClass = (index) => {
+  const getSlideWrapperClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
     if (index === currentSlide) return `translate-x-0 opacity-100 z-20 ${baseClass} delay-0`;
     if (index === prevSlide) return `translate-x-full opacity-0 z-10 ${baseClass} delay-500`;
@@ -67,13 +67,13 @@ export default function HeroSection() {
   };
 
   // 2. IMAGE ZOOM (Ken Burns)
-  const getImageZoomClass = (index) => {
+  const getImageZoomClass = (index: number) => {
     if (index === currentSlide) return "scale-100 transition-transform duration-[6000ms] ease-linear";
     return "scale-125 transition-none"; 
   };
 
   // 3. RED LAYER (Right Side)
-  const getLayerClass = (index) => {
+  const getLayerClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
     if (index === currentSlide) return `translate-x-0 opacity-100 z-30 ${baseClass} delay-500`;
     if (index === prevSlide) return `translate-x-full opacity-0 z-20 ${baseClass} delay-0`;
@@ -81,7 +81,7 @@ export default function HeroSection() {
   };
 
   // 4. TEXT CONTAINER (Left Side Global Move)
-  const getTextContainerClass = (index) => {
+  const getTextContainerClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
     if (index === currentSlide) return `translate-x-0 opacity-100 z-30 ${baseClass} delay-500`;
     if (index === prevSlide) return `-translate-x-full opacity-0 z-20 ${baseClass} delay-0`;
@@ -90,7 +90,7 @@ export default function HeroSection() {
 
   // 5. MASKED TEXT REVEAL (The New Animation)
   // Instead of fading, we slide the text up from a hidden "mask" (overflow-hidden parent)
-  const getMaskedContentClass = (index, delayClass) => {
+  const getMaskedContentClass = (index: number, delayClass: string) => {
     // Standard cubic-bezier for a "snap" feel
     const ease = "ease-[cubic-bezier(0.65,0,0.35,1)]"; 
     

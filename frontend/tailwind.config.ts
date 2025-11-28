@@ -21,6 +21,16 @@ const config: Config = {
         'pos-0': '0% 0%',
         'pos-100': '100% 100%',
       },
+      animation: {
+        'gradient-pan': 'gradient-pan 15s ease infinite',
+      },
+      keyframes: {
+        'gradient-pan': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+      },
     },
   },
   plugins: [],

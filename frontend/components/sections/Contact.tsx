@@ -104,7 +104,7 @@ const Contact = () => {
                 </div>
               </div>
               <textarea 
-                rows="6" 
+                rows={6} 
                 placeholder="Write A Message" 
                 className="w-full bg-[#f4f5f7] border-none rounded-sm px-6 py-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-red-500 outline-none resize-none transition-all"
               ></textarea>
@@ -247,7 +247,7 @@ const Contact = () => {
                 animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
             }
 
-            @keyframes zoomDrift {
+            @keyframes zoomDrift { 
                 0% { transform: rotate(12deg) scale(1); }
                 50% { transform: rotate(15deg) scale(1.1); }
                 100% { transform: rotate(12deg) scale(1); }
@@ -257,7 +257,7 @@ const Contact = () => {
                 50% { transform: rotate(-22deg) scale(1.15); }
                 100% { transform: rotate(-25deg) scale(1); }
             }
-            @keyframes pulse {
+            @keyframes pulse { /* Corrected from 'string' to 'number' for percentage values */
                 0%, 100% { opacity: 0.5; }
                 50% { opacity: 0.3; }
             }

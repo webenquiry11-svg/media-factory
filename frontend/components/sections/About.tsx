@@ -25,7 +25,7 @@ const About = () => {
   ];
 
   return (
-    <section ref={ref} className="bg-white py-24 px-6 sm:px-16 lg:px-32 xl:px-48 font-sans overflow-hidden">
+    <section ref={ref} className="bg-white pt-24 px-6 sm:px-16 lg:px-32 xl:px-48 font-sans overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
           

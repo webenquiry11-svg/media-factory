@@ -180,12 +180,8 @@ export default function HeroSection() {
         {/* NAVIGATION */}
         <nav className="absolute top-8 left-0 w-full z-50">
           <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
-            <a href="/" className="flex items-center gap-3 group/logo">
-               <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
-                  <div className="absolute inset-0 border-2 border-red-500 rotate-45 group-hover/logo:rotate-90 transition-transform duration-500" />
-                  <div className="w-2 h-2 bg-red-500" />
-               </div>
-               <span className="text-2xl font-bold tracking-tight text-white uppercase">Cilox</span>
+            <a href="/" className="flex items-center">
+               <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
             </a>
 
             <div className="hidden lg:flex bg-black rounded-full px-8 py-4 items-center gap-8 shadow-2xl shadow-black/50 border border-white/5">

@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Building2, Phone, MapPin, Mail, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Building2, Phone, MapPin, Mail, ArrowRight, Facebook, Twitter, Instagram, Linkedin, Youtube, Pin } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -144,14 +144,9 @@ const Contact = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8">
             
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 relative">
-                 {/* Simple geometric logo icon */}
-                 <div className="absolute inset-0 bg-red-500 rotate-45 rounded-sm"></div>
-                 <div className="absolute inset-0 border-2 border-white rotate-45 rounded-sm scale-75"></div>
-              </div>
-              <span className="text-2xl font-bold tracking-wider text-white">CILOX</span>
-            </div>
+            <a href="/" className="flex items-center">
+               <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
+            </a>
 
             {/* Subscribe Form */}
             <div className="relative w-full max-w-lg">
@@ -174,13 +169,23 @@ const Contact = () => {
                 <h3 className="text-lg font-medium text-white leading-relaxed mb-8 max-w-xs">
                    WELCOME TO CREATIVE AGENCY & PORTFOLIO THEME.
                 </h3>
-                <div className="flex gap-4">
-                   {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                      <a key={i} href="#" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
-                         <Icon className="w-4 h-4 text-white group-hover:text-black transition-colors" />
-                      </a>
-                   ))}
-                </div>
+                <div className="flex gap-4 flex-wrap">
+                  <a href="https://www.facebook.com/starpublicity" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
+                    <Facebook className="w-4 h-4 text-white group-hover:text-black transition-colors" />
+                  </a>
+                  <a href="https://www.instagram.com/starpublicityldh/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
+                    <Instagram className="w-4 h-4 text-white group-hover:text-black transition-colors" />
+                  </a>
+                  <a href="https://www.linkedin.com/company/m-s-star-publicity/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
+                    <Linkedin className="w-4 h-4 text-white group-hover:text-black transition-colors" />
+                  </a>
+                  <a href="https://x.com/starpublicityld" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
+                    <Twitter className="w-4 h-4 text-white group-hover:text-black transition-colors" />
+                  </a>
+                  <a href="https://in.pinterest.com/starpublicityldh/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
+                    <Pin className="w-4 h-4 text-white group-hover:text-black transition-colors" />
+                  </a>
+               </div>
              </div>
 
              {/* Column 2: Explore Links (Span 5 - 2 Columns internally) */}

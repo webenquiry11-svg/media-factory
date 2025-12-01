@@ -134,9 +134,9 @@ export default function HeroSection() {
               <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
             </div>
             <div className="flex items-center gap-4">
-              <a href="#" className="hover:text-red-500 transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
-              <a href="#" className="hover:text-red-500 transition-colors"><Twitter className="w-3.5 h-3.5" /></a>
-              <a href="#" className="hover:text-red-500 transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
+              <a href="https://www.facebook.com/starpublicity" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
+              <a href="https://x.com/starpublicityld" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Twitter className="w-3.5 h-3.5" /></a>
+              <a href="https://www.instagram.com/starpublicityldh/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
             </div>
           </div>
         </div>
@@ -320,9 +320,15 @@ export default function HeroSection() {
              <div className="flex flex-col items-center mt-8 space-y-4">
                 <span className="text-red-500 font-bold text-xl">(303) 555-0105</span>
                 <div className="flex gap-6">
-                  <Facebook className="w-6 h-6 hover:text-red-500 cursor-pointer" />
-                  <Twitter className="w-6 h-6 hover:text-red-500 cursor-pointer" />
-                  <Instagram className="w-6 h-6 hover:text-red-500 cursor-pointer" />
+                  <a href="https://www.facebook.com/starpublicity" target="_blank" rel="noopener noreferrer">
+                    <Facebook className="w-6 h-6 hover:text-red-500 cursor-pointer" />
+                  </a>
+                  <a href="https://x.com/starpublicityld" target="_blank" rel="noopener noreferrer">
+                    <Twitter className="w-6 h-6 hover:text-red-500 cursor-pointer" />
+                  </a>
+                  <a href="https://www.instagram.com/starpublicityldh/" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="w-6 h-6 hover:text-red-500 cursor-pointer" />
+                  </a>
                 </div>
              </div>
           </div>

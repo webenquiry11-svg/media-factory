@@ -14,7 +14,7 @@ const OurWork = () => {
       title: "Advanced Flex Printing",
       category: "Flex Technology",
       description: "Using cutting-edge flex printing technology and expert techniques, we deliver vibrant, high-definition prints with precision and speed.",
-      image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/machine images/machine images/advanced flex printing.png",
       icon: Layers,
       color: "from-blue-500/20"
     },
@@ -22,7 +22,7 @@ const OurWork = () => {
       title: "Premium Eco Solvent",
       category: "Eco Solvent Printing",
       description: "Our eco-solvent printing combines advanced machinery with sustainable practices for durable, eye-catching graphics produced professionally.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/machine images/machine images/eco solvent printing.png",
       icon: Zap,
       color: "from-green-500/20"
     },
@@ -30,7 +30,7 @@ const OurWork = () => {
       title: "Digital Printing",
       category: "State-of-the-Art",
       description: "With the latest digital printing systems and skilled operation, we ensure crisp, consistent color and flawless print quality for every project.",
-      image: "https://images.unsplash.com/photo-1634992849127-c8950909505b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/machine images/machine images/digital printing machine.png",
       icon: Printer,
       color: "from-purple-500/20"
     },
@@ -38,7 +38,7 @@ const OurWork = () => {
       title: "Eco-Friendly Fabric",
       category: "Fabric Printing",
       description: "We leverage innovative, eco-friendly fabric printing technology and meticulous workmanship to create sharp, environmentally responsible textile prints.",
-      image: "https://images.unsplash.com/photo-1520183802803-06f731a2059f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/machine images/machine images/fabric printing.png",
       icon: Leaf,
       color: "from-[#fbbf24]/20"
     }
@@ -68,7 +68,7 @@ const OurWork = () => {
           </h2>
 
           <p className="text-gray-500 text-[16px] max-w-2xl mx-auto leading-relaxed mb-8">
-            In this section, we will represent our printing machines and explain how we work, utilizing the latest technology to deliver excellence.
+            Step behind the scenes and explore the state-of-the-art machinery that powers our production, ensuring every print is a masterpiece of precision and vibrancy.
           </p>
 
           {/* Decorative Yellow Ring */}
@@ -94,14 +94,12 @@ const OurWork = () => {
                 
                 {/* 1. Left Image Area */}
                 <div className="w-full lg:w-[62%] relative z-10">
-                   <div className="relative h-[450px] lg:h-[550px] overflow-hidden rounded-sm group shadow-2xl bg-white">
-                      <img 
+                   <div className="relative h-[450px] lg:h-[550px] overflow-hidden rounded-sm group bg-white">
+                      <img
                         src={machine.image}
                         alt={machine.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 p-4"
                       />
-                      {/* Subtle Dark Overlay */}
-                      <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                    </div>
                 </div>
 

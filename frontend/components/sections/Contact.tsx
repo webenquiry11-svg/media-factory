@@ -215,14 +215,9 @@ const Contact = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8">
             
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 relative">
-                 {/* Simple geometric logo icon */}
-                 <div className="absolute inset-0 bg-red-500 rotate-45 rounded-sm"></div>
-                 <div className="absolute inset-0 border-2 border-white rotate-45 rounded-sm scale-75"></div>
-              </div>
-              <span className="text-2xl font-bold tracking-wider text-white">CILOX</span>
-            </div>
+            <a href="/" className="flex items-center">
+               <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
+            </a>
 
             {/* Subscribe Form */}
             <div className="relative w-full max-w-lg">

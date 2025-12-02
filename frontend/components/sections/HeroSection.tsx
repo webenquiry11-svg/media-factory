@@ -185,13 +185,11 @@ export default function HeroSection() {
             </a>
 
             <div className="hidden lg:flex bg-black rounded-full px-8 py-4 items-center gap-8 shadow-2xl shadow-black/50 border border-white/5">
-              <NavLink href="#home" active>HOME</NavLink>
-              <NavLink href="#about">ABOUT</NavLink>
-              <NavLink href="#services">SERVICES</NavLink>
-              <NavLink href="#project">PROJECT</NavLink>
-              <NavLink href="#award">AWARD</NavLink>
-              <NavLink href="#testimonial">TESTIMONIAL</NavLink>
-              <NavLink href="#blog">BLOG</NavLink>
+              <NavLink href="#services" active>Our Services</NavLink>
+              <NavLink href="#about">About</NavLink>
+              <NavLink href="#our-work">Our Work</NavLink>
+              <NavLink href="#why-choose-us">Our Promise</NavLink>
+              <NavLink href="#contact">Contact Us</NavLink>
             </div>
 
             <div className="flex items-center gap-6">
@@ -202,15 +200,9 @@ export default function HeroSection() {
                   <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">0</span>
                 </button>
               </div>
-              <div className="hidden lg:flex items-center gap-3 pl-2">
-                <div className="w-10 h-10 border border-red-500 rounded flex items-center justify-center text-red-500">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-[10px] text-gray-300 font-medium tracking-wider">CALL ANYTIME</span>
-                  <span className="text-sm font-bold text-white tracking-wide">(303) 555-0105</span>
-                </div>
-              </div>
+              <a href="#contact" className="hidden lg:inline-block px-6 py-3 bg-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
+                Request a Quote
+              </a>
               <button 
                 className="lg:hidden text-white hover:text-red-500 transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -311,25 +303,16 @@ export default function HeroSection() {
           
           <div className="flex flex-col items-center space-y-8 text-center p-4">
              <div className="w-16 h-1 bg-red-500 mb-4" />
-             <MobileNavLink href="#home" onClick={() => setIsMobileMenuOpen(false)}>HOME</MobileNavLink>
-             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</MobileNavLink>
-             <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>SERVICES</MobileNavLink>
-             <MobileNavLink href="#project" onClick={() => setIsMobileMenuOpen(false)}>PROJECT</MobileNavLink>
-             <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</MobileNavLink>
+             <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</MobileNavLink>
+             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</MobileNavLink>
+             <MobileNavLink href="#our-work" onClick={() => setIsMobileMenuOpen(false)}>Our Work</MobileNavLink>
+             <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Our Promise</MobileNavLink>
+             <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
              
-             <div className="flex flex-col items-center mt-8 space-y-4">
-                <span className="text-red-500 font-bold text-xl">(303) 555-0105</span>
-                <div className="flex gap-6">
-                  <a href="https://www.facebook.com/starpublicity" target="_blank" rel="noopener noreferrer">
-                    <Facebook className="w-6 h-6 hover:text-red-500 cursor-pointer" />
-                  </a>
-                  <a href="https://x.com/starpublicityld" target="_blank" rel="noopener noreferrer">
-                    <Twitter className="w-6 h-6 hover:text-red-500 cursor-pointer" />
-                  </a>
-                  <a href="https://www.instagram.com/starpublicityldh/" target="_blank" rel="noopener noreferrer">
-                    <Instagram className="w-6 h-6 hover:text-red-500 cursor-pointer" />
-                  </a>
-                </div>
+             <div className="pt-8">
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-8 py-4 bg-red-500 text-white font-bold text-sm tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
+                  Request a Quote
+                </a>
              </div>
           </div>
         </div>

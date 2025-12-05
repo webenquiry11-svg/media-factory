@@ -4,6 +4,7 @@ import {
   Mail, 
   MapPin, 
   Facebook, 
+  Send,
   Twitter, 
   Instagram, 
   Phone, 
@@ -39,6 +40,7 @@ const SLIDES = [
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isQuoteFormVisible, setIsQuoteFormVisible] = useState(false);
   const [prevSlide, setPrevSlide] = useState(0);
 
   const nextSlide = () => {
@@ -200,9 +202,41 @@ export default function HeroSection() {
                   <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">0</span>
                 </button>
               </div>
-              <a href="#contact" className="hidden lg:inline-block px-6 py-3 bg-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
-                Request a Quote
-              </a>
+              <div 
+                className="relative hidden lg:inline-block"
+                onMouseEnter={() => setIsQuoteFormVisible(true)}
+                onMouseLeave={() => setIsQuoteFormVisible(false)}
+              >
+                <a href="#contact" className="inline-block px-6 py-3 bg-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
+                  Request a Quote
+                </a>
+
+                {/* Hover Form */}
+                <div className={`absolute top-full right-0 mt-4 w-[380px] transition-all duration-300 ease-out ${isQuoteFormVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+                  <div className="bg-black/80 backdrop-blur-lg text-white p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
+                    <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center justify-center">
+                          <Send className="w-5 h-5 text-red-500" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-lg text-white">Quick Quote</h4>
+                          <p className="text-xs text-gray-400">Get a fast response from our team.</p>
+                        </div>
+                      </div>
+                      <form className="space-y-3">
+                        <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" /> {/* Closing tag added here */}
+                        <input type="email" placeholder="Your Email" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" />
+                        <textarea placeholder="Tell us about your project..." rows={3} className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm resize-none placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all"></textarea>
+                        <button type="submit" className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 transition-colors duration-300 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
+                          Send Request
+                        </button>
+                    </form>
+                  </div>
+                  </div>
+                </div>
+              </div>
               <button 
                 className="lg:hidden text-white hover:text-red-500 transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

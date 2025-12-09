@@ -127,18 +127,13 @@ export default function HeroSection() {
           </div>
 
           {/* Right: Links & Socials */}
-          <div className="flex items-center space-x-4 sm:space-x-6">
-            <div className="flex items-center space-x-4 border-r border-gray-700 pr-6">
+          <div className="flex items-center">
+            <div className="flex items-center space-x-4">
               <a href="#" className="hover:text-red-500 transition-colors">Help</a>
               <span className="text-gray-700">/</span>
               <a href="#" className="hover:text-red-500 transition-colors">Support</a>
               <span className="text-gray-700">/</span>
               <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
-            </div>
-            <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/starpublicity" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
-              <a href="https://x.com/starpublicityld" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Twitter className="w-3.5 h-3.5" /></a>
-              <a href="https://www.instagram.com/starpublicityldh/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
             </div>
           </div>
         </div>
@@ -159,7 +154,7 @@ export default function HeroSection() {
                   alt="Slide Background" 
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-bl from-black/90 via-black/40 to-transparent z-10" />
                 <div className="absolute inset-0 bg-black/40 z-0" />
               </div>
               
@@ -195,13 +190,6 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-6">
-              <div className="hidden lg:flex items-center gap-4 pr-6 border-r border-gray-500/30">
-                <button className="hover:text-red-500 transition-colors"><Search className="w-5 h-5" /></button>
-                <button className="hover:text-red-500 transition-colors relative">
-                  <ShoppingCart className="w-5 h-5" />
-                  <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">0</span>
-                </button>
-              </div>
               <div 
                 className="relative hidden lg:inline-block"
                 onMouseEnter={() => setIsQuoteFormVisible(true)}

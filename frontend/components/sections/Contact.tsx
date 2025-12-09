@@ -240,23 +240,6 @@ const Contact = () => {
                 <h3 className="text-lg font-medium text-white leading-relaxed mb-8 max-w-xs">
                    WELCOME TO CREATIVE AGENCY & PORTFOLIO THEME.
                 </h3>
-                <div className="flex gap-4 flex-wrap">
-                  <a href="https://www.facebook.com/starpublicity" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
-                    <Facebook className="w-4 h-4 text-white group-hover:text-black transition-colors" />
-                  </a>
-                  <a href="https://www.instagram.com/starpublicityldh/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
-                    <Instagram className="w-4 h-4 text-white group-hover:text-black transition-colors" />
-                  </a>
-                  <a href="https://www.linkedin.com/company/m-s-star-publicity/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
-                    <Linkedin className="w-4 h-4 text-white group-hover:text-black transition-colors" />
-                  </a>
-                  <a href="https://x.com/starpublicityld" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
-                    <Twitter className="w-4 h-4 text-white group-hover:text-black transition-colors" />
-                  </a>
-                  <a href="https://in.pinterest.com/starpublicityldh/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center group hover:bg-red-500 hover:border-red-500 transition-all duration-300">
-                    <Pin className="w-4 h-4 text-white group-hover:text-black transition-colors" />
-                  </a>
-                </div>
              </div>
 
              {/* Column 2: Explore Links (Span 5 - 2 Columns internally) */}

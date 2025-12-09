@@ -46,7 +46,7 @@ const OurWork = () => {
 
   return (
     // NOTE: 'overflow-hidden' removed from section to allow sticky behavior
-    <section ref={ref} className="bg-white py-24 px-6 sm:px-12 lg:px-24 font-sans relative">
+    <section ref={ref} className="bg-white py-24 px-6 sm:px-12 lg:px-16 font-sans relative">
       <div className="container mx-auto max-w-7xl">
         
         {/* --- HEADER SECTION --- */}
@@ -93,18 +93,18 @@ const OurWork = () => {
               <div className="flex flex-col lg:flex-row items-center lg:items-start">
                 
                 {/* 1. Left Image Area */}
-                <div className="w-full lg:w-[62%] relative z-10">
+                <div className="w-full lg:w-[60%] relative z-10">
                    <div className="relative h-[450px] lg:h-[550px] overflow-hidden rounded-sm group bg-white">
                       <img
                         src={machine.image}
                         alt={machine.title}
-                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 p-4"
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 p-8"
                       />
                    </div>
                 </div>
 
                 {/* 2. Right Content Box (Overlapping) */}
-                <div className="w-full lg:w-[48%] lg:-ml-32 relative z-20 mt-[-50px] lg:mt-16">
+                <div className="w-full lg:w-[50%] lg:-ml-20 relative z-20 mt-[-50px] lg:mt-16">
                    
                    <div className="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative overflow-hidden rounded-sm border-t border-gray-100">
                       

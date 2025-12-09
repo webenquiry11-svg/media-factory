@@ -46,7 +46,7 @@ const OurWork = () => {
 
   return (
     // NOTE: 'overflow-hidden' removed from section to allow sticky behavior
-    <section ref={ref} className="bg-white py-24 px-6 sm:px-12 lg:px-16 font-sans relative">
+    <section ref={ref} className="bg-white py-24 px-6 sm:px-12 lg:px-8 font-sans relative">
       <div className="container mx-auto max-w-7xl">
         
         {/* --- HEADER SECTION --- */}
@@ -138,9 +138,9 @@ const OurWork = () => {
                          </div>
                       </div>
 
-                      {/* Bottom Yellow Action Bar */}
-                      <div className="bg-[#fbbf24] h-[85px] flex items-center justify-between px-10 lg:px-14 cursor-pointer group hover:bg-[#f59e0b] transition-colors duration-300">
-                         <span className="text-[#111] font-bold text-[12px] uppercase tracking-[0.15em]">
+                      {/* Bottom Red Action Bar */}
+                      <div className="bg-red-500 h-[85px] flex items-center justify-between px-10 lg:px-14 cursor-pointer group hover:bg-red-600 transition-colors duration-300">
+                         <span className="text-white font-bold text-[12px] uppercase tracking-[0.15em]">
                             View Specifications
                          </span>
                          

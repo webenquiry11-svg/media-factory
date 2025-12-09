@@ -52,14 +52,14 @@ const DigitalRoadmap = () => {
   ];
 
   return (
-    <div className="bg-[#111111] text-white p-8 w-full min-h-screen flex flex-col justify-center items-center font-sans">
+    <div className="bg-white text-[#111] py-24 px-6 sm:px-12 lg:px-16 w-full flex flex-col justify-center items-center font-sans">
       
       {/* Top Text Section - Heading Size Increased */}
-      <div className="w-full max-w-[1200px] mb-10">
+      <div className="w-full max-w-[1200px] mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Guided Roadmap to Your <span className="text-red-500">Digital Success</span>
         </h2>
-        <p className="text-gray-400 max-w-2xl text-lg leading-relaxed">
+        <p className="text-gray-600 max-w-2xl text-lg leading-relaxed">
           Apptechies is a top-notch mobile app development company in usa. We have an expert team that delivers apps for iPhone, iPad, Android & web development.
         </p>
       </div>
@@ -75,9 +75,9 @@ const DigitalRoadmap = () => {
               onClick={() => setActiveStep(step.id)}
               className={`
                 relative rounded-[1.5rem] cursor-pointer overflow-hidden transition-all duration-500 ease-in-out
-                ${isActive 
-                  ? 'flex-[2] bg-[#1a1a1a] border border-red-500' 
-                  : 'flex-[0.6] bg-[#1a1a1a] hover:bg-[#222] border border-transparent'}
+                ${isActive
+                  ? 'flex-[2.5] bg-white border-2 border-red-500 shadow-xl scale-[1.02] z-10'
+                  : 'flex-[0.5] bg-gray-50 hover:bg-gray-100 border border-transparent shadow-sm'}
               `}
             >
               <div className="h-full w-full relative flex flex-col">
@@ -85,9 +85,9 @@ const DigitalRoadmap = () => {
                 {/* Number Circle */}
                 <div className={`
                   absolute top-6 left-0 right-0 mx-auto flex items-center justify-center rounded-full font-bold text-base transition-all duration-300 z-10
-                  ${isActive 
-                    ? 'w-14 h-14 bg-[#252525] border border-gray-600 text-white left-6 right-auto mx-0'
-                    : 'w-10 h-10 border border-gray-600 text-white'}
+                  ${isActive
+                    ? 'w-12 h-12 bg-[#111] text-red-500 left-8 right-auto mx-0 shadow-lg'
+                    : 'w-10 h-10 border border-gray-300 text-gray-400 bg-white'}
                 `}>
                   0{step.id}
                 </div>
@@ -95,27 +95,27 @@ const DigitalRoadmap = () => {
                 {/* Content Logic */}
                 {isActive ? (
                   // === ACTIVE STATE CONTENT ===
-                  <div className="flex flex-col h-full pt-24 px-6 pb-6 animate-fadeIn">
+                  <div className="flex flex-col h-full pt-24 px-8 pb-8 animate-fadeIn">
                     
                     <CustomSearchIcon />
 
-                    <h3 className="text-2xl font-bold text-red-500 mb-3 leading-tight">
+                    <h3 className="text-2xl font-extrabold text-[#111] uppercase mb-3 leading-tight">
                       {step.title}
                     </h3>
 
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-gray-500 text-[15px] leading-relaxed mb-6 line-clamp-3">
                       {step.description || "Detailed description regarding this specific step in the roadmap process."}
                     </p>
 
-                    <button className="mt-auto text-white text-sm font-semibold hover:text-red-500 transition-colors flex items-center gap-2">
-                      Read More <span className="text-lg">&rarr;</span>
-                    </button>
+                    <div className="mt-auto flex items-center gap-3 group w-fit">
+                        <span className="text-[#111] font-bold text-[12px] uppercase tracking-wider">Read More</span>
+                    </div>
                   </div>
                 ) : (
                   // === INACTIVE STATE CONTENT ===
                   <div className="h-full w-full flex items-end justify-center pb-8">
                     <h3 
-                      className="text-gray-400 font-medium tracking-wide uppercase whitespace-nowrap text-xs"
+                      className="text-gray-400 font-bold tracking-[0.15em] uppercase whitespace-nowrap text-[11px]"
                       style={{ 
                         writingMode: 'vertical-rl', 
                         transform: 'rotate(180deg)',
@@ -156,7 +156,20 @@ const OutdoorRoadmap = () => {
   return (
     <section className="bg-white py-24 px-6 sm:px-12 lg:px-16 font-sans relative border-t border-gray-100">
       <div className="container mx-auto max-w-7xl flex flex-col items-center">
-        {/* --- ACCORDION CONTAINER --- */}
+        
+        {/* --- HEADER SECTION (Right Aligned) --- */}
+        <div className="w-full max-w-[1200px] mb-12 text-right">
+            <span className="block text-gray-500 font-bold text-[12px] tracking-[0.2em] uppercase mb-4">
+            OUR APPROACH
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-6">
+            Blueprint for <br /> <span className="text-red-500">Outdoor Impact</span>
+            </h2>
+            <p className="text-gray-500 text-[16px] max-w-2xl ml-auto leading-relaxed">
+            Discover our strategic 8-step process for launching high-visibility outdoor advertising campaigns that capture attention and drive results.
+            </p>
+        </div>
+
         <div className="flex w-full max-w-[1200px] h-[450px] gap-2 md:gap-4">
             {steps.map((step) => {
             const isActive = activeStep === step.id;
@@ -168,7 +181,7 @@ const OutdoorRoadmap = () => {
                 className={`
                     relative rounded-[1rem] cursor-pointer overflow-hidden transition-all duration-500 ease-in-out shadow-sm
                     ${isActive
-                    ? 'flex-[2.5] bg-white border-2 border-red-500 shadow-xl scale-[1.02] z-10'
+                    ? 'flex-[2.5] bg-white border-2 border-red-500 shadow-xl scale-[1.02] z-10' 
                     : 'flex-[0.5] bg-gray-50 hover:bg-gray-100 border border-transparent'}
                 `}
                 >
@@ -178,7 +191,7 @@ const OutdoorRoadmap = () => {
                     <div className={`
                     absolute top-6 left-0 right-0 mx-auto flex items-center justify-center rounded-full font-bold text-base transition-all duration-300 z-10
                     ${isActive
-                        ? 'w-12 h-12 bg-[#111] text-red-500 left-8 right-auto mx-0 shadow-lg'
+                        ? 'w-12 h-12 bg-[#111] text-red-500 left-8 right-auto mx-0 shadow-lg' 
                         : 'w-10 h-10 border border-gray-300 text-gray-400 bg-white'}
                     `}>
                     0{step.id}

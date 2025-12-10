@@ -40,7 +40,7 @@ const OurWork = () => {
       description: "We leverage innovative, eco-friendly fabric printing technology and meticulous workmanship to create sharp, environmentally responsible textile prints.",
       image: "/machine images/machine images/fabric printing.png",
       icon: Leaf,
-      color: "from-[#fbbf24]/20"
+      color: "from-red-500/20"
     }
   ];
 
@@ -54,7 +54,7 @@ const OurWork = () => {
           {/* Logo Icon */}
           <div className="flex justify-center mb-5">
              <div className="w-8 h-8 relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#fbbf24] rotate-45 rounded-sm" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-500 rotate-45 rounded-sm" />
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#111] rotate-45 rounded-sm" />
              </div>
           </div>
@@ -73,7 +73,7 @@ const OurWork = () => {
 
           {/* Decorative Yellow Ring */}
           <div className="flex justify-center">
-             <div className="w-3 h-3 rounded-full border-[3px] border-[#fbbf24]" />
+             <div className="w-3 h-3 rounded-full border-[3px] border-red-500" />
           </div>
         </div>
 
@@ -114,8 +114,8 @@ const OurWork = () => {
                       {/* Text Content */}
                       <div className="p-10 lg:p-14 relative z-10">
                          <div className="flex items-center gap-3 mb-4">
-                           <machine.icon className="w-5 h-5 text-[#fbbf24]" />
-                           <span className="text-[#fbbf24] font-bold text-[11px] uppercase tracking-widest block">
+                           <machine.icon className="w-5 h-5 text-red-500" />
+                           <span className="text-red-500 font-bold text-[11px] uppercase tracking-widest block">
                               {machine.category}
                            </span>
                          </div>

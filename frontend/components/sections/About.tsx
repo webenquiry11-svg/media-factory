@@ -80,7 +80,7 @@ const About = () => {
 
               {/* Feature List & Sub-headline */}
               <div className="flex flex-col justify-center pt-2">
-                <h3 className="text-[#fbbf24] font-bold uppercase tracking-wide text-[15px] leading-tight mb-5">
+                <h3 className="text-red-500 font-bold uppercase tracking-wide text-[15px] leading-tight mb-5">
                   {subHeadlineWords.map((word, index) => (
                     <span key={index} className="inline-block overflow-hidden mr-2">
                       <span 

@@ -108,7 +108,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Links & Socials (Hidden on very small screens if crowded, or flex) */}
+          {/* Right: Links & Socials */}
           <div className="hidden sm:flex items-center">
             <div className="flex items-center space-x-4">
               <a href="#" className="hover:text-red-500 transition-colors">Help</a>
@@ -122,7 +122,6 @@ export default function HeroSection() {
       </div>
 
       {/* 2. COMBINED HEADER & HERO SECTION */}
-      {/* Responsive Height: 600px min on mobile, Full viewport height on larger screens */}
       <div className="relative min-h-[600px] h-[100dvh] lg:h-screen w-full bg-gray-900 overflow-hidden group">
         
         {/* === BACKGROUND SLIDER === */}
@@ -138,11 +137,12 @@ export default function HeroSection() {
                 />
                 
                 {/* Responsive Gradient Overlay: 
-                    Mobile: Darker overall (bg-black/40) + Gradient for text legibility.
-                    Desktop: Transparent left -> Dark right.
+                    Mobile: Darker overall base + vertical gradient.
+                    Desktop: Transparent base + horizontal gradient starting with TRANSPARENT on the left.
                 */}
                 <div className="absolute inset-0 bg-black/40 lg:bg-transparent z-0 lg:z-[-1]" />
-                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/80 via-black/20 lg:via-black/20 to-black/80 lg:to-black/80 z-10" />
+                {/* CHANGED LINE BELOW: Added `sm:from-transparent` to make the left side clear on tablet/desktop */}
+                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/80 sm:from-transparent via-black/20 lg:via-black/40 to-black/80 lg:to-black/90 z-10" />
               </div>
               
               {/* RED LAYER (Right Side Only - Hidden on Mobile/Tablet) */}
@@ -197,7 +197,6 @@ export default function HeroSection() {
         </nav>
 
         {/* === PERMANENT FLOATING FORM (DESKTOP ONLY) === */}
-        {/* Hidden on Mobile/Tablet (hidden lg:block) because it won't fit side-by-side */}
         <div className="absolute hidden lg:block right-20 xl:right-36 top-1/2 -translate-y-1/2 z-[60] w-[350px] xl:w-[380px]">
           <div className="bg-black/80 backdrop-blur-lg text-white p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
             <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
@@ -225,7 +224,6 @@ export default function HeroSection() {
 
         {/* HERO CONTENT AREA (TEXT) */}
         <div className="relative z-30 container mx-auto px-4 lg:px-8 h-full flex flex-col justify-center">
-          {/* Added mt-0 for mobile centering, mt-20 for desktop spacing */}
           <div className="max-w-full md:max-w-2xl lg:max-w-4xl space-y-6 sm:space-y-8 relative">
             
             {SLIDES.map((slide, index) => (
@@ -237,7 +235,6 @@ export default function HeroSection() {
                 
                 {/* 1. HEADLINE */}
                 <div className="overflow-hidden pb-2">
-                   {/* Responsive Text Sizes: text-4xl (mobile) -> text-8xl (desktop) */}
                    <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
@@ -260,7 +257,6 @@ export default function HeroSection() {
           </div>
 
           {/* CONTROLS */}
-          {/* Position: Bottom Right on desktop, Bottom Center/Right with smaller size on mobile */}
           <div className="absolute bottom-8 right-4 sm:bottom-12 sm:right-10 lg:right-20 z-40">
             <div className="flex items-center gap-3 sm:gap-4 border border-red-500/50 rounded-full p-1.5 sm:p-2 bg-black/20 backdrop-blur-sm shadow-lg">
               <div className="text-lg sm:text-2xl font-light tracking-widest text-white/50 select-none pl-3 sm:pl-4 hidden sm:block">

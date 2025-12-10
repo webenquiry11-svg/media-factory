@@ -3,18 +3,13 @@ import React, { useState, useEffect } from "react";
 import { 
   Mail, 
   MapPin, 
-  Facebook, 
   Send,
-  Twitter, 
-  Instagram, 
-  Phone, 
-  Search, 
-  ShoppingCart, 
   Menu, 
   X,
   ChevronLeft,
   ChevronRight,
-  ArrowRight} from "lucide-react";
+  ArrowRight
+} from "lucide-react";
 
 const SLIDES = [
   {
@@ -40,7 +35,6 @@ const SLIDES = [
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isQuoteFormVisible, setIsQuoteFormVisible] = useState(false);
   const [prevSlide, setPrevSlide] = useState(0);
 
   const nextSlide = () => {
@@ -59,8 +53,6 @@ export default function HeroSection() {
   }, [currentSlide]);
 
   // --- ANIMATION CLASSES ---
-
-  // 1. SLIDE WRAPPER (Movement)
   const getSlideWrapperClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
     if (index === currentSlide) return `translate-x-0 opacity-100 z-20 ${baseClass} delay-0`;
@@ -68,13 +60,11 @@ export default function HeroSection() {
     return `translate-x-full opacity-0 z-0 duration-0`;
   };
 
-  // 2. IMAGE ZOOM (Ken Burns)
   const getImageZoomClass = (index: number) => {
     if (index === currentSlide) return "scale-100 transition-transform duration-[6000ms] ease-linear";
     return "scale-125 transition-none"; 
   };
 
-  // 3. RED LAYER (Right Side)
   const getLayerClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
     if (index === currentSlide) return `translate-x-0 opacity-100 z-30 ${baseClass} delay-500`;
@@ -82,7 +72,6 @@ export default function HeroSection() {
     return `translate-x-full opacity-0 z-0 duration-0`;
   };
 
-  // 4. TEXT CONTAINER (Left Side Global Move)
   const getTextContainerClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
     if (index === currentSlide) return `translate-x-0 opacity-100 z-30 ${baseClass} delay-500`;
@@ -90,21 +79,14 @@ export default function HeroSection() {
     return `-translate-x-full opacity-0 z-0 duration-0`;
   };
 
-  // 5. MASKED TEXT REVEAL (The New Animation)
-  // Instead of fading, we slide the text up from a hidden "mask" (overflow-hidden parent)
   const getMaskedContentClass = (index: number, delayClass: string) => {
-    // Standard cubic-bezier for a "snap" feel
     const ease = "ease-[cubic-bezier(0.65,0,0.35,1)]"; 
-    
     if (index === currentSlide) {
-      // ENTER: Slide Up from 100% to 0%
       return `translate-y-0 opacity-100 transition-transform duration-1000 ${ease} ${delayClass}`;
     }
     if (index === prevSlide) {
-      // EXIT: Slide Up from 0% to -100% (Vanishing upward)
       return `-translate-y-[110%] opacity-0 transition-transform duration-700 ${ease}`;
     }
-    // WAITING: Sit below at 100%
     return `translate-y-[110%] opacity-0 transition-none`;
   };
 
@@ -146,7 +128,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 z-0">
           {SLIDES.map((slide, index) => (
             <div key={`bg-${slide.id}`} className="absolute inset-0">
-              
               {/* IMAGE WRAPPER */}
               <div className={`absolute inset-0 w-full h-full overflow-hidden ${getSlideWrapperClass(index)}`}>
                 <img 
@@ -169,7 +150,6 @@ export default function HeroSection() {
                   style={{ clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0% 100%)' }}
                 />
               </div>
-
             </div>
           ))}
         </div>
@@ -190,41 +170,12 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-6">
-              <div 
-                className="relative hidden lg:inline-block"
-                onMouseEnter={() => setIsQuoteFormVisible(true)}
-                onMouseLeave={() => setIsQuoteFormVisible(false)}
-              >
+              <div className="relative hidden lg:inline-block">
                 <a href="#contact" className="inline-block px-6 py-3 bg-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
                   Request a Quote
                 </a>
-
-                {/* Hover Form */}
-                <div className={`absolute top-full right-0 mt-4 w-[380px] transition-all duration-300 ease-out ${isQuoteFormVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
-                  <div className="bg-black/80 backdrop-blur-lg text-white p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
-                    <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center justify-center">
-                          <Send className="w-5 h-5 text-red-500" />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-lg text-white">Quick Quote</h4>
-                          <p className="text-xs text-gray-400">Get a fast response from our team.</p>
-                        </div>
-                      </div>
-                      <form className="space-y-3">
-                        <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" /> {/* Closing tag added here */}
-                        <input type="email" placeholder="Your Email" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" />
-                        <textarea placeholder="Tell us about your project..." rows={3} className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm resize-none placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all"></textarea>
-                        <button type="submit" className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 transition-colors duration-300 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
-                          Send Request
-                        </button>
-                    </form>
-                  </div>
-                  </div>
-                </div>
               </div>
+              
               <button 
                 className="lg:hidden text-white hover:text-red-500 transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -235,7 +186,34 @@ export default function HeroSection() {
           </div>
         </nav>
 
-        {/* HERO CONTENT AREA */}
+        {/* === PERMANENT FLOATING FORM (RIGHT CENTER - SHIFTED LEFT) === */}
+        {/* Changed 'right-8' to 'right-36' to move it left a little bit */}
+        <div className="absolute hidden lg:block right-36 top-1/2 -translate-y-1/2 z-[60] w-[380px]">
+          <div className="bg-black/80 backdrop-blur-lg text-white p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
+            <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center justify-center">
+                  <Send className="w-5 h-5 text-red-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-white">Quick Quote</h4>
+                  <p className="text-xs text-gray-400">Get a fast response from our team.</p>
+                </div>
+              </div>
+              <form className="space-y-3">
+                <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" />
+                <input type="email" placeholder="Your Email" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" />
+                <textarea placeholder="Tell us about your project..." rows={3} className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm resize-none placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all"></textarea>
+                <button type="submit" className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 transition-colors duration-300 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
+                  Send Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* HERO CONTENT AREA (TEXT) */}
         <div className="relative z-30 container mx-auto px-4 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-4xl space-y-8 mt-20 relative">
             
@@ -245,16 +223,9 @@ export default function HeroSection() {
                 className={`transition-all absolute top-0 left-0 w-full ${getTextContainerClass(index)}`}
                 style={{ position: index === currentSlide ? 'relative' : 'absolute' }}
               >
-                {/* 
-                   MASKED REVEAL STRATEGY:
-                   1. We wrap the text in a <div> with `overflow-hidden`. This acts as the "window".
-                   2. We move the inner text element.
-                   3. When it's "waiting", it's pushed down 100% (hidden below the window).
-                   4. When "active", it slides up to 0%.
-                */}
                 
                 {/* 1. HEADLINE */}
-                <div className="overflow-hidden pb-2"> {/* Added padding bottom to prevent text clipping descenders */}
+                <div className="overflow-hidden pb-2">
                    <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
@@ -262,8 +233,7 @@ export default function HeroSection() {
                   </h1>
                 </div>
 
-                {/* 2. SUBTITLE (No mask, standard slide-in for contrast) */}
-                {/* Or we can mask this too for consistency. Let's mask it! */}
+                {/* 2. SUBTITLE */}
                 <div className="overflow-hidden mt-8 pl-1 border-l-4 border-red-500/50">
                   <p className={`text-gray-300 max-w-md text-lg block ${getMaskedContentClass(index, 'delay-[900ms]')}`}>
                     We provide creative solutions to turn your ideas into digital reality with precision and style.

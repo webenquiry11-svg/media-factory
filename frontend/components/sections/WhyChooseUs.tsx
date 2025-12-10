@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
           <div className={`relative transition-all duration-1000 ease-out ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="relative rounded-lg overflow-hidden h-[500px] lg:h-[600px] w-full group">
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="/media factory images/why choose us.png" 
                 alt="Woman in Suit" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               />

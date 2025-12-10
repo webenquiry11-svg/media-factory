@@ -14,19 +14,19 @@ import {
 const SLIDES = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "/media factory images/hero1.png",
     title: "GROW FASTER.\nSPEND SMARTER.",
     buttonText: "Start Your Campaign"
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+    image: "/media factory images/hero2.jpg",
     title: "TURN SPACES INTO\nPROFIT POINTS",
     buttonText: "Start Your Campaign"
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "/media factory images/hero3.png",
     title: "CAPTURE MORE EYES,\nDELIVER MORE SALES",
     buttonText: "Start Your Campaign"
   }

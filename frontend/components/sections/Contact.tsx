@@ -194,6 +194,11 @@ const Contact = () => {
       ========================================= */}
       <footer className="bg-[#0b0b0b] pt-20 pb-10 relative overflow-hidden text-white border-t border-[#111]">
         
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+           <img src="/media factory images/footer.jpg" alt="Footer Background" className="w-full h-full object-cover opacity-25" />
+        </div>
+        
         {/* --- GEOMETRIC BACKGROUND CURVES (ANIMATED) --- */}
         {/* Curve 1: Large sweeping curve from the right */}
         <div 

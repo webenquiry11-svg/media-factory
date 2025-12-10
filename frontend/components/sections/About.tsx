@@ -139,7 +139,7 @@ const About = () => {
               style={{ clipPath: inView ? 'inset(0 0 0 0)' : 'inset(100% 0 0 0)' }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                src="/media factory images/get to know us.png" 
                 alt="Team working" 
                 className={`w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${inView ? 'scale-100' : 'scale-125'}`}
               />

@@ -135,11 +135,17 @@ export default function HeroSection() {
                   alt="Slide Background" 
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-bl from-black/90 via-black/40 to-transparent z-10" />
-                <div className="absolute inset-0 bg-black/40 z-0" />
+                
+                {/* UPDATED OVERLAYS:
+                   1. Removed the solid 'bg-black/40' that was covering the whole image (and logo).
+                   2. Changed gradient to 'bg-gradient-to-r' (Right to Left).
+                      from-transparent (Left) -> via-black/20 -> to-black/80 (Right).
+                      This ensures the left side where the logo sits is transparent.
+                */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-black/80 z-10" />
               </div>
               
-              {/* RED LAYER */}
+              {/* RED LAYER (Right Side Only) */}
               <div className={`absolute inset-0 w-full h-full pointer-events-none ${getLayerClass(index)}`}>
                 <div 
                   className="absolute top-0 right-0 h-full w-[60%] bg-gradient-to-bl from-red-900/95 via-red-600/90 to-red-500/80 mix-blend-multiply hidden lg:block"
@@ -187,7 +193,6 @@ export default function HeroSection() {
         </nav>
 
         {/* === PERMANENT FLOATING FORM (RIGHT CENTER - SHIFTED LEFT) === */}
-        {/* Changed 'right-8' to 'right-36' to move it left a little bit */}
         <div className="absolute hidden lg:block right-36 top-1/2 -translate-y-1/2 z-[60] w-[380px]">
           <div className="bg-black/80 backdrop-blur-lg text-white p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
             <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />

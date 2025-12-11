@@ -191,9 +191,13 @@ export default function HeroSection() {
 
             <div className="flex items-center gap-4 sm:gap-6">
               {/* CTA - Hidden on mobile/tablet, visible on lg */}
+              {/* === UPDATED BUTTON === */}
               <div className="relative hidden lg:inline-block">
-                <a href="#contact" className="inline-block px-6 py-3 bg-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
-                  Request a Quote
+                <a href="#contact" className="relative overflow-hidden group inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(239,68,68,0.6)]">
+                   <span className="relative z-10">Request a Quote</span>
+                   <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+                   {/* Shine Effect Overlay */}
+                   <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent z-0" />
                 </a>
               </div>
               
@@ -316,9 +320,13 @@ export default function HeroSection() {
              <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</MobileNavLink>
              <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
              
+             {/* === UPDATED BUTTON (MOBILE) === */}
              <div className="pt-8 pb-8">
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-8 py-4 bg-red-500 text-white font-bold text-sm tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/30">
-                  Request a Quote
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="relative overflow-hidden group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-sm tracking-widest uppercase rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_40px_-10px_rgba(239,68,68,0.5)]">
+                   <span className="relative z-10">Request a Quote</span>
+                   <ArrowRight className="w-5 h-5 relative z-10" />
+                   {/* Shine Effect Overlay */}
+                   <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent z-0" />
                 </a>
              </div>
           </div>

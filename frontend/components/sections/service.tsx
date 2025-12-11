@@ -133,10 +133,6 @@ const OutdoorServices = () => {
                     <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                       {step.description}
                     </p>
-
-                    <div className="mt-auto pl-14 lg:pl-0 flex items-center gap-3 group w-fit">
-                        <span className="text-[#111] font-bold text-[12px] uppercase tracking-wider">Read More</span>
-                    </div>
                   </div>
                 ) : (
                   // === INACTIVE STATE (DESKTOP ONLY) ===
@@ -265,12 +261,6 @@ const IndoorServices = () => {
                         <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                         {step.description}
                         </p>
-
-                        <div className="mt-auto pl-14 lg:pl-0 flex items-center gap-3 group w-fit">
-                            <span className="text-[#111] font-bold text-[12px] uppercase tracking-wider">
-                                Read More
-                            </span>
-                        </div>
                     </div>
                     ) : (
                     // Inactive Content (Vertical Text - Desktop Only)

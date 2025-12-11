@@ -16,19 +16,22 @@ const SLIDES = [
     id: 1,
     image: "/media factory images/hero1.png",
     title: "GROW FASTER.\nSPEND SMARTER.",
-    buttonText: "Connect Now"
+    buttonText: "Connect Now",
+    link: "#contact"
   },
   {
     id: 2,
     image: "/media factory images/hero2.jpg",
     title: "TURN SPACES INTO\nPROFIT POINTS",
-    buttonText: "View Services"
+    buttonText: "View Services",
+    link: "#services"
   },
   {
     id: 3,
     image: "/media factory images/hero3.png",
     title: "CAPTURE MORE EYES,\nDELIVER MORE SALES",
-    buttonText: "Start Your Campaign"
+    buttonText: "Start Your Campaign",
+    link: "#contact"
   }
 ];
 
@@ -255,10 +258,10 @@ export default function HeroSection() {
                 {/* 2. BUTTON (Permanently Red) */}
                 <div className="pt-4 sm:pt-8 overflow-hidden">
                    <div className={`${getMaskedContentClass(index, 'delay-[900ms]')}`}>
-                      <button className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-red-500 text-white font-bold tracking-widest text-[10px] sm:text-xs md:text-sm hover:bg-red-600 border border-red-500 transition-all duration-300 uppercase flex items-center gap-3 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
+                      <a href={slide.link} className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-red-500 text-white font-bold tracking-widest text-[10px] sm:text-xs md:text-sm hover:bg-red-600 border border-red-500 transition-all duration-300 uppercase inline-flex items-center gap-3 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
                         {slide.buttonText}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
+                      </a>
                    </div>
                 </div>
 

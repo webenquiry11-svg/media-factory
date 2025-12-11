@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Play, Check } from 'lucide-react';
+import { Star, Check } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 
 const WhyChooseUs = () => {
@@ -59,9 +59,9 @@ const WhyChooseUs = () => {
                     </text>
                   </svg>
                   
-                  {/* Center Play Icon */}
+                  {/* Center Icon */}
                   <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer hover:bg-[#fbbf24] hover:border-[#fbbf24] hover:scale-110 transition-all duration-300">
-                      <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-white" />
+                      <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-white" />
                   </div>
                 </div>
               </div>

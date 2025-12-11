@@ -248,7 +248,7 @@ export default function HeroSection() {
                 
                 {/* 1. HEADLINE */}
                 <div className="overflow-hidden pb-2 pr-4 sm:pr-0">
-                   <h1 className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
+                   <h1 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
                     ))}

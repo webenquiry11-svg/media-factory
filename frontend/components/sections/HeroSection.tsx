@@ -108,7 +108,6 @@ export default function HeroSection() {
       {/* 1. TOP BAR */}
       <div className="bg-[#111] text-gray-400 text-[10px] sm:text-xs py-2 sm:py-3 border-b border-white/5 relative z-50">
         <div className="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
-          {/* Left: Contact Info - Center on mobile, left on desktop */}
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6 w-full md:w-auto">
             <div className="flex items-center gap-2 hover:text-red-500 transition-colors cursor-pointer">
               <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500 shrink-0" />
@@ -119,8 +118,6 @@ export default function HeroSection() {
               <span className="truncate">88 Brooklyn Golden Street, NY</span>
             </div>
           </div>
-
-          {/* Right: Links & Socials - Hidden on mobile */}
           <div className="hidden sm:flex items-center">
             <div className="flex items-center space-x-4">
               <a href="#" className="hover:text-red-500 transition-colors">Help</a>
@@ -140,27 +137,24 @@ export default function HeroSection() {
         <div className="absolute inset-0 z-0">
           {SLIDES.map((slide, index) => (
             <div key={`bg-${slide.id}`} className="absolute inset-0">
-              {/* IMAGE WRAPPER */}
               <div className={`absolute inset-0 w-full h-full overflow-hidden ${getSlideWrapperClass(index)}`}>
                 <img 
                   src={slide.image} 
                   alt="Slide Background" 
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
-                
-                {/* GRADIENT OVERLAYS */}
                 <div className="absolute inset-0 bg-transparent z-0 lg:z-[-1]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-black/30 lg:via-black/40 sm:to-transparent lg:to-black/90 z-10" />
               </div>
               
-              {/* RED LAYER (Right Side Only - Hidden on Mobile/Tablet) */}
+              {/* RED LAYER - Adjusted clip-path for laptop screens */}
               <div className={`absolute inset-0 w-full h-full pointer-events-none ${getLayerClass(index)}`}>
                 <div 
-                  className="absolute top-0 right-0 h-full w-[60%] bg-gradient-to-bl from-red-900/95 via-red-600/90 to-red-500/80 mix-blend-multiply hidden lg:block"
+                  className="absolute top-0 right-0 h-full w-[50%] lg:w-[60%] bg-gradient-to-bl from-red-900/95 via-red-600/90 to-red-500/80 mix-blend-multiply hidden lg:block"
                   style={{ clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0% 100%)' }}
                 />
                 <div 
-                  className="absolute top-0 right-0 h-full w-[60%] bg-gradient-to-b from-transparent to-black/50 hidden lg:block"
+                  className="absolute top-0 right-0 h-full w-[50%] lg:w-[60%] bg-gradient-to-b from-transparent to-black/50 hidden lg:block"
                   style={{ clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0% 100%)' }}
                 />
               </div>
@@ -176,8 +170,8 @@ export default function HeroSection() {
                <img src="/logo.png" alt="Cilox Logo" className="h-8 sm:h-10 lg:h-12 w-auto object-contain" />
             </a>
 
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex bg-black rounded-full px-8 py-4 items-center gap-8 shadow-2xl shadow-black/50 border border-white/5">
+            {/* Desktop Menu - Compacted for Laptop (lg) */}
+            <div className="hidden lg:flex bg-black rounded-full px-6 xl:px-8 py-3 xl:py-4 items-center gap-4 xl:gap-8 shadow-2xl shadow-black/50 border border-white/5">
               <NavLink href="#services" active>Our Services</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#our-work">Our Work</NavLink>
@@ -185,17 +179,17 @@ export default function HeroSection() {
               <NavLink href="#contact">Contact Us</NavLink>
             </div>
 
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-6">
               
               {/* === ATTRACTIVE "REQUEST A QUOTE" BUTTON (DESKTOP) === */}
               <div className="relative hidden lg:inline-block">
-                <a href="#contact" className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] border-t border-white/20 overflow-hidden">
+                <a href="#contact" className="group relative inline-flex items-center justify-center px-6 xl:px-8 py-3 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] border-t border-white/20 overflow-hidden">
                    
                    {/* Sheen Effect */}
                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-10" />
                    
                    {/* Button Text */}
-                   <span className="relative z-20 text-[11px] uppercase tracking-widest flex items-center gap-2">
+                   <span className="relative z-20 text-[10px] xl:text-[11px] uppercase tracking-widest flex items-center gap-2">
                      Request a Quote
                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                    </span>
@@ -215,8 +209,9 @@ export default function HeroSection() {
         </nav>
 
         {/* === PERMANENT FLOATING FORM (DESKTOP ONLY) === */}
-        <div className="absolute hidden lg:block right-20 xl:right-36 top-1/2 -translate-y-1/2 z-[60] w-[350px] xl:w-[380px]">
-          <div className="bg-black/80 backdrop-blur-lg text-white p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
+        {/* Adjusted Position: Closer to right edge, reduced width for laptops */}
+        <div className="absolute hidden lg:block right-4 xl:right-36 top-1/2 -translate-y-1/2 z-[60] w-[320px] xl:w-[380px]">
+          <div className="bg-black/80 backdrop-blur-lg text-white p-5 xl:p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
             <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
@@ -251,9 +246,9 @@ export default function HeroSection() {
                 style={{ position: index === currentSlide ? 'relative' : 'absolute' }}
               >
                 
-                {/* 1. HEADLINE */}
+                {/* 1. HEADLINE - Reduced size for LG screens */}
                 <div className="overflow-hidden pb-2 pr-4 sm:pr-0">
-                   <h1 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
+                   <h1 className={`text-2xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
                     ))}
@@ -303,7 +298,7 @@ export default function HeroSection() {
 
       </div>
 
-      {/* MOBILE MENU - High Z-Index to cover everything */}
+      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black/95 z-[70] flex items-center justify-center">
           <button 
@@ -324,9 +319,7 @@ export default function HeroSection() {
              {/* === ATTRACTIVE "REQUEST A QUOTE" BUTTON (MOBILE) === */}
              <div className="pt-8 pb-8">
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] border-t border-white/20 overflow-hidden">
-                   {/* Sheen Effect */}
                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-10" />
-                   
                    <span className="relative z-20 text-sm uppercase tracking-widest flex items-center gap-2">
                      Request a Quote
                      <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

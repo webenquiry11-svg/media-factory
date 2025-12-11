@@ -148,10 +148,7 @@ export default function HeroSection() {
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
                 
-                {/* GRADIENT OVERLAYS 
-                  - Mobile: Stronger bottom gradient to ensure text readability 
-                  - Desktop: Left-to-right gradient
-                */}
+                {/* GRADIENT OVERLAYS */}
                 <div className="absolute inset-0 bg-transparent z-0 lg:z-[-1]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-black/30 lg:via-black/40 sm:to-transparent lg:to-black/90 z-10" />
               </div>
@@ -176,7 +173,6 @@ export default function HeroSection() {
           <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center shrink-0">
-               {/* Replace with actual logo or text fallback */}
                <img src="/logo.png" alt="Cilox Logo" className="h-8 sm:h-10 lg:h-12 w-auto object-contain" />
             </a>
 
@@ -190,14 +186,19 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-4 sm:gap-6">
-              {/* CTA - Hidden on mobile/tablet, visible on lg */}
-              {/* === UPDATED BUTTON === */}
+              
+              {/* === ATTRACTIVE "REQUEST A QUOTE" BUTTON (DESKTOP) === */}
               <div className="relative hidden lg:inline-block">
-                <a href="#contact" className="relative overflow-hidden group inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(239,68,68,0.6)]">
-                   <span className="relative z-10">Request a Quote</span>
-                   <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-                   {/* Shine Effect Overlay */}
-                   <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent z-0" />
+                <a href="#contact" className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] border-t border-white/20 overflow-hidden">
+                   
+                   {/* Sheen Effect */}
+                   <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-10" />
+                   
+                   {/* Button Text */}
+                   <span className="relative z-20 text-[11px] uppercase tracking-widest flex items-center gap-2">
+                     Request a Quote
+                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                   </span>
                 </a>
               </div>
               
@@ -320,18 +321,30 @@ export default function HeroSection() {
              <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</MobileNavLink>
              <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
              
-             {/* === UPDATED BUTTON (MOBILE) === */}
+             {/* === ATTRACTIVE "REQUEST A QUOTE" BUTTON (MOBILE) === */}
              <div className="pt-8 pb-8">
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="relative overflow-hidden group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-sm tracking-widest uppercase rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_40px_-10px_rgba(239,68,68,0.5)]">
-                   <span className="relative z-10">Request a Quote</span>
-                   <ArrowRight className="w-5 h-5 relative z-10" />
-                   {/* Shine Effect Overlay */}
-                   <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent z-0" />
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] border-t border-white/20 overflow-hidden">
+                   {/* Sheen Effect */}
+                   <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-10" />
+                   
+                   <span className="relative z-20 text-sm uppercase tracking-widest flex items-center gap-2">
+                     Request a Quote
+                     <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                   </span>
                 </a>
              </div>
           </div>
         </div>
       )}
+
+      {/* Styles for the Shimmer Animation */}
+      <style jsx global>{`
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
 
     </div>
   );

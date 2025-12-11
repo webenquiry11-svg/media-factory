@@ -16,13 +16,13 @@ const SLIDES = [
     id: 1,
     image: "/media factory images/hero1.png",
     title: "GROW FASTER.\nSPEND SMARTER.",
-    buttonText: "Start Your Campaign"
+    buttonText: "Connect Now"
   },
   {
     id: 2,
     image: "/media factory images/hero2.jpg",
     title: "TURN SPACES INTO\nPROFIT POINTS",
-    buttonText: "Start Your Campaign"
+    buttonText: "View Services"
   },
   {
     id: 3,
@@ -136,13 +136,16 @@ export default function HeroSection() {
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
                 
-                {/* Responsive Gradient Overlay: 
-                    Mobile: Darker overall base + vertical gradient.
-                    Desktop: Transparent base + horizontal gradient starting with TRANSPARENT on the left.
+                {/* Responsive Gradient Overlay Updates: */}
+                
+                {/* 1. Base Layer: Changed bg-black/40 to bg-transparent on mobile */}
+                <div className="absolute inset-0 bg-transparent z-0 lg:z-[-1]" />
+                
+                {/* 2. Gradient Layer: 
+                   - Mobile (bg-gradient-to-t): Changed 'to-black/80' to 'to-transparent' so the top is clear. Increased bottom/middle contrast slightly.
+                   - Desktop (sm:bg-gradient-to-r): Keeps left side transparent.
                 */}
-                <div className="absolute inset-0 bg-black/40 lg:bg-transparent z-0 lg:z-[-1]" />
-                {/* CHANGED LINE BELOW: Added `sm:from-transparent` to make the left side clear on tablet/desktop */}
-                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/80 sm:from-transparent via-black/20 lg:via-black/40 to-black/80 lg:to-black/90 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/90 sm:from-transparent via-black/30 lg:via-black/40 to-transparent lg:to-black/90 z-10" />
               </div>
               
               {/* RED LAYER (Right Side Only - Hidden on Mobile/Tablet) */}
@@ -173,7 +176,7 @@ export default function HeroSection() {
               <NavLink href="#services" active>Our Services</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#our-work">Our Work</NavLink>
-              <NavLink href="#why-choose-us">Our Promise</NavLink>
+              <NavLink href="#why-choose-us">Why Choose Us</NavLink>
               <NavLink href="#contact">Contact Us</NavLink>
             </div>
 
@@ -300,7 +303,7 @@ export default function HeroSection() {
              <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</MobileNavLink>
              <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</MobileNavLink>
              <MobileNavLink href="#our-work" onClick={() => setIsMobileMenuOpen(false)}>Our Work</MobileNavLink>
-             <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Our Promise</MobileNavLink>
+             <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</MobileNavLink>
              <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
              
              <div className="pt-8">

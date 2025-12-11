@@ -33,22 +33,35 @@ const CustomSearchIconYellow = () => (
   </svg>
 );
 
-const DigitalRoadmap = () => {
+const OutdoorServices = () => {
   const [activeStep, setActiveStep] = useState(1);
 
   const steps = [
     {
       id: 1,
-      title: "Search & Business Analysis",
-      description: "We conduct deep consultation to understand your business goals and technical needs.",
+      title: "Bus Branding",
+      description: "Maximize moving visibility with bold, eye-catching bus wraps across high-traffic city routes.",
     },
-    { id: 2, title: "Opportunity and Risk Assessment" },
-    { id: 3, title: "Solution Architecture Design" },
-    { id: 4, title: "Technology Choices & Prototyping" },
-    { id: 5, title: "Agile Software Development" },
-    { id: 6, title: "System Integration & Testing" },
-    { id: 7, title: "Deployment & End-User Training" },
-    { id: 8, title: "Continuous Support & Optimization" },
+    {
+      id: 2,
+      title: "Cab Branding",
+      description: "Turn everyday rides into premium brand touchpoints with smart, city-wide cab advertising.",
+    },
+    {
+      id: 3,
+      title: "RWA Branding",
+      description: "Engage trusted community spaces and influence residents where they live, relax, and interact.",
+    },
+    {
+      id: 4,
+      title: "Metro Branding",
+      description: "Dominate daily commuter journeys with impactful metro ads in stations and inside trains.",
+    },
+    {
+      id: 5,
+      title: "Auto Branding",
+      description: "Reach deep into local markets with continuous brand presence on high-frequency auto routes.",
+    },
   ];
 
   return (
@@ -57,10 +70,10 @@ const DigitalRoadmap = () => {
       {/* Top Text Section - Heading Size Increased */}
       <div className="w-full max-w-[1200px] mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Guided Roadmap to Your <span className="text-red-500">Digital Success</span>
+          Strategic Pathway to Your <span className="text-red-500">Outdoor Success</span>
         </h2>
         <p className="text-gray-600 max-w-2xl text-lg leading-relaxed">
-          Apptechies is a top-notch mobile app development company in usa. We have an expert team that delivers apps for iPhone, iPad, Android & web development.
+          Media Factory is one of the best outdoor advertising companies in India, specializing in campaigns across buses, cabs, autos, metros, and RWAs to enhance brand visibility.
         </p>
       </div>
 
@@ -104,7 +117,7 @@ const DigitalRoadmap = () => {
                     </h3>
 
                     <p className="text-gray-500 text-[15px] leading-relaxed mb-6 line-clamp-3">
-                      {step.description || "Detailed description regarding this specific step in the roadmap process."}
+                      {step.description}
                     </p>
 
                     <div className="mt-auto flex items-center gap-3 group w-fit">
@@ -135,22 +148,40 @@ const DigitalRoadmap = () => {
 }
 
 // --- NEW: Outdoor Advertising Roadmap (White Theme) ---
-const OutdoorRoadmap = () => {
+const IndoorServices = () => {
   const [activeStep, setActiveStep] = useState(1);
 
   const steps = [
     {
       id: 1,
-      title: "Location Scouting & Analysis",
-      description: "We identify and analyze high-traffic locations to ensure your message reaches the maximum number of potential customers.",
+      title: "Double-Sided Roll-Up Standee",
+      description: "Double-sided roll up standees that showcase your message from every angle for maximum indoor visibility.",
     },
-    { id: 2, title: "Audience & Demographic Research" },
-    { id: 3, title: "Creative Concept & Design" },
-    { id: 4, title: "Media Planning & Selection" },
-    { id: 5, title: "Production & Material Sourcing" },
-    { id: 6, title: "Installation & Logistics" },
-    { id: 7, title: "Campaign Launch & Monitoring" },
-    { id: 8, title: "Performance Reporting & ROI Analysis" },
+    {
+      id: 2,
+      title: "Dealer Boards Manufacturing",
+      description: "Professional dealer boards crafted to elevate in-store branding, ensure high visibility, and strengthen dealer presence.",
+    },
+    {
+      id: 3,
+      title: "Promotional Umbrella",
+      description: "Weather-resistant promotional umbrellas that display your brand prominently at events, storefronts, and outdoor activations.",
+    },
+    {
+      id: 4,
+      title: "Adjustable Banner Stand",
+      description: "Versatile adjustable banner stands that adapt to any indoor space, ensuring clear, professional brand visibility.",
+    },
+    {
+      id: 5,
+      title: "Promo Table",
+      description: "Engaging promo tables designed to showcase products, capture leads, and boost brand interaction at events.",
+    },
+    {
+      id: 6,
+      title: "More Branding Solutions",
+      description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
+    },
   ];
 
   return (
@@ -160,13 +191,13 @@ const OutdoorRoadmap = () => {
         {/* --- HEADER SECTION (Right Aligned) --- */}
         <div className="w-full max-w-[1200px] mb-12 text-right">
             <span className="block text-gray-500 font-bold text-[12px] tracking-[0.2em] uppercase mb-4">
-            OUR APPROACH
+            INDOOR SOLUTIONS
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-6">
-            Blueprint for <br /> <span className="text-red-500">Outdoor Impact</span>
+            Indoor Ads That <br /> <span className="text-red-500">Turn Heads</span>
             </h2>
             <p className="text-gray-500 text-[16px] max-w-2xl ml-auto leading-relaxed">
-            Discover our strategic 8-step process for launching high-visibility outdoor advertising campaigns that capture attention and drive results.
+            Discover powerful indoor advertising solutions that enhance visibility, engage visitors, and strengthen your brand presence across every touchpoint.
             </p>
         </div>
 
@@ -208,7 +239,7 @@ const OutdoorRoadmap = () => {
                         </h3>
 
                         <p className="text-gray-500 text-[15px] leading-relaxed mb-6 line-clamp-3">
-                        {step.description || "We execute this phase with meticulous attention to detail, ensuring your campaign objectives are met with the highest quality standards."}
+                        {step.description}
                         </p>
 
                         <div className="mt-auto flex items-center gap-3 group w-fit">
@@ -246,8 +277,8 @@ const OutdoorRoadmap = () => {
 export default function Service() {
   return (
     <Fragment>
-      <DigitalRoadmap />
-      <OutdoorRoadmap />
+      <OutdoorServices />
+      <IndoorServices />
     </Fragment>
   )
 }

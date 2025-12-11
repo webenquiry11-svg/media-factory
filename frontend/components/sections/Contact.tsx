@@ -243,7 +243,7 @@ const Contact = () => {
              {/* Column 1: Intro (Span 4) */}
              <div className="lg:col-span-4">
                 <h3 className="text-lg font-medium text-white leading-relaxed mb-8 max-w-xs">
-                   WELCOME TO CREATIVE AGENCY & PORTFOLIO THEME.
+                   Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
                 </h3>
              </div>
 

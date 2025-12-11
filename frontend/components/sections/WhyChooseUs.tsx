@@ -73,12 +73,6 @@ const WhyChooseUs = () => {
             
             {/* Header */}
             <div className="mb-10">
-               <div className="flex items-center gap-2 mb-3">
-                 <div className="w-6 h-6 bg-red-500 clip-hexagon flex items-center justify-center">
-                   {/* Creating a simple geometric shape with CSS or just a box */}
-                 </div>
-                 <span className="text-red-500 font-bold tracking-wider text-xs uppercase">Company Benefits</span>
-               </div>
                <h2 className="text-4xl md:text-5xl font-extrabold text-white uppercase leading-tight">
                  WHY CHOOSE US?
                </h2>

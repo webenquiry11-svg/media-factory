@@ -126,7 +126,7 @@ const About = () => {
                 <span className="text-gray-500 text-xs font-bold uppercase tracking-wide">50+ Major Brands Empowered</span>
               </div>
               <button className="px-8 py-3.5 bg-red-500 hover:bg-red-600 text-white text-[11px] font-bold uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg">
-                More About Us
+                MORE ABOUT US
               </button>
             </div>
           </div>
@@ -169,7 +169,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* --- NEW TRUSTED BY SECTION --- */}
+        {/* --- TRUSTED BY SECTION --- */}
         <div className={`border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 transition-all duration-1000 delay-[800ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           
           {/* Left Text */}

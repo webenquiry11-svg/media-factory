@@ -19,7 +19,7 @@ const OurWork = () => {
       color: "from-blue-500/20"
     },
     {
-      title: "Premium Eco Solvent",
+      title: "Premium Eco Solvent Printing",
       category: "Eco Solvent Printing",
       description: "Our eco-solvent printing combines advanced machinery with sustainable practices for durable, eye-catching graphics produced professionally.",
       image: "/machine images/machine images/eco solvent printing.png",
@@ -27,7 +27,7 @@ const OurWork = () => {
       color: "from-green-500/20"
     },
     {
-      title: "Digital Printing",
+      title: "State-of-the-Art Digital Printing",
       category: "State-of-the-Art",
       description: "With the latest digital printing systems and skilled operation, we ensure crisp, consistent color and flawless print quality for every project.",
       image: "/machine images/machine images/digital printing machine.png",
@@ -35,7 +35,7 @@ const OurWork = () => {
       color: "from-purple-500/20"
     },
     {
-      title: "Eco-Friendly Fabric",
+      title: "Eco-Friendly Fabric Printing",
       category: "Fabric Printing",
       description: "We leverage innovative, eco-friendly fabric printing technology and meticulous workmanship to create sharp, environmentally responsible textile prints.",
       image: "/machine images/machine images/fabric printing.png",
@@ -68,7 +68,7 @@ const OurWork = () => {
           </h2>
 
           <p className="text-gray-500 text-[16px] max-w-2xl mx-auto leading-relaxed mb-8">
-            Step behind the scenes and explore the state-of-the-art machinery that powers our production, ensuring every print is a masterpiece of precision and vibrancy.
+            In this section, we will represent our printing machines and explain how we work, utilizing the latest technology.
           </p>
 
           {/* Decorative Yellow Ring */}

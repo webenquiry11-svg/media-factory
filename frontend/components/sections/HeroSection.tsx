@@ -4,8 +4,6 @@ import {
   Mail, 
   MapPin, 
   Send,
-  Menu, 
-  X,
   ChevronLeft,
   ChevronRight,
   ArrowRight
@@ -163,7 +161,7 @@ export default function HeroSection() {
         </div>
 
         {/* NAVIGATION */}
-        <nav className="absolute top-4 sm:top-6 lg:top-8 left-0 w-full z-50">
+        <nav className="absolute top-4 sm:top-6 lg:top-8 left-0 w-full z-[100]">
           <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center shrink-0">
@@ -198,11 +196,13 @@ export default function HeroSection() {
               
               {/* Mobile Hamburger */}
               <button 
-                className="lg:hidden text-white hover:text-red-500 transition-colors p-1 z-[70] relative"
+                className="lg:hidden z-[100] relative w-10 h-10 flex flex-col justify-center items-center gap-[6px] group"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle Menu"
               >
-                {isMobileMenuOpen ? null : <Menu className="w-7 h-7 sm:w-8 sm:h-8" />}
+                <span className={`h-[2px] w-7 bg-white rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'rotate-45 translate-y-[8px] bg-red-500' : 'group-hover:bg-red-500'}`} />
+                <span className={`h-[2px] w-7 bg-white rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-0 translate-x-3' : 'group-hover:bg-red-500'}`} />
+                <span className={`h-[2px] w-7 bg-white rounded-full transition-all duration-300 ease-in-out ${isMobileMenuOpen ? '-rotate-45 -translate-y-[8px] bg-red-500' : 'group-hover:bg-red-500'}`} />
               </button>
             </div>
           </div>
@@ -299,25 +299,18 @@ export default function HeroSection() {
       </div>
 
       {/* MOBILE MENU */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black/95 z-[70] flex items-center justify-center">
-          <button 
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white hover:text-red-500 p-2"
-          >
-            <X className="w-8 h-8 sm:w-10 sm:h-10" />
-          </button>
+      <div className={`fixed inset-0 bg-black/95 z-[90] flex items-center justify-center transition-all duration-500 ease-in-out ${isMobileMenuOpen ? 'opacity-100 visible backdrop-blur-md' : 'opacity-0 invisible pointer-events-none'}`}>
           
           <div className="flex flex-col items-center space-y-6 sm:space-y-8 text-center p-4 w-full max-h-screen overflow-y-auto">
-             <div className="w-16 h-1 bg-red-500 mb-4 shrink-0" />
-             <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</MobileNavLink>
-             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</MobileNavLink>
-             <MobileNavLink href="#our-work" onClick={() => setIsMobileMenuOpen(false)}>Our Work</MobileNavLink>
-             <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</MobileNavLink>
-             <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
+             <div className={`w-16 h-1 bg-red-500 mb-4 shrink-0 transition-all duration-700 ease-out ${isMobileMenuOpen ? 'w-16 opacity-100' : 'w-0 opacity-0'}`} />
+             <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)} isOpen={isMobileMenuOpen} delay={100}>Our Services</MobileNavLink>
+             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)} isOpen={isMobileMenuOpen} delay={200}>About</MobileNavLink>
+             <MobileNavLink href="#our-work" onClick={() => setIsMobileMenuOpen(false)} isOpen={isMobileMenuOpen} delay={300}>Our Work</MobileNavLink>
+             <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)} isOpen={isMobileMenuOpen} delay={400}>Why Choose Us</MobileNavLink>
+             <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)} isOpen={isMobileMenuOpen} delay={500}>Contact Us</MobileNavLink>
              
              {/* === ATTRACTIVE "REQUEST A QUOTE" BUTTON (MOBILE) === */}
-             <div className="pt-8 pb-8">
+             <div className={`pt-8 pb-8 transition-all duration-700 ease-out delay-[600ms] ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] border-t border-white/20 overflow-hidden">
                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-10" />
                    <span className="relative z-20 text-sm uppercase tracking-widest flex items-center gap-2">
@@ -327,8 +320,7 @@ export default function HeroSection() {
                 </a>
              </div>
           </div>
-        </div>
-      )}
+      </div>
 
       {/* Styles for the Shimmer Animation */}
       <style jsx global>{`
@@ -357,12 +349,13 @@ function NavLink({ href, children, active }: { href: string; children: React.Rea
   );
 }
 
-function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {
+function MobileNavLink({ href, children, onClick, isOpen, delay }: { href: string; children: React.ReactNode; onClick: () => void; isOpen: boolean; delay: number }) {
   return (
     <a 
       href={href} 
       onClick={onClick}
-      className="text-xl sm:text-2xl font-bold tracking-wider text-white hover:text-red-500 transition-colors"
+      className={`text-2xl sm:text-3xl font-bold tracking-wider text-white hover:text-red-500 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${isOpen ? 'translate-y-0 opacity-100 blur-0' : 'translate-y-12 opacity-0 blur-sm'}`}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </a>

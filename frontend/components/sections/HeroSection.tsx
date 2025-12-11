@@ -52,6 +52,15 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [currentSlide]);
 
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   // --- ANIMATION CLASSES ---
   const getSlideWrapperClass = (index: number) => {
     const baseClass = "transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]";
@@ -96,19 +105,19 @@ export default function HeroSection() {
       {/* 1. TOP BAR */}
       <div className="bg-[#111] text-gray-400 text-[10px] sm:text-xs py-2 sm:py-3 border-b border-white/5 relative z-50">
         <div className="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
-          {/* Left: Contact Info */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          {/* Left: Contact Info - Center on mobile, left on desktop */}
+          <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6 w-full md:w-auto">
             <div className="flex items-center gap-2 hover:text-red-500 transition-colors cursor-pointer">
-              <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500" />
-              <span>needhelp@company.com</span>
+              <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500 shrink-0" />
+              <span className="truncate">needhelp@company.com</span>
             </div>
             <div className="hidden sm:flex items-center gap-2 hover:text-red-500 transition-colors cursor-pointer">
-              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500" />
-              <span>88 Brooklyn Golden Street, NY</span>
+              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500 shrink-0" />
+              <span className="truncate">88 Brooklyn Golden Street, NY</span>
             </div>
           </div>
 
-          {/* Right: Links & Socials */}
+          {/* Right: Links & Socials - Hidden on mobile */}
           <div className="hidden sm:flex items-center">
             <div className="flex items-center space-x-4">
               <a href="#" className="hover:text-red-500 transition-colors">Help</a>
@@ -122,7 +131,7 @@ export default function HeroSection() {
       </div>
 
       {/* 2. COMBINED HEADER & HERO SECTION */}
-      <div className="relative min-h-[600px] h-[100dvh] lg:h-screen w-full bg-gray-900 overflow-hidden group">
+      <div className="relative min-h-[500px] h-[100dvh] lg:h-screen w-full bg-gray-900 overflow-hidden group">
         
         {/* === BACKGROUND SLIDER === */}
         <div className="absolute inset-0 z-0">
@@ -136,16 +145,12 @@ export default function HeroSection() {
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
                 
-                {/* Responsive Gradient Overlay Updates: */}
-                
-                {/* 1. Base Layer: Changed bg-black/40 to bg-transparent on mobile */}
-                <div className="absolute inset-0 bg-transparent z-0 lg:z-[-1]" />
-                
-                {/* 2. Gradient Layer: 
-                   - Mobile (bg-gradient-to-t): Changed 'to-black/80' to 'to-transparent' so the top is clear. Increased bottom/middle contrast slightly.
-                   - Desktop (sm:bg-gradient-to-r): Keeps left side transparent.
+                {/* GRADIENT OVERLAYS 
+                  - Mobile: Stronger bottom gradient to ensure text readability 
+                  - Desktop: Left-to-right gradient
                 */}
-                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/90 sm:from-transparent via-black/30 lg:via-black/40 to-transparent lg:to-black/90 z-10" />
+                <div className="absolute inset-0 bg-transparent z-0 lg:z-[-1]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-black/30 lg:via-black/40 sm:to-transparent lg:to-black/90 z-10" />
               </div>
               
               {/* RED LAYER (Right Side Only - Hidden on Mobile/Tablet) */}
@@ -164,11 +169,12 @@ export default function HeroSection() {
         </div>
 
         {/* NAVIGATION */}
-        <nav className="absolute top-6 sm:top-8 left-0 w-full z-50">
+        <nav className="absolute top-4 sm:top-6 lg:top-8 left-0 w-full z-50">
           <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center">
-               <img src="/logo.png" alt="Cilox Logo" className="h-8 sm:h-10 lg:h-12 w-auto" />
+            <a href="/" className="flex items-center shrink-0">
+               {/* Replace with actual logo or text fallback */}
+               <img src="/logo.png" alt="Cilox Logo" className="h-8 sm:h-10 lg:h-12 w-auto object-contain" />
             </a>
 
             {/* Desktop Menu */}
@@ -181,7 +187,7 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-4 sm:gap-6">
-              {/* CTA - Hidden on mobile, visible on lg */}
+              {/* CTA - Hidden on mobile/tablet, visible on lg */}
               <div className="relative hidden lg:inline-block">
                 <a href="#contact" className="inline-block px-6 py-3 bg-red-500 text-white font-bold text-xs tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors">
                   Request a Quote
@@ -190,10 +196,11 @@ export default function HeroSection() {
               
               {/* Mobile Hamburger */}
               <button 
-                className="lg:hidden text-white hover:text-red-500 transition-colors p-1"
+                className="lg:hidden text-white hover:text-red-500 transition-colors p-1 z-[70] relative"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle Menu"
               >
-                {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                {isMobileMenuOpen ? null : <Menu className="w-7 h-7 sm:w-8 sm:h-8" />}
               </button>
             </div>
           </div>
@@ -227,7 +234,7 @@ export default function HeroSection() {
 
         {/* HERO CONTENT AREA (TEXT) */}
         <div className="relative z-30 container mx-auto px-4 lg:px-8 h-full flex flex-col justify-center">
-          <div className="max-w-full md:max-w-2xl lg:max-w-4xl space-y-6 sm:space-y-8 relative">
+          <div className="w-full md:max-w-2xl lg:max-w-4xl space-y-4 sm:space-y-8 relative mt-16 sm:mt-0">
             
             {SLIDES.map((slide, index) => (
               <div 
@@ -237,8 +244,8 @@ export default function HeroSection() {
               >
                 
                 {/* 1. HEADLINE */}
-                <div className="overflow-hidden pb-2">
-                   <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
+                <div className="overflow-hidden pb-2 pr-4 sm:pr-0">
+                   <h1 className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
                     ))}
@@ -246,7 +253,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* 2. BUTTON (Permanently Red) */}
-                <div className="pt-6 sm:pt-8 overflow-hidden">
+                <div className="pt-4 sm:pt-8 overflow-hidden">
                    <div className={`${getMaskedContentClass(index, 'delay-[900ms]')}`}>
                       <button className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-red-500 text-white font-bold tracking-widest text-[10px] sm:text-xs md:text-sm hover:bg-red-600 border border-red-500 transition-all duration-300 uppercase flex items-center gap-3 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
                         {slide.buttonText}
@@ -260,8 +267,8 @@ export default function HeroSection() {
           </div>
 
           {/* CONTROLS */}
-          <div className="absolute bottom-8 right-4 sm:bottom-12 sm:right-10 lg:right-20 z-40">
-            <div className="flex items-center gap-3 sm:gap-4 border border-red-500/50 rounded-full p-1.5 sm:p-2 bg-black/20 backdrop-blur-sm shadow-lg">
+          <div className="absolute bottom-6 right-4 sm:bottom-12 sm:right-10 lg:right-20 z-40">
+            <div className="flex items-center gap-3 sm:gap-4 border border-red-500/50 rounded-full p-1.5 sm:p-2 bg-black/40 sm:bg-black/20 backdrop-blur-md shadow-lg">
               <div className="text-lg sm:text-2xl font-light tracking-widest text-white/50 select-none pl-3 sm:pl-4 hidden sm:block">
                 <span className="text-white font-bold text-xl sm:text-3xl">{currentSlide + 1}</span> 
                 <span className="mx-2">/</span>
@@ -271,15 +278,15 @@ export default function HeroSection() {
               <div className="flex gap-1 sm:gap-2">
                 <button 
                  onClick={prevSlideAction}
-                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn"
+                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn bg-black/30 sm:bg-transparent"
                 >
-                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
+                  <ChevronLeft className="w-5 h-5 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
                 </button>
                 <button 
                  onClick={nextSlide}
-                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn"
+                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn bg-black/30 sm:bg-transparent"
                 >
-                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
+                  <ChevronRight className="w-5 h-5 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
                 </button>
               </div>
             </div>
@@ -288,25 +295,25 @@ export default function HeroSection() {
 
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU - High Z-Index to cover everything */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/95 z-[70] flex items-center justify-center">
           <button 
             onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-6 right-6 text-white hover:text-red-500"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white hover:text-red-500 p-2"
           >
-            <X className="w-10 h-10" />
+            <X className="w-8 h-8 sm:w-10 sm:h-10" />
           </button>
           
-          <div className="flex flex-col items-center space-y-6 sm:space-y-8 text-center p-4">
-             <div className="w-16 h-1 bg-red-500 mb-4" />
+          <div className="flex flex-col items-center space-y-6 sm:space-y-8 text-center p-4 w-full max-h-screen overflow-y-auto">
+             <div className="w-16 h-1 bg-red-500 mb-4 shrink-0" />
              <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</MobileNavLink>
              <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</MobileNavLink>
              <MobileNavLink href="#our-work" onClick={() => setIsMobileMenuOpen(false)}>Our Work</MobileNavLink>
              <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</MobileNavLink>
              <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
              
-             <div className="pt-8">
+             <div className="pt-8 pb-8">
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-8 py-4 bg-red-500 text-white font-bold text-sm tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/30">
                   Request a Quote
                 </a>
@@ -338,7 +345,7 @@ function MobileNavLink({ href, children, onClick }: { href: string; children: Re
     <a 
       href={href} 
       onClick={onClick}
-      className="text-2xl font-bold tracking-wider text-white hover:text-red-500 transition-colors"
+      className="text-xl sm:text-2xl font-bold tracking-wider text-white hover:text-red-500 transition-colors"
     >
       {children}
     </a>

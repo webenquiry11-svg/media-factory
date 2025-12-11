@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 const WhyChooseUs = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // Re-animates on scroll for impact
+    triggerOnce: false, 
     threshold: 0.2,
   });
 
@@ -25,19 +25,19 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section ref={ref} className="bg-[#111] py-24 relative overflow-hidden font-sans text-white rounded-t-3xl">
+    <section ref={ref} className="bg-[#111] py-16 sm:py-24 relative overflow-hidden font-sans text-white rounded-t-3xl sm:rounded-t-[3rem]">
       
-      {/* Decorative Yellow Warning Stripes (Left Edge) */}
-      <div className="absolute top-0 bottom-0 left-0 w-8 overflow-hidden z-10 hidden lg:block">
+      {/* Decorative Yellow Warning Stripes (Hidden on Mobile to save width) */}
+      <div className="absolute top-0 bottom-0 left-0 w-8 overflow-hidden z-10 hidden xl:block">
         <div className="w-full h-[120%] -mt-10 bg-[repeating-linear-gradient(45deg,theme(colors.red.500),theme(colors.red.500)_10px,transparent_10px,transparent_20px)] opacity-80" />
       </div>
 
-      <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* --- LEFT IMAGE SECTION --- */}
           <div className={`relative transition-all duration-1000 ease-out ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="relative rounded-lg overflow-hidden h-[500px] lg:h-[600px] w-full group">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden h-[350px] sm:h-[500px] lg:h-[600px] w-full group shadow-2xl">
               <img 
                 src="/media factory images/why choose us.png" 
                 alt="Woman in Suit" 
@@ -45,8 +45,8 @@ const WhyChooseUs = () => {
               />
               
               {/* Play Button with Rotating Text Ring */}
-              <div className="absolute top-10 left-10 z-20">
-                <div className="relative w-32 h-32 flex items-center justify-center">
+              <div className="absolute top-6 left-6 sm:top-10 sm:left-10 z-20">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center">
                   {/* Rotating Text SVG */}
                   <svg className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]" viewBox="0 0 100 100">
                     <defs>
@@ -60,8 +60,8 @@ const WhyChooseUs = () => {
                   </svg>
                   
                   {/* Center Play Icon */}
-                  <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer hover:bg-[#fbbf24] hover:border-[#fbbf24] hover:scale-110 transition-all duration-300">
-                     <Play className="w-5 h-5 fill-white text-white" />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer hover:bg-[#fbbf24] hover:border-[#fbbf24] hover:scale-110 transition-all duration-300">
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-white" />
                   </div>
                 </div>
               </div>
@@ -69,37 +69,47 @@ const WhyChooseUs = () => {
           </div>
 
           {/* --- RIGHT CONTENT SECTION --- */}
-          <div className={`pl-0 lg:pl-8 transition-all duration-1000 delay-300 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`pl-0 lg:pl-4 xl:pl-8 transition-all duration-1000 delay-300 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
             {/* Header */}
-            <div className="mb-10">
-               <h2 className="text-4xl md:text-5xl font-extrabold text-white uppercase leading-tight">
+            <div className="mb-8 sm:mb-10 text-center lg:text-left">
+               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white uppercase leading-tight">
                  WHY CHOOSE US?
                </h2>
+               <div className="h-1 w-20 bg-red-500 mt-4 mx-auto lg:mx-0" />
             </div>
 
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Benefits Grid 
+                - Mobile: 1 Column
+                - Tablet: 2 Columns
+                - Desktop (lg): 1 Column (to fit tight space)
+                - Wide Desktop (xl): 2 Columns
+            */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-10">
                {benefits.map((item, i) => (
-                 <div key={i} className="group">
+                 <div key={i} className="group flex flex-col items-center lg:items-start text-center lg:text-left">
                     {/* Icon */}
-                    <div className="mb-4 relative inline-block">
-                       <div className="w-10 h-10 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-red-500 transition-colors duration-300">
-                          <Check className="w-4 h-4 text-red-500" />
+                    <div className="mb-3 sm:mb-4 relative inline-block">
+                       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-red-500 transition-colors duration-300 shadow-lg shadow-black/50">
+                          <Check className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                        </div>
                     </div>
                     {/* Text */}
-                    <h4 className="text-white font-bold text-lg uppercase mb-2 group-hover:text-red-500 transition-colors">{item.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                    <h4 className="text-white font-bold text-lg sm:text-xl uppercase mb-2 group-hover:text-red-500 transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-400 text-sm sm:text-[15px] leading-relaxed max-w-sm lg:max-w-none">
+                      {item.description}
+                    </p>
                  </div>
                ))}
             </div>
             
             {/* Big "DIGITAL" Text Overlay Effect */}
-             <div className="mt-16 relative h-20 overflow-hidden">
+             <div className="mt-12 sm:mt-16 relative h-16 sm:h-20 overflow-hidden select-none pointer-events-none">
                 <div className="absolute inset-0 flex items-center whitespace-nowrap animate-marquee">
-                   <span className="text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-20 uppercase leading-none">
-                      DIGITAL • DIGITAL • DIGITAL • DIGITAL •
+                   <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none">
+                     DIGITAL • DIGITAL • DIGITAL • DIGITAL •
                    </span>
                 </div>
              </div>
@@ -108,10 +118,10 @@ const WhyChooseUs = () => {
         </div>
       </div>
       
-      {/* Bottom Large Scrolling Text (Marquee) - Outside container for full width */}
-      <div className="absolute bottom-[-20px] left-0 w-full overflow-hidden pointer-events-none opacity-10">
+      {/* Bottom Large Scrolling Text (Marquee) */}
+      <div className="absolute bottom-[-10px] sm:bottom-[-20px] left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] select-none">
          <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite]">
-            <span className="text-[10rem] md:text-[14rem] font-black text-white uppercase leading-none tracking-tighter">
+            <span className="text-[6rem] sm:text-[10rem] md:text-[14rem] font-black text-white uppercase leading-none tracking-tighter">
                DIGITAL MARKETING AGENCY • WE GROW BRANDS • 
             </span>
          </div>
@@ -119,10 +129,12 @@ const WhyChooseUs = () => {
 
       <style jsx>{`
         .stroke-text {
-          -webkit-text-stroke: 2px white;
+          -webkit-text-stroke: 1px white;
         }
-        .clip-hexagon {
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        @media (min-width: 640px) {
+          .stroke-text {
+            -webkit-text-stroke: 2px white;
+          }
         }
         @keyframes marquee {
           0% { transform: translateX(0); }

@@ -166,7 +166,7 @@ const IndoorServices = () => {
     {
       id: 1,
       title: "Double-Sided Roll-Up Standee",
-      description: "Double-sided roll up standees that showcase your message from every angle for maximum indoor visibility. Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
+      description: "Double-sided roll up standees that showcase your message from every angle for maximum indoor visibility.",
     },
     {
       id: 2,
@@ -191,7 +191,7 @@ const IndoorServices = () => {
     {
       id: 6,
       title: "More Branding Solutions",
-      description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding.",
+      description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
     },
   ];
 

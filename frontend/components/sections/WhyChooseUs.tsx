@@ -109,7 +109,7 @@ const WhyChooseUs = () => {
              <div className="mt-12 sm:mt-16 relative h-16 sm:h-20 overflow-hidden select-none pointer-events-none">
                 <div className="absolute inset-0 flex items-center whitespace-nowrap animate-marquee">
                    <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none">
-                     DIGITAL • DIGITAL • DIGITAL • DIGITAL •
+                     VISIBILITY • DOMINANCE • VISIBILITY • DOMINANCE •
                    </span>
                 </div>
              </div>
@@ -122,7 +122,7 @@ const WhyChooseUs = () => {
       <div className="absolute bottom-[-10px] sm:bottom-[-20px] left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] select-none">
          <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite]">
             <span className="text-[6rem] sm:text-[10rem] md:text-[14rem] font-black text-white uppercase leading-none tracking-tighter">
-               DIGITAL MARKETING AGENCY • WE GROW BRANDS • 
+               VISIBILITY • DOMINANCE • WE GROW BRANDS • 
             </span>
          </div>
       </div>

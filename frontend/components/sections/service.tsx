@@ -2,34 +2,115 @@
 
 import React, { useState, Fragment } from 'react';
 
-// --- ICONS ---
-const CustomSearchIcon = () => (
-  <svg 
-    width="36" 
-    height="36" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-    className="text-red-500 mb-4 shrink-0"
-  >
-    <path d="M4 4H14V10H20V20H4V4Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-50"/>
-    <path d="M15 15L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+// --- CUSTOM ICONS ---
+const BusIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="2" y="6" width="20" height="10" rx="2" />
+    <path d="M4 16v3a1 1 0 0 0 1 1h1" />
+    <path d="M18 16v3a1 1 0 0 0 1 1h1" />
+    <path d="M2 11h20" />
+    <path d="M6 6v5" />
+    <path d="M10 6v5" />
+    <path d="M14 6v5" />
+    <path d="M18 6v5" />
   </svg>
 );
 
-const CustomSearchIconYellow = () => (
-  <svg 
-    width="40" 
-    height="40" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-    className="text-[#fbbf24] mb-4 shrink-0"
-  >
-    <path d="M4 4H14V10H20V20H4V4Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-50"/>
-    <path d="M15 15L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+const CabIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2" />
+    <circle cx="6.5" cy="16.5" r="2.5" />
+    <circle cx="16.5" cy="16.5" r="2.5" />
+    <path d="M10 5h4v2h-4z" />
+  </svg>
+);
+
+const RWAIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M3 21h18" />
+    <path d="M5 21V7l8-4 8 4v14" />
+    <path d="M9 10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2" />
+    <path d="M9 21v-5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5" />
+  </svg>
+);
+
+const MetroIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="4" y="3" width="16" height="16" rx="2" />
+    <path d="M4 11h16" />
+    <path d="M12 3v8" />
+    <path d="M8 19l-2 3" />
+    <path d="M16 19l2 3" />
+    <circle cx="8" cy="15" r="1" />
+    <circle cx="16" cy="15" r="1" />
+  </svg>
+);
+
+const AutoIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M18.5 17a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+    <path d="M5.5 17a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+    <path d="M16 12H5.5L3 9h3l2-4h8l2 4h3l-2.5 3" />
+    <path d="M8 5v4" />
+    <path d="M12 5v7" />
+  </svg>
+);
+
+const StandeeIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="6" y="3" width="12" height="16" rx="1" />
+    <path d="M4 21h16" />
+    <path d="M12 19v2" />
+    <path d="M8 7h8" />
+    <path d="M8 11h8" />
+    <path d="M8 15h4" />
+  </svg>
+);
+
+const DealerBoardIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="3" y="6" width="18" height="12" rx="1" />
+    <path d="M7 6V3h10v3" />
+    <path d="M12 3V2" />
+    <path d="M8 10h8" />
+    <path d="M8 14h5" />
+  </svg>
+);
+
+const UmbrellaIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M12 22v-9" />
+    <path d="M12 13A10 10 0 0 0 2 3h20a10 10 0 0 0-10 10z" />
+    <path d="M12 3v-1" />
+  </svg>
+);
+
+const BannerStandIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="5" y="3" width="14" height="15" />
+    <path d="M5 18l-2 4" />
+    <path d="M19 18l2 4" />
+    <path d="M12 18v4" />
+    <path d="M9 8h6" />
+    <path d="M9 12h6" />
+  </svg>
+);
+
+const PromoTableIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+    <path d="M3 9l2-4h14l2 4" />
+    <path d="M12 5v4" />
+    <path d="M8 13h8" />
+    <path d="M8 17h8" />
+  </svg>
+);
+
+const MoreIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+    <path d="M2 17l10 5 10-5" />
+    <path d="M2 12l10 5 10-5" />
   </svg>
 );
 
@@ -42,26 +123,31 @@ const OutdoorServices = () => {
       id: 1,
       title: "Bus Branding",
       description: "Maximize moving visibility with bold, eye-catching bus wraps across high-traffic city routes.",
+      icon: BusIcon,
     },
     {
       id: 2,
       title: "Cab Branding",
       description: "Turn everyday rides into premium brand touchpoints with smart, city-wide cab advertising.",
+      icon: CabIcon,
     },
     {
       id: 3,
       title: "RWA Branding",
       description: "Engage trusted community spaces and influence residents where they live, relax, and interact.",
+      icon: RWAIcon,
     },
     {
       id: 4,
       title: "Metro Branding",
       description: "Dominate daily commuter journeys with impactful metro ads in stations and inside trains.",
+      icon: MetroIcon,
     },
     {
       id: 5,
       title: "Auto Branding",
       description: "Reach deep into local markets with continuous brand presence on high-frequency auto routes.",
+      icon: AutoIcon,
     },
   ];
 
@@ -121,7 +207,7 @@ const OutdoorServices = () => {
                     
                     {/* Icon - Hidden on Mobile to save space, visible on Desktop */}
                     <div className="hidden lg:block">
-                      <CustomSearchIcon />
+                      <step.icon className="w-9 h-9 text-red-500 mb-4 shrink-0" strokeWidth={1.5} />
                     </div>
 
                     {/* Desktop Title */}
@@ -167,31 +253,37 @@ const IndoorServices = () => {
       id: 1,
       title: "Double-Sided Roll-Up Standee",
       description: "Double-sided roll up standees that showcase your message from every angle for maximum indoor visibility.",
+      icon: StandeeIcon,
     },
     {
       id: 2,
       title: "Dealer Boards Manufacturing",
       description: "Professional dealer boards crafted to elevate in-store branding, ensure high visibility, and strengthen dealer presence.",
+      icon: DealerBoardIcon,
     },
     {
       id: 3,
       title: "Promotional Umbrella",
       description: "Weather-resistant promotional umbrellas that display your brand prominently at events, storefronts, and outdoor activations.",
+      icon: UmbrellaIcon,
     },
     {
       id: 4,
       title: "Adjustable Banner Stand",
       description: "Versatile adjustable banner stands that adapt to any indoor space, ensuring clear, professional brand visibility.",
+      icon: BannerStandIcon,
     },
     {
       id: 5,
       title: "Promo Table",
       description: "Engaging promo tables designed to showcase products, capture leads, and boost brand interaction at events.",
+      icon: PromoTableIcon,
     },
     {
       id: 6,
       title: "More Branding Solutions",
       description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
+      icon: MoreIcon,
     },
   ];
 
@@ -251,7 +343,7 @@ const IndoorServices = () => {
                     <div className="flex flex-col h-full lg:pt-24 px-4 lg:px-8 animate-fadeIn w-full mt-4 lg:mt-0 ml-0 lg:ml-0">
                         
                         <div className="hidden lg:block">
-                            <CustomSearchIcon />
+                            <step.icon className="w-9 h-9 text-red-500 mb-4 shrink-0" strokeWidth={1.5} />
                         </div>
 
                         <h3 className="hidden lg:block text-2xl font-extrabold text-[#111] uppercase mb-3 leading-tight">

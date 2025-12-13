@@ -24,7 +24,7 @@ const About = () => {
   ];
 
   return (
-    <section ref={ref} className="bg-white py-12 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16 xl:px-24 font-sans overflow-hidden">
+    <section ref={ref} className="bg-white pt-12 sm:pt-20 lg:pt-24 pb-8 px-4 sm:px-8 lg:px-16 xl:px-24 font-sans overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         
         {/* Main Grid: Content Left, Image Right */}
@@ -116,19 +116,7 @@ const About = () => {
 
             {/* Bottom Row: Avatars + Button */}
             <div className={`flex flex-col sm:flex-row items-center gap-6 sm:gap-8 border-t border-gray-100 pt-8 max-w-lg transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '900ms' }}>
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {[
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80",
-                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80",
-                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
-                  ].map((src, i) => (
-                    <img key={i} src={src} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
-                  ))}
-                </div>
-                <span className="text-gray-500 text-xs font-bold uppercase tracking-wide">50+ Major Brands</span>
-              </div>
-              <button className="px-8 py-3.5 bg-red-500 hover:bg-red-600 text-white text-[11px] font-bold uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg w-full sm:w-auto">
+              <button className="px-10 py-4 bg-red-500 hover:bg-red-600 text-white text-sm font-bold uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg w-full sm:w-auto">
                 MORE ABOUT US
               </button>
             </div>

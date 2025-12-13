@@ -105,11 +105,20 @@ const WhyChooseUs = () => {
                ))}
             </div>
             
-            {/* Big "DIGITAL" Text Overlay Effect */}
-             <div className="mt-12 sm:mt-16 relative h-16 sm:h-20 overflow-hidden select-none pointer-events-none">
-                <div className="absolute inset-0 flex items-center whitespace-nowrap animate-marquee">
-                   <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none">
-                     VISIBILITY • DOMINANCE • VISIBILITY • DOMINANCE •
+            {/* Big "VISIBILITY" Text Overlay Effect */}
+             <div className="mt-8 sm:mt-10 relative h-24 sm:h-28 overflow-hidden select-none pointer-events-none w-full">
+                <div className="flex whitespace-nowrap animate-marquee-infinite">
+                   <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none px-4">
+                     VISIBILITY • DOMINANCE •
+                   </span>
+                   <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none px-4">
+                     VISIBILITY • DOMINANCE •
+                   </span>
+                   <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none px-4">
+                     VISIBILITY • DOMINANCE •
+                   </span>
+                   <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-black text-transparent stroke-text opacity-10 uppercase leading-none px-4">
+                     VISIBILITY • DOMINANCE •
                    </span>
                 </div>
              </div>
@@ -135,6 +144,9 @@ const WhyChooseUs = () => {
           .stroke-text {
             -webkit-text-stroke: 2px white;
           }
+        }
+        .animate-marquee-infinite {
+          animation: marquee 15s linear infinite;
         }
         @keyframes marquee {
           0% { transform: translateX(0); }

@@ -45,17 +45,11 @@ const OurWork = () => {
   ];
 
   return (
-    <section ref={ref} className="bg-white py-16 sm:py-24 px-4 sm:px-8 lg:px-8 font-sans relative">
+    <section ref={ref} className="bg-white pt-8 pb-16 sm:pb-24 px-4 sm:px-8 lg:px-8 font-sans relative">
       <div className="container mx-auto max-w-7xl">
         
         {/* --- HEADER SECTION --- */}
         <div className={`text-center mb-12 lg:mb-24 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="flex justify-center mb-5">
-             <div className="w-8 h-8 relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-500 rotate-45 rounded-sm" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#111] rotate-45 rounded-sm" />
-             </div>
-          </div>
           
           <span className="block text-gray-500 font-bold text-[10px] sm:text-[12px] tracking-[0.2em] uppercase mb-4">
             How We Work
@@ -68,10 +62,6 @@ const OurWork = () => {
           <p className="text-gray-500 text-sm sm:text-[16px] max-w-2xl mx-auto leading-relaxed mb-8">
             In this section, we will represent our printing machines and explain how we work, utilizing the latest technology.
           </p>
-
-          <div className="flex justify-center">
-             <div className="w-3 h-3 rounded-full border-[3px] border-red-500" />
-          </div>
         </div>
 
         {/* --- CARDS SECTION --- */}

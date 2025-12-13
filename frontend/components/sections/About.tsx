@@ -24,7 +24,7 @@ const About = () => {
   ];
 
   return (
-    <section ref={ref} className="bg-white pt-12 sm:pt-20 lg:pt-24 pb-8 px-4 sm:px-8 lg:px-16 xl:px-24 font-sans overflow-hidden">
+    <section ref={ref} className="bg-white pt-12 sm:pt-20 lg:pt-24 pb-0 px-4 sm:px-8 lg:px-16 xl:px-24 font-sans overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         
         {/* Main Grid: Content Left, Image Right */}

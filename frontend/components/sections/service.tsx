@@ -288,24 +288,23 @@ const IndoorServices = () => {
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-24 px-4 sm:px-12 lg:px-16 font-sans relative border-t border-gray-100">
-      <div className="container mx-auto max-w-7xl flex flex-col items-center">
-        
-        {/* --- HEADER SECTION --- */}
-        <div className="w-full max-w-[1200px] mb-8 sm:mb-12 text-center lg:text-right">
-            <span className="block text-gray-500 font-bold text-[10px] sm:text-[12px] tracking-[0.2em] uppercase mb-4">
-            INDOOR SOLUTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-4 sm:mb-6">
-            Indoor Ads That <span className="text-red-500">Turn Heads</span>
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-[16px] max-w-2xl mx-auto lg:ml-auto lg:mr-0 leading-relaxed">
-            Discover powerful indoor advertising solutions that enhance visibility, engage visitors, and strengthen your brand presence across every touchpoint.
-            </p> 
-        </div>
+    <div className="bg-white text-[#111] pt-8 pb-16 sm:pt-12 sm:pb-24 px-4 sm:px-12 lg:px-16 w-full flex flex-col justify-center items-center font-sans border-t border-gray-100">
+      
+      {/* --- HEADER SECTION --- */}
+      <div className="w-full max-w-[1200px] mb-8 sm:mb-12 text-center lg:text-right">
+        <span className="block text-gray-500 font-bold text-[10px] sm:text-[12px] tracking-[0.2em] uppercase mb-4">
+          INDOOR SOLUTIONS
+        </span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-4 sm:mb-6">
+          Indoor Ads That <span className="text-red-500">Turn Heads</span>
+        </h2>
+        <p className="text-gray-500 text-sm sm:text-[16px] max-w-2xl mx-auto lg:ml-auto lg:mr-0 leading-relaxed">
+          Discover powerful indoor advertising solutions that enhance visibility, engage visitors, and strengthen your brand presence across every touchpoint.
+        </p> 
+      </div>
 
-        {/* Accordion Container */}
-        <div className="flex flex-col lg:fle x-row w-full max-w-[1200px] h-auto lg:h-[450px] gap-3 lg:gap-4">
+      {/* Accordion Container */}
+      <div className="flex flex-col lg:flex-row w-full max-w-[1200px] h-auto lg:h-[450px] gap-3 lg:gap-2">
             {steps.map((step) => {
             const isActive = activeStep === step.id;
 
@@ -314,10 +313,10 @@ const IndoorServices = () => {
                 key={step.id}
                 onClick={() => setActiveStep(step.id)}
                 className={`
-                    relative rounded-xl lg:rounded-[1rem] cursor-pointer overflow-hidden transition-all duration-500 ease-in-out shadow-sm
+                    relative rounded-xl lg:rounded-[1.5rem] cursor-pointer overflow-hidden transition-all duration-500 ease-in-out
                     ${isActive
                     ? 'bg-white border-2 border-red-500 shadow-xl z-10 lg:scale-[1.02] flex-none lg:flex-[2.5] h-auto lg:h-full pb-6 lg:pb-0' 
-                    : 'bg-gray-50 hover:bg-gray-100 border border-transparent flex-none lg:flex-[0.5] h-16 lg:h-full'}
+                    : 'bg-gray-50 hover:bg-gray-100 border border-transparent shadow-sm flex-none lg:flex-[0.5] h-16 lg:h-full'}
                 `}
                 >
                 <div className="h-full w-full relative flex flex-row lg:flex-col items-center lg:items-stretch">
@@ -372,9 +371,8 @@ const IndoorServices = () => {
                 </div>
             );
             })}
-        </div>
       </div>
-    </section>
+    </div>
   );
 }
 

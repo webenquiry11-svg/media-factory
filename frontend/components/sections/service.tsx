@@ -301,11 +301,11 @@ const IndoorServices = () => {
             </h2>
             <p className="text-gray-500 text-sm sm:text-[16px] max-w-2xl mx-auto lg:ml-auto lg:mr-0 leading-relaxed">
             Discover powerful indoor advertising solutions that enhance visibility, engage visitors, and strengthen your brand presence across every touchpoint.
-            </p>
+            </p> 
         </div>
 
         {/* Accordion Container */}
-        <div className="flex flex-col lg:flex-row w-full max-w-[1200px] h-auto lg:h-[450px] gap-3 lg:gap-4">
+        <div className="flex flex-col lg:fle x-row w-full max-w-[1200px] h-auto lg:h-[450px] gap-3 lg:gap-4">
             {steps.map((step) => {
             const isActive = activeStep === step.id;
 

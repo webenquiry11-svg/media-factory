@@ -1,8 +1,56 @@
 "use client";
-import React from 'react';
-import { Building2, Phone, MapPin, Mail, ArrowRight, Facebook, Twitter, Instagram, Linkedin, Pin, Send } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+    source: 'Contact Page'
+  });
+  const [status, setStatus] = useState({
+    submitting: false,
+    success: false,
+    error: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ submitting: true, success: false, error: '' });
+
+    try {
+      // Assuming backend is running on port 5000
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({ submitting: false, success: true, error: '' });
+        setFormData({ name: '', email: '', phone: '', service: '', message: '', source: 'Contact Page' });
+        // Clear success message after 5 seconds
+        setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+      } else {
+        setStatus({ submitting: false, success: false, error: data.message || 'Something went wrong.' });
+      }
+    } catch (error) {
+      setStatus({ submitting: false, success: false, error: 'Failed to send message. Please try again.' });
+    }
+  };
+
   return (
     <div className="font-sans text-[#111]">
       
@@ -63,7 +111,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-extrabold uppercase mb-4">Contact</h3>
                 <div className="text-gray-500 text-[15px] leading-relaxed space-y-1">
                   <p>Mon-Sat 8:00 - 6:30 Sunday Off</p>
-                  <p className="hover:text-red-500 transition-colors cursor-pointer font-medium text-[#111]">needhelp@company.com</p>
+                  <p className="hover:text-red-500 transition-colors cursor-pointer font-medium text-[#111]">support@mediafactory.co.in</p>
                   <p className="font-bold text-[#111] text-lg mt-2">+ 92 (246) 0088</p>
                 </div>
               </div>
@@ -115,7 +163,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <span className="text-xs text-gray-400 uppercase tracking-wider block mb-1">Email</span>
-                                    <span className="text-sm font-bold">info@company.com</span>
+                                    <span className="text-sm font-bold">support@mediafactory.co.in</span>
                                 </div>
                             </div>
                         </div>
@@ -131,11 +179,29 @@ const Contact = () => {
                     <h3 className="text-2xl font-bold text-[#111] mb-2 uppercase">Send a Message</h3>
                     <p className="text-gray-500 text-sm mb-8">We would love to hear from you!</p>
                     
-                    <form className="space-y-5">
+                    {status.success && (
+                      <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-700">
+                        <CheckCircle className="w-5 h-5 shrink-0" />
+                        <p className="text-sm font-medium">Message sent successfully! We'll get back to you soon.</p>
+                      </div>
+                    )}
+
+                    {status.error && (
+                      <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3 text-red-700">
+                        <AlertCircle className="w-5 h-5 shrink-0" />
+                        <p className="text-sm font-medium">{status.error}</p>
+                      </div>
+                    )}
+
+                    <form className="space-y-5" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div className="relative group">
                                 <input 
                                 type="text" 
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
                                 placeholder="Your Name" 
                                 className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:bg-white focus:border-red-500 outline-none transition-all"
                                 />
@@ -143,6 +209,10 @@ const Contact = () => {
                             <div className="relative group">
                                 <input 
                                 type="email" 
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
                                 placeholder="Email Address" 
                                 className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:bg-white focus:border-red-500 outline-none transition-all"
                                 />
@@ -150,16 +220,25 @@ const Contact = () => {
                             <div className="relative group">
                                 <input 
                                 type="tel" 
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
                                 placeholder="Phone" 
                                 className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:bg-white focus:border-red-500 outline-none transition-all"
                                 />
                             </div>
                             <div className="relative group">
-                                <select className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm text-gray-400 focus:ring-1 focus:ring-red-500 focus:bg-white focus:border-red-500 outline-none appearance-none cursor-pointer transition-all">
-                                <option>Select Service</option>
-                                <option>Web Development</option>
-                                <option>Digital Marketing</option>
-                                <option>Brand Identity</option>
+                                <select 
+                                  name="service"
+                                  value={formData.service}
+                                  onChange={handleChange}
+                                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm text-gray-500 focus:ring-1 focus:ring-red-500 focus:bg-white focus:border-red-500 outline-none appearance-none cursor-pointer transition-all"
+                                >
+                                <option value="">Select Service</option>
+                                <option value="Outdoor Advertising">Outdoor Advertising</option>
+                                <option value="Indoor Advertising">Indoor Advertising</option>
+                                <option value="Digital Branding">Digital Branding</option>
+                                <option value="Other">Other</option>
                                 </select>
                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor">
@@ -171,14 +250,18 @@ const Contact = () => {
                         <div className="relative group">
                             <textarea 
                                 rows={5}
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                required
                                 placeholder="Write Your Message Here..." 
                                 className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:bg-white focus:border-red-500 outline-none resize-none transition-all"
                             ></textarea>
                         </div>
                         <div className="pt-2">
-                            <button type="submit" className="w-full md:w-auto px-8 py-3.5 bg-red-500 hover:bg-[#111] text-white font-bold uppercase text-[11px] tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
-                                Send Message
-                                <Send className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                            <button type="submit" disabled={status.submitting} className="w-full md:w-auto px-8 py-3.5 bg-red-500 hover:bg-[#111] text-white font-bold uppercase text-[11px] tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+                                {status.submitting ? 'Sending...' : 'Send Message'}
+                                {status.submitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />}
                             </button>
                         </div>
                     </form>
@@ -283,7 +366,7 @@ const Contact = () => {
                    </div>
                    <div className="flex items-center gap-3 group cursor-pointer">
                       <Mail className="w-4 h-4 text-red-500" />
-                      <span className="text-white text-[14px] group-hover:text-red-500 transition-colors">needhelp@company.com</span>
+                      <span className="text-white text-[14px] group-hover:text-red-500 transition-colors">support@mediafactory.co.in</span>
                    </div>
                 </div>
              </div>

@@ -6,7 +6,10 @@ import {
   Send,
   ChevronLeft,
   ChevronRight,
-  ArrowRight
+  ArrowRight,
+  Loader2,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
 
 const SLIDES = [
@@ -37,6 +40,48 @@ export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(0);
+
+  // --- FORM STATE ---
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    source: 'Hero Section'
+  });
+  const [status, setStatus] = useState({
+    submitting: false,
+    success: false,
+    error: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ submitting: true, success: false, error: '' });
+
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({ submitting: false, success: true, error: '' });
+        setFormData({ name: '', email: '', message: '', source: 'Hero Section' });
+        setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+      } else {
+        setStatus({ submitting: false, success: false, error: data.message || 'Something went wrong.' });
+      }
+    } catch (error) {
+      setStatus({ submitting: false, success: false, error: 'Failed to send.' });
+    }
+  };
 
   const nextSlide = () => {
     setPrevSlide(currentSlide);
@@ -223,14 +268,36 @@ export default function HeroSection() {
                   <p className="text-xs text-gray-400">Get a fast response from our team.</p>
                 </div>
               </div>
-              <form className="space-y-3">
-                <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" />
-                <input type="email" placeholder="Your Email" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" />
-                <textarea placeholder="Tell us about your project..." rows={3} className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm resize-none placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all"></textarea>
-                <button type="submit" className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 transition-colors duration-300 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
-                  Send Request
-                </button>
-              </form>
+              
+              {status.success ? (
+                <div className="flex flex-col items-center justify-center py-8 text-green-500 space-y-3">
+                  <CheckCircle className="w-12 h-12" />
+                  <p className="font-bold text-sm">Request Sent!</p>
+                </div>
+              ) : (
+                <form className="space-y-3" onSubmit={handleSubmit}>
+                  {status.error && (
+                    <div className="p-2 bg-red-500/20 border border-red-500/50 rounded text-red-200 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-3 h-3 shrink-0" /> {status.error}
+                    </div>
+                  )}
+                  <input 
+                    type="text" name="name" value={formData.name} onChange={handleChange} required 
+                    placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" 
+                  />
+                  <input 
+                    type="email" name="email" value={formData.email} onChange={handleChange} required 
+                    placeholder="Your Email" className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all" 
+                  />
+                  <textarea 
+                    name="message" value={formData.message} onChange={handleChange} required 
+                    placeholder="Tell us about your project..." rows={3} className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-sm resize-none placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
+                  ></textarea>
+                  <button type="submit" disabled={status.submitting} className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 transition-colors duration-300 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)] disabled:opacity-70 disabled:cursor-not-allowed">
+                    {status.submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Send Request'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

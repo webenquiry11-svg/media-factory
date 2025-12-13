@@ -112,7 +112,7 @@ const Contact = () => {
                 <div className="text-gray-500 text-[15px] leading-relaxed space-y-1">
                   <p>Mon-Sat 8:00 - 6:30 Sunday Off</p>
                   <p className="hover:text-red-500 transition-colors cursor-pointer font-medium text-[#111]">support@mediafactory.co.in</p>
-                  <p className="font-bold text-[#111] text-lg mt-2">+ 92 (246) 0088</p>
+                  <p className="font-bold text-[#111] text-lg mt-2">9814746565</p>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const Contact = () => {
                 <span className="text-red-500 font-bold text-[11px] uppercase tracking-widest mb-3 block group-hover:text-red-600 transition-colors">Visit</span>
                 <h3 className="text-2xl font-extrabold uppercase mb-4">Address</h3>
                 <p className="text-gray-500 text-[15px] leading-relaxed">
-                  80 Broklyn Golden Seven Street New York. United States of America
+                  Ludhiana, Punjab, 141001
                 </p>
               </div>
             </div>
@@ -154,7 +154,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <span className="text-xs text-gray-400 uppercase tracking-wider block mb-1">Phone</span>
-                                    <span className="text-sm font-bold">+92 (246) 0088</span>
+                                    <span className="text-sm font-bold">9814746565</span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 group">
@@ -357,12 +357,12 @@ const Contact = () => {
              <div className="lg:col-span-3">
                 <h4 className="font-bold text-lg mb-8 uppercase text-white">CONTACT</h4>
                 <p className="text-gray-400 text-[14px] mb-6 leading-relaxed">
-                   36 broklyn golden street. New York. USA
+                   Ludhiana, Punjab, 141001
                 </p>
                 <div className="space-y-4">
                    <div className="flex items-center gap-3 group cursor-pointer">
                       <Phone className="w-4 h-4 text-red-500" />
-                      <span className="text-white text-[14px] group-hover:text-red-500 transition-colors font-medium">+92 (3680) 00 - 6800</span>
+                      <span className="text-white text-[14px] group-hover:text-red-500 transition-colors font-medium">9814746565</span>
                    </div>
                    <div className="flex items-center gap-3 group cursor-pointer">
                       <Mail className="w-4 h-4 text-red-500" />

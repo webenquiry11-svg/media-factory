@@ -297,7 +297,7 @@ const IndoorServices = () => {
             INDOOR SOLUTIONS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-4 sm:mb-6">
-            Indoor Ads That <br className="hidden sm:block" /> <span className="text-red-500">Turn Heads</span>
+            Indoor Ads That <span className="text-red-500">Turn Heads</span>
             </h2>
             <p className="text-gray-500 text-sm sm:text-[16px] max-w-2xl mx-auto lg:ml-auto lg:mr-0 leading-relaxed">
             Discover powerful indoor advertising solutions that enhance visibility, engage visitors, and strengthen your brand presence across every touchpoint.

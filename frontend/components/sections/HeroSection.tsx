@@ -9,7 +9,8 @@ import {
   ArrowRight,
   Loader2,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Phone
 } from "lucide-react";
 
 const SLIDES = [
@@ -46,6 +47,7 @@ export default function HeroSection() {
     name: '',
     email: '',
     message: '',
+    phone: '', // Added phone for mobile quick form
     source: 'Hero Section'
   });
   const [status, setStatus] = useState({
@@ -73,7 +75,7 @@ export default function HeroSection() {
 
       if (response.ok) {
         setStatus({ submitting: false, success: true, error: '' });
-        setFormData({ name: '', email: '', message: '', source: 'Hero Section' });
+        setFormData({ name: '', email: '', message: '', phone: '', source: 'Hero Section' });
         setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
       } else {
         setStatus({ submitting: false, success: false, error: data.message || 'Something went wrong.' });
@@ -174,7 +176,7 @@ export default function HeroSection() {
       </div>
 
       {/* 2. COMBINED HEADER & HERO SECTION */}
-      <div className="relative min-h-[500px] h-[100dvh] lg:h-screen w-full bg-gray-900 overflow-hidden group">
+      <div className="relative min-h-[600px] h-[100dvh] lg:h-screen w-full bg-gray-900 overflow-hidden group">
         
         {/* === BACKGROUND SLIDER === */}
         <div className="absolute inset-0 z-0">
@@ -186,20 +188,22 @@ export default function HeroSection() {
                   alt="Slide Background" 
                   className={`w-full h-full object-cover ${getImageZoomClass(index)}`}
                 />
-                <div className="absolute inset-0 bg-transparent z-0 lg:z-[-1]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-black/30 lg:via-black/40 sm:to-transparent lg:to-black/90 z-10" />
+                
+                {/* IMPROVED MOBILE OVERLAYS */}
+                <div className="absolute inset-0 bg-black/20 lg:bg-transparent z-0 lg:z-[-1]" />
+                {/* Stronger bottom gradient for mobile text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 sm:bg-gradient-to-r sm:from-transparent sm:via-black/30 lg:via-black/40 sm:to-transparent lg:to-black/90 z-10" />
               </div>
               
-              {/* RED LAYER - Adjusted clip-path for laptop screens */}
+              {/* RED LAYER - Desktop & Mobile Accent */}
               <div className={`absolute inset-0 w-full h-full pointer-events-none ${getLayerClass(index)}`}>
+                {/* Desktop Shape */}
                 <div 
                   className="absolute top-0 right-0 h-full w-[50%] lg:w-[60%] bg-gradient-to-bl from-red-900/95 via-red-600/90 to-red-500/80 mix-blend-multiply hidden lg:block"
                   style={{ clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0% 100%)' }}
                 />
-                <div 
-                  className="absolute top-0 right-0 h-full w-[50%] lg:w-[60%] bg-gradient-to-b from-transparent to-black/50 hidden lg:block"
-                  style={{ clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0% 100%)' }}
-                />
+                 {/* Mobile Shape - A subtle top right accent */}
+                 <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/20 blur-3xl lg:hidden" />
               </div>
             </div>
           ))}
@@ -213,7 +217,7 @@ export default function HeroSection() {
                <img src="/logo.png" alt="Cilox Logo" className="h-8 sm:h-10 lg:h-12 w-auto object-contain" />
             </a>
 
-            {/* Desktop Menu - Compacted for Laptop (lg) */}
+            {/* Desktop Menu */}
             <div className="hidden lg:flex bg-black rounded-full px-6 xl:px-8 py-3 xl:py-4 items-center gap-4 xl:gap-8 shadow-2xl shadow-black/50 border border-white/5">
               <NavLink href="#services" active>Our Services</NavLink>
               <NavLink href="#about">About</NavLink>
@@ -223,15 +227,10 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-3 sm:gap-6">
-              
-              {/* === ATTRACTIVE "REQUEST A QUOTE" BUTTON (DESKTOP) === */}
+              {/* Request Quote Button (Desktop) */}
               <div className="relative hidden lg:inline-block">
                 <a href="#contact" className="group relative inline-flex items-center justify-center px-6 xl:px-8 py-3 font-bold text-white transition-all duration-300 bg-red-600 rounded-full hover:bg-red-500 hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] border-t border-white/20 overflow-hidden">
-                   
-                   {/* Sheen Effect */}
                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-10" />
-                   
-                   {/* Button Text */}
                    <span className="relative z-20 text-[10px] xl:text-[11px] uppercase tracking-widest flex items-center gap-2">
                      Request a Quote
                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -254,7 +253,6 @@ export default function HeroSection() {
         </nav>
 
         {/* === PERMANENT FLOATING FORM (DESKTOP ONLY) === */}
-        {/* Adjusted Position: Closer to right edge, reduced width for laptops */}
         <div className="absolute hidden lg:block right-4 xl:right-36 top-1/2 -translate-y-1/2 z-[60] w-[320px] xl:w-[380px]">
           <div className="bg-black/80 backdrop-blur-lg text-white p-5 xl:p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
             <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
@@ -304,7 +302,7 @@ export default function HeroSection() {
 
         {/* HERO CONTENT AREA (TEXT) */}
         <div className="relative z-30 container mx-auto px-4 lg:px-8 h-full flex flex-col justify-center">
-          <div className="w-full md:max-w-2xl lg:max-w-4xl space-y-4 sm:space-y-8 relative mt-16 sm:mt-0">
+          <div className="w-full md:max-w-2xl lg:max-w-4xl space-y-6 sm:space-y-8 relative mt-16 sm:mt-0">
             
             {SLIDES.map((slide, index) => (
               <div 
@@ -313,52 +311,93 @@ export default function HeroSection() {
                 style={{ position: index === currentSlide ? 'relative' : 'absolute' }}
               >
                 
-                {/* 1. HEADLINE - Reduced size for LG screens */}
+                {/* 1. HEADLINE */}
                 <div className="overflow-hidden pb-2 pr-4 sm:pr-0">
-                   <h1 className={`text-2xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
+                    {/* Added a red decorative line on mobile to frame text */}
+                   <div className="lg:hidden w-12 h-1 bg-red-500 mb-4" /> 
+                   
+                   <h1 className={`text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
                       <span key={i} className="block">{line}</span>
                     ))}
                   </h1>
                 </div>
 
-                {/* 2. BUTTON (Permanently Red) */}
+                {/* 2. BUTTONS & MOBILE FORM */}
                 <div className="pt-4 sm:pt-8 overflow-hidden">
-                   <div className={`${getMaskedContentClass(index, 'delay-[900ms]')}`}>
-                      <a href={slide.link} className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-red-500 text-white font-bold tracking-widest text-[10px] sm:text-xs md:text-sm hover:bg-red-600 border border-red-500 transition-all duration-300 uppercase inline-flex items-center gap-3 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)]">
+                    <div className={`${getMaskedContentClass(index, 'delay-[900ms]')}`}>
+                      
+                      {/* Main CTA Button */}
+                      <a href={slide.link} className="group relative px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-red-500 text-white font-bold tracking-widest text-[11px] sm:text-xs md:text-sm hover:bg-red-600 border border-red-500 transition-all duration-300 uppercase inline-flex items-center gap-3 shadow-[0_5px_20px_rgba(239,68,68,0.3)] hover:shadow-[0_8px_25px_rgba(239,68,68,0.4)] mb-6 sm:mb-0">
                         {slide.buttonText}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </a>
-                   </div>
+
+                      {/* === NEW MOBILE-ONLY QUICK FORM === 
+                          This fills the empty space on phones by giving them something to do immediately.
+                      */}
+                      <div className="block lg:hidden mt-6 pt-6 border-t border-white/10 max-w-xs">
+                          <p className="text-gray-300 text-xs mb-3 font-medium">Get a call back in 10 mins:</p>
+                          <form onSubmit={handleSubmit} className="flex gap-2">
+                             <div className="relative flex-1">
+                               <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
+                               <input 
+                                  type="tel" 
+                                  name="phone"
+                                  value={formData.phone}
+                                  onChange={handleChange}
+                                  placeholder="Your Phone Number"
+                                  className="w-full bg-white/10 border border-white/20 rounded-full py-2.5 pl-9 pr-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                                  required
+                               />
+                             </div>
+                             <button type="submit" className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors shadow-lg">
+                               {status.submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                             </button>
+                          </form>
+                          {status.success && <p className="text-green-400 text-[10px] mt-2 flex items-center gap-1"><CheckCircle className="w-3 h-3"/> Sent!</p>}
+                      </div>
+
+                    </div>
                 </div>
 
               </div>
             ))}
           </div>
 
-          {/* CONTROLS */}
-          <div className="absolute bottom-6 right-4 sm:bottom-12 sm:right-10 lg:right-20 z-40">
-            <div className="flex items-center gap-3 sm:gap-4 border border-red-500/50 rounded-full p-1.5 sm:p-2 bg-black/40 sm:bg-black/20 backdrop-blur-md shadow-lg">
-              <div className="text-lg sm:text-2xl font-light tracking-widest text-white/50 select-none pl-3 sm:pl-4 hidden sm:block">
-                <span className="text-white font-bold text-xl sm:text-3xl">{currentSlide + 1}</span> 
-                <span className="mx-2">/</span>
-                {SLIDES.length}
-              </div>
- 
-              <div className="flex gap-1 sm:gap-2">
-                <button 
-                 onClick={prevSlideAction}
-                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn bg-black/30 sm:bg-transparent"
-                >
-                  <ChevronLeft className="w-5 h-5 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
-                </button>
-                <button 
-                 onClick={nextSlide}
-                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn bg-black/30 sm:bg-transparent"
-                >
-                  <ChevronRight className="w-5 h-5 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
-                </button>
-              </div>
+          {/* CONTROLS - Moved for better mobile reachability */}
+          <div className="absolute bottom-6 left-0 w-full px-4 lg:px-0 lg:bottom-12 lg:right-20 lg:w-auto z-40">
+            <div className="flex justify-between lg:justify-end w-full">
+                
+                {/* Mobile: Dots Indicator (Optional visual filler) */}
+                <div className="flex gap-2 items-center lg:hidden">
+                    {SLIDES.map((_, i) => (
+                        <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-red-500' : 'w-2 bg-white/30'}`} />
+                    ))}
+                </div>
+
+                <div className="flex items-center gap-3 sm:gap-4 border border-red-500/50 rounded-full p-1.5 sm:p-2 bg-black/60 sm:bg-black/20 backdrop-blur-md shadow-lg">
+                  <div className="text-lg sm:text-2xl font-light tracking-widest text-white/50 select-none pl-3 sm:pl-4 hidden sm:block">
+                    <span className="text-white font-bold text-xl sm:text-3xl">{currentSlide + 1}</span> 
+                    <span className="mx-2">/</span>
+                    {SLIDES.length}
+                  </div>
+    
+                  <div className="flex gap-1 sm:gap-2">
+                    <button 
+                     onClick={prevSlideAction}
+                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn bg-transparent"
+                    >
+                      <ChevronLeft className="w-5 h-5 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
+                    </button>
+                    <button 
+                     onClick={nextSlide}
+                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 hover:border-red-500 hover:bg-red-500 hover:text-black flex items-center justify-center transition-all duration-300 group/btn bg-transparent"
+                    >
+                      <ChevronRight className="w-5 h-5 sm:w-5 sm:h-5 group-hover/btn:scale-110 transition-transform" />
+                    </button>
+                  </div>
+                </div>
             </div>
           </div>
         </div>

@@ -15,10 +15,7 @@ import {
   Phone,
   Layers,
   Info,
-  Award,
-  Instagram,
-  Linkedin,
-  Twitter
+  Award
 } from "lucide-react";
 
 // --- SLIDES DATA ---
@@ -220,8 +217,6 @@ export default function HeroSection() {
                   className="absolute top-0 right-0 h-full w-[60%] bg-gradient-to-b from-transparent to-black/50 hidden lg:block"
                   style={{ clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0% 100%)' }}
                 />
-                {/* Restored Mobile Shape Accent */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/20 blur-3xl lg:hidden" />
               </div>
             </div>
           ))}
@@ -267,9 +262,9 @@ export default function HeroSection() {
         </nav>
 
         {/* === MAIN FLOATING FORM (DESKTOP/TABLET LANDSCAPE) === */}
-        {/* Adjusted to avoid overlap on Tablet Landscape (1024px) */}
+        {/* UPDATED: Added rounded-tl-[50px] and rounded-bl-[50px] */}
         <div className="absolute hidden lg:block right-4 xl:right-36 top-1/2 -translate-y-1/2 z-[60] w-[320px] xl:w-[350px]">
-          <div className="bg-black/80 backdrop-blur-lg text-white p-5 xl:p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-hidden">
+          <div className="bg-black/80 backdrop-blur-lg text-white p-5 xl:p-6 rounded-tr-xl rounded-br-xl rounded-tl-[50px] rounded-bl-[50px] shadow-2xl border border-white/10 relative overflow-hidden">
             <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-transparent animate-[spin_20s_linear_infinite]" />
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
@@ -391,87 +386,40 @@ export default function HeroSection() {
 
       </div>
 
-      {/* ======================================================== */}
-      {/* === RESTORED ATTRACTIVE MOBILE MENU (DARK THEME) === */}
-      {/* ======================================================== */}
-      
-      {/* Backdrop */}
-      <div 
-        className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-[80] transition-opacity duration-500 lg:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} 
-        onClick={() => setIsMobileMenuOpen(false)}
-      ></div>
-      
-      {/* Menu Drawer */}
-      <div 
-        className={`fixed inset-y-0 right-0 w-full sm:w-[400px] bg-zinc-900/95 backdrop-blur-xl z-[90] shadow-2xl transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden flex flex-col border-l border-white/10 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-      >
-          {/* Decorative Red/Black Blobs */}
-          <div className="absolute top-[-20%] right-[-20%] w-[300px] h-[300px] bg-red-600/20 rounded-full blur-[100px] pointer-events-none"></div>
-          <div className="absolute bottom-[10%] left-[-20%] w-[250px] h-[250px] bg-black rounded-full blur-[80px] pointer-events-none"></div>
-
-          {/* Header */}
-          <div className="relative flex items-center justify-between p-6 sm:p-8 border-b border-white/10">
-             <div className="w-36">
-                <img src="/logo.png" alt="Cilox Logo" className="w-full h-auto object-contain" />
-             </div>
-             <button 
-               onClick={() => setIsMobileMenuOpen(false)} 
-               className="group p-2 rounded-full border border-zinc-700 bg-black hover:border-red-500 hover:bg-red-500 hover:text-white text-zinc-400 transition-all duration-300"
-             >
-               <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
-             </button>
-          </div>
-
-          {/* Staggered Navigation Links */}
-          <div className="flex-1 flex flex-col justify-center px-8 relative z-10">
-             <ul className="space-y-6">
-               {menuItems.map((link, i) => (
-                 <li 
-                   key={i} 
-                   className={`transform transition-all duration-700 ease-out ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}
-                   style={{ transitionDelay: `${i * 100}ms` }}
-                 >
-                   <a 
-                     href={link.href} 
-                     onClick={() => setIsMobileMenuOpen(false)}
-                     className="group flex items-end gap-4 text-3xl sm:text-4xl font-light text-white hover:text-red-500 transition-colors"
-                   >
-                     <span className="text-sm font-bold text-zinc-600 group-hover:text-red-500 mb-2 font-mono">
-                       0{i + 1}
-                     </span>
-                     <span className="border-b-2 border-transparent group-hover:border-red-500 transition-all duration-300">
-                       {link.name}
-                     </span>
-                   </a>
-                 </li>
-               ))}
-             </ul>
-          </div>
-
-          {/* Footer Area */}
-          <div className="relative z-10 p-8 border-t border-white/10 bg-black/40">
-             <a 
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`w-full py-4 rounded-xl bg-red-600 text-white font-bold text-lg shadow-lg shadow-red-600/20 flex items-center justify-center space-x-3 active:scale-95 transition-all duration-500 delay-300 transform hover:bg-red-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-             >
-                <Mail size={20} />
-                <span>Get a Free Quote</span>
-             </a>
-
-             <div className={`mt-8 flex justify-between items-center transition-all duration-500 delay-500 transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                <div className="flex space-x-6">
-                  <a href="#" className="text-zinc-500 hover:text-red-500 transition-colors"><Instagram size={20} /></a>
-                  <a href="#" className="text-zinc-500 hover:text-red-500 transition-colors"><Linkedin size={20} /></a>
-                  <a href="#" className="text-zinc-500 hover:text-red-500 transition-colors"><Twitter size={20} /></a>
-                </div>
-                <span className="text-xs font-medium text-zinc-600">© 2024 Media Factory</span>
+      {/* MOBILE MENU */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center">
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="absolute top-6 right-6 text-white hover:text-red-500"
+          >
+            <X className="w-10 h-10" />
+          </button>
+          
+          <div className="flex flex-col items-center space-y-6 sm:space-y-8 text-center p-4">
+             <div className="w-16 h-1 bg-red-500 mb-4" />
+             <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</MobileNavLink>
+             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</MobileNavLink>
+             <MobileNavLink href="#our-work" onClick={() => setIsMobileMenuOpen(false)}>Our Work</MobileNavLink>
+             <MobileNavLink href="#why-choose-us" onClick={() => setIsMobileMenuOpen(false)}>Why Choose Us</MobileNavLink>
+             <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</MobileNavLink>
+             
+             <div className="pt-8">
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-8 py-4 bg-red-500 text-white font-bold text-sm tracking-widest uppercase rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/30">
+                  Request a Quote
+                </a>
              </div>
           </div>
-      </div>
+        </div>
+      )}
 
+      {/* Styles for the Shimmer Animation */}
       <style jsx global>{`
-        @keyframes shimmer { 100% { transform: translateX(100%); } }
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
       `}</style>
 
     </div>
@@ -479,11 +427,27 @@ export default function HeroSection() {
 }
 
 // --- HELPER COMPONENTS ---
+
 function NavLink({ href, children, active }: { href: string; children: React.ReactNode; active?: boolean }) {
   return (
-    <a href={href} className={`text-[13px] font-bold tracking-widest transition-colors hover:text-red-500 relative group py-2 ${active ? "text-red-500" : "text-white"}`}>
+    <a 
+      href={href} 
+      className={`text-[13px] font-bold tracking-widest transition-colors hover:text-red-500 relative group py-2 ${active ? "text-red-500" : "text-white"}`}
+    >
       {children}
       <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${active ? 'scale-x-100' : ''}`} />
+    </a>
+  );
+}
+
+function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {
+  return (
+    <a 
+      href={href} 
+      onClick={onClick}
+      className="text-2xl font-bold tracking-wider text-white hover:text-red-500 transition-colors"
+    >
+      {children}
     </a>
   );
 }

@@ -57,7 +57,7 @@ const Contact = () => {
       {/* =========================================
           CONTACT SECTION
       ========================================= */}
-      <section className="bg-gray-50 py-24 px-6 sm:px-12 lg:px-24 overflow-hidden relative">
+      <section id="contact" className="bg-gray-50 py-24 px-6 sm:px-12 lg:px-24 overflow-hidden relative">
         
         {/* Background Decor (Subtle Angle) */}
         <div className="absolute top-0 left-0 w-full h-2/3 bg-white -skew-y-1 origin-top-left z-0" />

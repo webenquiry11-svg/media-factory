@@ -163,9 +163,9 @@ export default function HeroSection() {
           </div>
           <div className="hidden sm:flex items-center">
             <div className="flex items-center space-x-4">
-              <a href="#" className="hover:text-red-500 transition-colors">Help</a>
+              <a href="#contact" className="hover:text-red-500 transition-colors">Help</a>
               <span className="text-gray-700">/</span>
-              <a href="#" className="hover:text-red-500 transition-colors">Support</a>
+              <a href="#contact" className="hover:text-red-500 transition-colors">Support</a>
               <span className="text-gray-700">/</span>
               <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
             </div>

@@ -115,10 +115,12 @@ const About = () => {
             </div>
 
             {/* Bottom Row: Avatars + Button */}
-            <div className={`flex flex-col sm:flex-row items-center gap-6 sm:gap-8 border-t border-gray-100 pt-8 max-w-lg transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '900ms' }}>
-              <button className="px-10 py-4 bg-red-500 hover:bg-red-600 text-white text-sm font-bold uppercase tracking-widest rounded-full transition-all shadow-md hover:shadow-lg w-full sm:w-auto">
-                MORE ABOUT US
-              </button>
+            <div className={`flex items-center gap-5 mt-8 pt-8 border-t border-gray-100 transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '900ms' }}>
+              <div className="w-1.5 h-12 bg-red-500" />
+              <h4 className="text-xl sm:text-2xl font-extrabold text-[#111] uppercase leading-none tracking-tight">
+                Headlines built to <br />
+                <span className="text-red-500">stop crowds.</span>
+              </h4>
             </div>
           </div>
 

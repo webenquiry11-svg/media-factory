@@ -271,16 +271,14 @@ const Contact = () => {
       </section>
 
       {/* =========================================
-          FOOTER SECTION (Background Layers Removed)
+          FOOTER SECTION (THEME COLORS - DARK TEXT)
       ========================================= */}
-      <footer className="bg-[#0b0b0b] pt-20 pb-10 relative overflow-hidden text-white border-t border-[#111]">
+      <footer className="relative pt-20 pb-10 overflow-hidden text-[#111] border-t border-gray-200">
         
-        {/* Background Image - Remains Visible */}
+        {/* Background Image - Clean, no overlay */}
         <div className="absolute inset-0 z-0">
-           <img src="/media factory images/footer.jpg" alt="Footer Background" className="w-full h-full object-cover opacity-25" />
+           <img src="/media factory images/footer.jpg" alt="Footer Background" className="w-full h-full object-cover" />
         </div>
-        
-        {/* REMOVED ALL ANIMATED CURVE DIVS HERE */}
 
         <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">
           
@@ -292,38 +290,38 @@ const Contact = () => {
                <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
             </a>
 
-            {/* Subscribe Form */}
+            {/* Subscribe Form (White bg for contrast) */}
             <div className="relative w-full max-w-lg">
                <input 
                   type="email" 
                   placeholder="Email address" 
-                  className="w-full bg-[#111]/50 backdrop-blur-sm border border-gray-700 rounded-full py-4 pl-8 pr-40 text-sm text-white placeholder-gray-500 focus:border-red-500 outline-none transition-colors relative z-10"
+                  className="w-full bg-white/90 backdrop-blur-md border border-gray-300 rounded-full py-4 pl-8 pr-40 text-sm text-gray-800 placeholder-gray-500 focus:border-red-500 outline-none transition-colors relative z-10 shadow-sm"
                />
-               <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-white hover:bg-red-500 text-black font-bold text-[11px] tracking-widest uppercase px-8 rounded-full transition-all duration-300 z-20">
+               <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#111] hover:bg-red-500 text-white font-bold text-[11px] tracking-widest uppercase px-8 rounded-full transition-all duration-300 z-20 shadow-md">
                  Subscribe
                </button>
             </div>
           </div>
 
           {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-gray-800/50 pb-12 mb-10 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-gray-300 pb-12 mb-10 relative">
               
               {/* Column 1: Intro (Span 4) */}
               <div className="lg:col-span-4">
-                 <h3 className="text-lg font-medium text-white leading-relaxed mb-8 max-w-xs">
+                 <h3 className="text-lg font-bold text-[#111] leading-relaxed mb-8 max-w-xs drop-shadow-sm">
                     Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
                  </h3>
               </div>
 
-              {/* Column 2: Explore Links (Span 5 - 2 Columns internally) */}
+              {/* Column 2: Explore Links */}
               <div className="lg:col-span-5">
-                 <h4 className="font-bold text-lg mb-8 uppercase text-white">EXPLORE</h4>
+                 <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">EXPLORE</h4>
                  <div className="grid grid-cols-2 gap-x-8 gap-y-3">
                     {/* Sub-col 1 */}
                     <ul className="space-y-3">
                        {['Services', 'Meet Team', 'Portfolio', 'What We Do', 'Latest News'].map((item) => (
                           <li key={item}>
-                             <a href="#" className="text-gray-400 hover:text-red-500 text-[14px] transition-colors">{item}</a>
+                             <a href="#" className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item}</a>
                           </li>
                        ))}
                     </ul>
@@ -331,27 +329,27 @@ const Contact = () => {
                     <ul className="space-y-3">
                        {['Faqs', 'Contact', 'Pricing Plans', 'Support'].map((item) => (
                           <li key={item}>
-                             <a href="#" className="text-gray-400 hover:text-red-500 text-[14px] transition-colors">{item}</a>
+                             <a href="#" className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item}</a>
                           </li>
                        ))}
                     </ul>
                  </div>
               </div>
 
-              {/* Column 3: Contact Info (Span 3) */}
+              {/* Column 3: Contact Info */}
               <div className="lg:col-span-3">
-                 <h4 className="font-bold text-lg mb-8 uppercase text-white">CONTACT</h4>
-                 <p className="text-gray-400 text-[14px] mb-6 leading-relaxed">
+                 <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">CONTACT</h4>
+                 <p className="text-slate-700 text-[15px] mb-6 leading-relaxed font-medium">
                     Ludhiana, Punjab, 141001
                  </p>
                  <div className="space-y-4">
                     <div className="flex items-center gap-3 group cursor-pointer">
-                       <Phone className="w-4 h-4 text-red-500" />
-                       <span className="text-white text-[14px] group-hover:text-red-500 transition-colors font-medium">9814746565</span>
+                       <Phone className="w-4 h-4 text-red-600" />
+                       <span className="text-[#111] text-[15px] group-hover:text-red-600 transition-colors font-bold">9814746565</span>
                     </div>
                     <div className="flex items-center gap-3 group cursor-pointer">
-                       <Mail className="w-4 h-4 text-red-500" />
-                       <span className="text-white text-[14px] group-hover:text-red-500 transition-colors">support@mediafactory.co.in</span>
+                       <Mail className="w-4 h-4 text-red-600" />
+                       <span className="text-[#111] text-[15px] group-hover:text-red-600 transition-colors font-medium">support@mediafactory.co.in</span>
                     </div>
                  </div>
               </div>
@@ -360,7 +358,7 @@ const Contact = () => {
 
           {/* Bottom Copyright */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-center relative z-10">
-              <p className="text-gray-500 text-[13px]">
+              <p className="text-slate-600 text-[13px] font-medium">
                  © Copyright 2025 by Cilox HTML Template.
               </p>
           </div>

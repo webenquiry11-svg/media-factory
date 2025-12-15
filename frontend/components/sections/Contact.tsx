@@ -26,7 +26,6 @@ const Contact = () => {
     setStatus({ submitting: true, success: false, error: '' });
 
     try {
-      // Assuming backend is running on port 5000
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
       const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
@@ -41,7 +40,6 @@ const Contact = () => {
       if (response.ok) {
         setStatus({ submitting: false, success: true, error: '' });
         setFormData({ name: '', email: '', phone: '', service: '', message: '', source: 'Contact Page' });
-        // Clear success message after 5 seconds
         setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
       } else {
         setStatus({ submitting: false, success: false, error: data.message || 'Something went wrong.' });
@@ -135,7 +133,7 @@ const Contact = () => {
 
           </div>
 
-          {/* --- FORM SECTION (New Layout) --- */}
+          {/* --- FORM SECTION --- */}
           <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
             <div className="grid grid-cols-1 lg:grid-cols-5">
                 
@@ -273,29 +271,16 @@ const Contact = () => {
       </section>
 
       {/* =========================================
-          FOOTER SECTION (Unchanged)
+          FOOTER SECTION (Background Layers Removed)
       ========================================= */}
       <footer className="bg-[#0b0b0b] pt-20 pb-10 relative overflow-hidden text-white border-t border-[#111]">
         
-        {/* Background Image */}
+        {/* Background Image - Remains Visible */}
         <div className="absolute inset-0 z-0">
            <img src="/media factory images/footer.jpg" alt="Footer Background" className="w-full h-full object-cover opacity-25" />
         </div>
         
-        {/* --- GEOMETRIC BACKGROUND CURVES (ANIMATED) --- */}
-        {/* Curve 1: Large sweeping curve from the right */}
-        <div 
-            className="absolute -top-[50%] -right-[10%] w-[80%] h-[200%] bg-[#121212] rounded-[100%] pointer-events-none z-0 drift-animation" 
-        />
-
-        {/* Curve 2: Intersecting curve from the bottom/center */}
-        <div 
-            className="absolute top-[20%] -right-[20%] w-[90%] h-[150%] bg-[#161616] rounded-[100%] pointer-events-none z-0 opacity-80 drift-reverse-animation"
-        />
-        
-        {/* Curve 3: Subtle bottom-left fill */}
-        <div className="absolute -bottom-[40%] -left-[10%] w-[60%] h-[100%] bg-[#0e0e0e] rounded-full blur-3xl opacity-50 pointer-events-none z-0 pulse-animation" />
-
+        {/* REMOVED ALL ANIMATED CURVE DIVS HERE */}
 
         <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">
           
@@ -322,93 +307,65 @@ const Contact = () => {
 
           {/* Main Footer Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-gray-800/50 pb-12 mb-10 relative">
-             
-             {/* Column 1: Intro (Span 4) */}
-             <div className="lg:col-span-4">
-                <h3 className="text-lg font-medium text-white leading-relaxed mb-8 max-w-xs">
-                   Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
-                </h3>
-             </div>
+              
+              {/* Column 1: Intro (Span 4) */}
+              <div className="lg:col-span-4">
+                 <h3 className="text-lg font-medium text-white leading-relaxed mb-8 max-w-xs">
+                    Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
+                 </h3>
+              </div>
 
-             {/* Column 2: Explore Links (Span 5 - 2 Columns internally) */}
-             <div className="lg:col-span-5">
-                <h4 className="font-bold text-lg mb-8 uppercase text-white">EXPLORE</h4>
-                <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                   {/* Sub-col 1 */}
-                   <ul className="space-y-3">
-                      {['Services', 'Meet Team', 'Portfolio', 'What We Do', 'Latest News'].map((item) => (
-                         <li key={item}>
-                            <a href="#" className="text-gray-400 hover:text-red-500 text-[14px] transition-colors">{item}</a>
-                         </li>
-                      ))}
-                   </ul>
-                   {/* Sub-col 2 */}
-                   <ul className="space-y-3">
-                      {['Faqs', 'Contact', 'Pricing Plans', 'Support'].map((item) => (
-                         <li key={item}>
-                            <a href="#" className="text-gray-400 hover:text-red-500 text-[14px] transition-colors">{item}</a>
-                         </li>
-                      ))}
-                   </ul>
-                </div>
-             </div>
+              {/* Column 2: Explore Links (Span 5 - 2 Columns internally) */}
+              <div className="lg:col-span-5">
+                 <h4 className="font-bold text-lg mb-8 uppercase text-white">EXPLORE</h4>
+                 <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+                    {/* Sub-col 1 */}
+                    <ul className="space-y-3">
+                       {['Services', 'Meet Team', 'Portfolio', 'What We Do', 'Latest News'].map((item) => (
+                          <li key={item}>
+                             <a href="#" className="text-gray-400 hover:text-red-500 text-[14px] transition-colors">{item}</a>
+                          </li>
+                       ))}
+                    </ul>
+                    {/* Sub-col 2 */}
+                    <ul className="space-y-3">
+                       {['Faqs', 'Contact', 'Pricing Plans', 'Support'].map((item) => (
+                          <li key={item}>
+                             <a href="#" className="text-gray-400 hover:text-red-500 text-[14px] transition-colors">{item}</a>
+                          </li>
+                       ))}
+                    </ul>
+                 </div>
+              </div>
 
-             {/* Column 3: Contact Info (Span 3) */}
-             <div className="lg:col-span-3">
-                <h4 className="font-bold text-lg mb-8 uppercase text-white">CONTACT</h4>
-                <p className="text-gray-400 text-[14px] mb-6 leading-relaxed">
-                   Ludhiana, Punjab, 141001
-                </p>
-                <div className="space-y-4">
-                   <div className="flex items-center gap-3 group cursor-pointer">
-                      <Phone className="w-4 h-4 text-red-500" />
-                      <span className="text-white text-[14px] group-hover:text-red-500 transition-colors font-medium">9814746565</span>
-                   </div>
-                   <div className="flex items-center gap-3 group cursor-pointer">
-                      <Mail className="w-4 h-4 text-red-500" />
-                      <span className="text-white text-[14px] group-hover:text-red-500 transition-colors">support@mediafactory.co.in</span>
-                   </div>
-                </div>
-             </div>
+              {/* Column 3: Contact Info (Span 3) */}
+              <div className="lg:col-span-3">
+                 <h4 className="font-bold text-lg mb-8 uppercase text-white">CONTACT</h4>
+                 <p className="text-gray-400 text-[14px] mb-6 leading-relaxed">
+                    Ludhiana, Punjab, 141001
+                 </p>
+                 <div className="space-y-4">
+                    <div className="flex items-center gap-3 group cursor-pointer">
+                       <Phone className="w-4 h-4 text-red-500" />
+                       <span className="text-white text-[14px] group-hover:text-red-500 transition-colors font-medium">9814746565</span>
+                    </div>
+                    <div className="flex items-center gap-3 group cursor-pointer">
+                       <Mail className="w-4 h-4 text-red-500" />
+                       <span className="text-white text-[14px] group-hover:text-red-500 transition-colors">support@mediafactory.co.in</span>
+                    </div>
+                 </div>
+              </div>
 
           </div>
 
           {/* Bottom Copyright */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-center relative z-10">
-             <p className="text-gray-500 text-[13px]">
-                © Copyright 2025 by Cilox HTML Template.
-             </p>
+              <p className="text-gray-500 text-[13px]">
+                 © Copyright 2025 by Cilox HTML Template.
+              </p>
           </div>
 
         </div>
-
-        {/* Global Styles for Animations */}
-        <style>{`
-            .drift-animation {
-                animation: zoomDrift 15s ease-in-out infinite;
-            }
-            .drift-reverse-animation {
-                animation: zoomDriftReverse 20s ease-in-out infinite;
-            }
-            .pulse-animation {
-                animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
-
-            @keyframes zoomDrift {
-                0% { transform: rotate(12deg) scale(1); }
-                50% { transform: rotate(15deg) scale(1.1); }
-                100% { transform: rotate(12deg) scale(1); }
-            }
-            @keyframes zoomDriftReverse {
-                0% { transform: rotate(-25deg) scale(1); }
-                50% { transform: rotate(-22deg) scale(1.15); }
-                100% { transform: rotate(-25deg) scale(1); }
-            }
-            @keyframes pulse {
-                0%, 100% { opacity: 0.5; }
-                50% { opacity: 0.3; }
-            }
-        `}</style>
       </footer>
     </div>
   );

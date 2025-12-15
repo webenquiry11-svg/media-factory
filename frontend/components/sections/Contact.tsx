@@ -316,24 +316,19 @@ const Contact = () => {
               {/* Column 2: Explore Links */}
               <div className="lg:col-span-5">
                  <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">EXPLORE</h4>
-                 <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                    {/* Sub-col 1 */}
-                    <ul className="space-y-3">
-                       {['Services', 'Meet Team', 'Portfolio', 'What We Do', 'Latest News'].map((item) => (
-                          <li key={item}>
-                             <a href="#" className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item}</a>
-                          </li>
-                       ))}
-                    </ul>
-                    {/* Sub-col 2 */}
-                    <ul className="space-y-3">
-                       {['Faqs', 'Contact', 'Pricing Plans', 'Support'].map((item) => (
-                          <li key={item}>
-                             <a href="#" className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item}</a>
-                          </li>
-                       ))}
-                    </ul>
-                 </div>
+                 <ul className="space-y-3">
+                    {[
+                       { name: 'Home', href: '#' },
+                       { name: 'About Us', href: '#about' },
+                       { name: 'Services', href: '#services' },
+                       { name: 'Our Work', href: '#work' },
+                       { name: 'Contact', href: '#contact' }
+                    ].map((item) => (
+                       <li key={item.name}>
+                          <a href={item.href} className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item.name}</a>
+                       </li>
+                    ))}
+                 </ul>
               </div>
 
               {/* Column 3: Contact Info */}

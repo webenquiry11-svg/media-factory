@@ -70,7 +70,7 @@ const About = () => {
                    <div className={`absolute inset-0 rounded-full border-2 border-transparent border-l-red-500 border-b-red-500 rotate-[-45deg] transition-transform duration-1000 ${inView ? 'scale-110' : 'scale-75'}`} />
                    <div className={`w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10 transition-transform duration-1000 ${inView ? 'scale-100' : 'scale-75'}`}>
                      <img 
-                       src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                       src="/media factory images/about.png" 
                        alt="Meeting" 
                        className="w-full h-full object-cover"
                      />

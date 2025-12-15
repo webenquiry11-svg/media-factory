@@ -219,6 +219,9 @@ const OutdoorServices = () => {
                     <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                       {step.description}
                     </p>
+                    <a href="#contact" className="text-red-500 font-bold text-[13px] uppercase tracking-wider hover:text-[#111] transition-colors pl-14 lg:pl-0 mb-2 block">
+                      Talk to us about your next print.
+                    </a>
                   </div>
                 ) : (
                   // === INACTIVE STATE (DESKTOP ONLY) ===
@@ -352,6 +355,9 @@ const IndoorServices = () => {
                         <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                         {step.description}
                         </p>
+                        <a href="#contact" className="text-red-500 font-bold text-[13px] uppercase tracking-wider hover:text-[#111] transition-colors pl-14 lg:pl-0 mb-2 block">
+                          Talk to us about your next print.
+                        </a>
                     </div>
                     ) : (
                     // Inactive Content (Vertical Text - Desktop Only)

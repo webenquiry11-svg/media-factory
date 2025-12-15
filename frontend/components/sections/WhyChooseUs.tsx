@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Star, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 
 const WhyChooseUs = () => {
@@ -43,28 +43,6 @@ const WhyChooseUs = () => {
                 alt="Woman in Suit" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               />
-              
-              {/* Play Button with Rotating Text Ring */}
-              <div className="absolute top-6 left-6 sm:top-10 sm:left-10 z-20">
-                <div className="relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center">
-                  {/* Rotating Text SVG */}
-                  <svg className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]" viewBox="0 0 100 100">
-                    <defs>
-                      <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-                    </defs>
-                    <text fill="white" fontSize="11.5" fontWeight="bold" letterSpacing="1.2">
-                      <textPath href="#circlePath" startOffset="0%">
-                        • 3800+ SATISFIED CLIENTS • 3800+ SATISFIED
-                      </textPath>
-                    </text>
-                  </svg>
-                  
-                  {/* Center Icon */}
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer hover:bg-[#fbbf24] hover:border-[#fbbf24] hover:scale-110 transition-all duration-300">
-                      <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-white" />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 

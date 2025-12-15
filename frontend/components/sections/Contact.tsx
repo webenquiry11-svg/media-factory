@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -306,15 +306,15 @@ const Contact = () => {
           {/* Main Footer Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-gray-300 pb-12 mb-10 relative">
               
-              {/* Column 1: Intro (Span 4) */}
-              <div className="lg:col-span-4">
+              {/* Column 1: Intro (Span 3) */}
+              <div className="lg:col-span-3">
                  <h3 className="text-lg font-bold text-[#111] leading-relaxed mb-8 max-w-xs drop-shadow-sm">
                     Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
                  </h3>
               </div>
 
               {/* Column 2: Explore Links */}
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-3 lg:pl-8">
                  <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">EXPLORE</h4>
                  <ul className="space-y-3">
                     {[
@@ -329,6 +329,18 @@ const Contact = () => {
                        </li>
                     ))}
                  </ul>
+              </div>
+
+              {/* Column 3: Follow Us */}
+              <div className="lg:col-span-3">
+                 <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">FOLLOW US</h4>
+                 <div className="flex gap-4">
+                    {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                       <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#111] hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 shadow-sm">
+                          <Icon className="w-5 h-5" />
+                       </a>
+                    ))}
+                 </div>
               </div>
 
               {/* Column 3: Contact Info */}

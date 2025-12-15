@@ -169,18 +169,18 @@ export default function HeroSection() {
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6 w-full md:w-auto">
             <div className="flex items-center gap-2 hover:text-red-500 transition-colors cursor-pointer">
               <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500 shrink-0" />
-              <span className="truncate">needhelp@company.com</span>
+              <span className="truncate">support@mediafactory.co.in</span>
             </div>
             <div className="hidden sm:flex items-center gap-2 hover:text-red-500 transition-colors cursor-pointer">
               <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500 shrink-0" />
-              <span className="truncate">88 Brooklyn Golden Street, NY</span>
+              <span className="truncate">Ludhiana, Punjab, 141001</span>
             </div>
           </div>
           <div className="hidden sm:flex items-center">
             <div className="flex items-center space-x-4">
-              <a href="#" className="hover:text-red-500 transition-colors">Help</a>
+              <a href="#contact" className="hover:text-red-500 transition-colors">Help</a>
               <span className="text-gray-700">/</span>
-              <a href="#" className="hover:text-red-500 transition-colors">Support</a>
+              <a href="#contact" className="hover:text-red-500 transition-colors">Support</a>
               <span className="text-gray-700">/</span>
               <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
             </div>

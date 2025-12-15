@@ -57,7 +57,7 @@ const Contact = () => {
       ========================================= */}
       <section id="contact" className="bg-gray-50 py-24 px-6 sm:px-12 lg:px-24 overflow-hidden relative">
         
-        {/* Background Decor (Subtle Angle) */}
+        {/* Background Decor */}
         <div className="absolute top-0 left-0 w-full h-2/3 bg-white -skew-y-1 origin-top-left z-0" />
         
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -271,11 +271,11 @@ const Contact = () => {
       </section>
 
       {/* =========================================
-          FOOTER SECTION (THEME COLORS - DARK TEXT)
+          FOOTER SECTION (CORRECT POSITIONING)
       ========================================= */}
       <footer className="relative pt-20 pb-10 overflow-hidden text-[#111] border-t border-gray-200">
         
-        {/* Background Image - Clean, no overlay */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
            <img src="/media factory images/footer.jpg" alt="Footer Background" className="w-full h-full object-cover" />
         </div>
@@ -284,13 +284,9 @@ const Contact = () => {
           
           {/* Top Row: Logo & Subscribe */}
           <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8">
-            
-            {/* Logo */}
             <a href="/" className="flex items-center">
                <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
             </a>
-
-            {/* Subscribe Form (White bg for contrast) */}
             <div className="relative w-full max-w-lg">
                <input 
                   type="email" 
@@ -303,53 +299,47 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-gray-300 pb-12 mb-10 relative">
+          {/* Main Footer Grid - Corrected to 4-2-3-3 Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-gray-300 pb-12 mb-10 relative">
               
-              {/* Column 1: Intro (Span 3) */}
-              <div className="lg:col-span-3">
-                 <h3 className="text-lg font-bold text-[#111] leading-relaxed mb-8 max-w-xs drop-shadow-sm">
+              {/* 1. INTRO (Span 4) */}
+              <div className="lg:col-span-4">
+                 <h3 className="text-lg font-bold text-[#111] leading-relaxed mb-4 max-w-xs drop-shadow-sm">
                     Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
                  </h3>
               </div>
 
-              {/* Column 2: Explore Links */}
-              <div className="lg:col-span-3 lg:pl-8">
-                 <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">EXPLORE</h4>
+              {/* 2. EXPLORE (Span 2) */}
+              <div className="lg:col-span-2">
+                 <h4 className="font-extrabold text-lg mb-6 uppercase text-[#111] tracking-wider">EXPLORE</h4>
                  <ul className="space-y-3">
-                    {[
-                       { name: 'Home', href: '#' },
-                       { name: 'About Us', href: '#about' },
-                       { name: 'Services', href: '#services' },
-                       { name: 'Our Work', href: '#work' },
-                       { name: 'Contact', href: '#contact' }
-                    ].map((item) => (
-                       <li key={item.name}>
-                          <a href={item.href} className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item.name}</a>
+                    {['Home', 'About Us', 'Services', 'Our Work', 'Contact'].map((item) => (
+                       <li key={item}>
+                          <a href="#" className="text-slate-700 hover:text-red-600 text-[15px] font-medium transition-colors">{item}</a>
                        </li>
                     ))}
                  </ul>
               </div>
 
-              {/* Column 3: Follow Us */}
+              {/* 3. FOLLOW US (Span 3) */}
               <div className="lg:col-span-3">
-                 <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">FOLLOW US</h4>
-                 <div className="flex gap-4">
+                 <h4 className="font-extrabold text-lg mb-6 uppercase text-[#111] tracking-wider">FOLLOW US</h4>
+                 <div className="flex gap-3">
                     {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                       <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#111] hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 shadow-sm">
+                       <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-[#111] hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 shadow-sm">
                           <Icon className="w-5 h-5" />
                        </a>
                     ))}
                  </div>
               </div>
 
-              {/* Column 3: Contact Info */}
+              {/* 4. CONTACT (Span 3) */}
               <div className="lg:col-span-3">
-                 <h4 className="font-extrabold text-lg mb-8 uppercase text-[#111] tracking-wider">CONTACT</h4>
-                 <p className="text-slate-700 text-[15px] mb-6 leading-relaxed font-medium">
+                 <h4 className="font-extrabold text-lg mb-6 uppercase text-[#111] tracking-wider">CONTACT</h4>
+                 <p className="text-slate-700 text-[15px] mb-4 leading-relaxed font-medium">
                     Ludhiana, Punjab, 141001
                  </p>
-                 <div className="space-y-4">
+                 <div className="space-y-3">
                     <div className="flex items-center gap-3 group cursor-pointer">
                        <Phone className="w-4 h-4 text-red-600" />
                        <span className="text-[#111] text-[15px] group-hover:text-red-600 transition-colors font-bold">9814746565</span>

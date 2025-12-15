@@ -148,7 +148,7 @@ const OurWork = () => {
                     </div>
 
                     {/* Bottom Action Bar */}
-                    <div className="bg-red-500 h-[70px] lg:h-[85px] flex items-center justify-between px-6 lg:px-14 cursor-pointer hover:bg-red-600 transition-colors duration-300">
+                    <a href="#contact" className="bg-red-500 h-[70px] lg:h-[85px] flex items-center justify-between px-6 lg:px-14 cursor-pointer hover:bg-red-600 transition-colors duration-300">
                       <span className="text-white font-bold text-[11px] lg:text-[12px] uppercase tracking-[0.15em]">
                         Talk to us about your next print{" "}
                       </span>
@@ -156,7 +156,7 @@ const OurWork = () => {
                       <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
                         <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 text-[#111]" />
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>

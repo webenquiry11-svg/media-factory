@@ -71,7 +71,7 @@ const About = () => {
                    <div className={`w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10 transition-transform duration-1000 ${inView ? 'scale-100' : 'scale-75'}`}>
                      <img 
                        src="/media factory images/about.png" 
-                       alt="Meeting" 
+                       alt="Meeting"
                        className="w-full h-full object-cover"
                      />
                    </div>
@@ -152,8 +152,8 @@ const About = () => {
                <div className="flex justify-center mb-2">
                  <Award className="w-8 h-8 sm:w-10 sm:h-10 text-red-500 stroke-[1.5]" />
                </div>
-               <h4 className="text-2xl sm:text-3xl font-extrabold text-[#111] mb-1">38+</h4>
-               <p className="text-gray-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider">Awards Won</p>
+               <h4 className="text-2xl sm:text-3xl font-extrabold text-[#111] mb-1">100+</h4>
+               <p className="text-gray-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider">Satisfied Clients</p>
             </div>
 
             {/* Decorative Sparkle */}

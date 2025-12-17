@@ -254,9 +254,15 @@ const Contact = () => {
               <div className="lg:col-span-2">
                  <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">EXPLORE</h4>
                  <ul className="space-y-3">
-                    {['Home', 'About Us', 'Services', 'Our Work', 'Contact'].map((item) => (
-                       <li key={item}>
-                          <a href="#" className="text-slate-600 hover:text-red-600 text-[15px] font-medium transition-colors">{item}</a>
+                    {[
+                       { name: 'Home', href: '#' },
+                       { name: 'About Us', href: '#about' },
+                       { name: 'Services', href: '#services' },
+                       { name: 'Our Work', href: '#work' },
+                       { name: 'Contact', href: '#contact' }
+                    ].map((item) => (
+                       <li key={item.name}>
+                          <a href={item.href} className="text-slate-600 hover:text-red-600 text-[15px] font-medium transition-colors">{item.name}</a>
                        </li>
                     ))}
                  </ul>

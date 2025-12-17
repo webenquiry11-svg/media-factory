@@ -281,8 +281,17 @@ const IndoorServices = () => {
     },
     {
       id: 6,
-      title: "More Branding Solutions",
-      description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
+      title: "Other Branding Solutions",
+      description: (
+        <Fragment>
+          (Glowsign Board, Vinyl Printing, Customized Wallpaper, Retail Shop Branding, In-Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand).
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Wide range of formats tailored to diverse branding needs.</li>
+            <li>High-quality materials ensure durability and professional presentation everywhere.</li>
+            <li>Customizable designs aligned with brand guidelines and campaign goals.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: MoreIcon,
     },
   ];
@@ -349,9 +358,9 @@ const IndoorServices = () => {
                         {step.title}
                         </h3>
 
-                        <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
+                        <div className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                         {step.description}
-                        </p>
+                        </div>
                     </div>
                     ) : (
                     // Inactive Content (Vertical Text - Desktop Only)

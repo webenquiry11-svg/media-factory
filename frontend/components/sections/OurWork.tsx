@@ -65,13 +65,11 @@ const OurWork = () => {
           </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-6">
-            Our Printing Machines <br className="hidden sm:block" /> &
-            Technology
+            Our Advanced Production <br className="hidden sm:block" /> Technology Suite
           </h2>
 
           <p className="text-gray-500 text-sm sm:text-[16px] max-w-2xl mx-auto leading-relaxed mb-8">
-            In this section, we will represent our printing machines and explain
-            how we work, utilizing the latest technology.
+            A fully equipped production setup featuring high‑capacity systems, precise workflows, and expert operators for consistent, campaign‑ready output
           </p>
         </div>
 

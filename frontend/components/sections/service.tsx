@@ -122,31 +122,76 @@ const OutdoorServices = () => {
     {
       id: 1,
       title: "Bus Branding",
-      description: "Maximize moving visibility with bold, eye-catching bus wraps across high-traffic city routes.",
+      description: (
+        <Fragment>
+          Maximize moving visibility with bold, eye-catching bus wraps across high-traffic city routes.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Full-coverage vinyl wraps with sharp, high-resolution artwork.</li>
+            <li>Weather-resistant materials built for long-term outdoor exposure.</li>
+            <li>Strategic route planning to maximize impressions and frequency.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: BusIcon,
     },
     {
       id: 2,
-      title: "Cab Branding",
-      description: "Turn everyday rides into premium brand touchpoints with smart, city-wide cab advertising.",
-      icon: CabIcon,
+      title: "Unipole / Billboard",
+      description: (
+        <Fragment>
+          Capture attention with impactful unipoles and billboards on high-traffic routes for maximum visibility.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Large-format displays designed for long-distance readability and impact.</li>
+            <li>Premium flex and printing quality for vivid, sharp visuals.</li>
+            <li>Prime locations selected for high daily reach and recall.</li>
+          </ul>
+        </Fragment>
+      ),
+      icon: DealerBoardIcon,
     },
     {
       id: 3,
-      title: "RWA Branding",
-      description: "Engage trusted community spaces and influence residents where they live, relax, and interact.",
+      title: "Corporate Branding",
+      description: (
+        <Fragment>
+          Boost your brand presence with cohesive display solutions across corporate touchpoints and campuses.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Professional branding aligned with corporate guidelines.</li>
+            <li>High-finish signage, wall graphics, and displays.</li>
+            <li>Consistent brand experience across multiple high-traffic areas.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: RWAIcon,
     },
     {
       id: 4,
       title: "Metro Branding",
-      description: "Dominate daily commuter journeys with impactful metro ads in stations and inside trains.",
+      description: (
+        <Fragment>
+          Dominate daily commuter journeys with impactful metro ads in stations and inside trains.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>High-frequency exposure to office-goers and daily commuters.</li>
+            <li>Multiple formats including panels, pillars, train wraps, and screens.</li>
+            <li>Strategically placed creatives for dwell-time engagement and recall.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: MetroIcon,
     },
     {
       id: 5,
       title: "Auto Branding",
-      description: "Reach deep into local markets with continuous brand presence on high-frequency auto routes.",
+      description: (
+        <Fragment>
+          Reach deep into local markets with continuous brand presence on high-frequency auto routes.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Compact yet prominent panels optimized for local visibility.</li>
+            <li>Durable prints that withstand dust, heat, and daily wear.</li>
+            <li>Ideal for hyperlocal targeting and repeat neighborhood impressions.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: AutoIcon,
     },
   ];
@@ -160,7 +205,7 @@ const OutdoorServices = () => {
           Strategic Pathway to Your <span className="text-red-500 block sm:inline">Outdoor Success</span>
         </h2>
         <p className="text-gray-600 max-w-2xl text-base sm:text-lg leading-relaxed mx-auto lg:mx-0">
-          Media Factory is one of the best outdoor advertising companies in India, specializing in campaigns across buses, cabs, autos, metros, and RWAs.
+          Media Factory is one of the best outdoor advertising companies in India, specializing in campaigns across buses, cabs, autos, metros, and RWAs to enhance brand visibility.
         </p>
       </div>
 
@@ -216,9 +261,12 @@ const OutdoorServices = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
+                    <div className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                       {step.description}
-                    </p>
+                    </div>
+                    <a href="#contact" className="inline-block px-6 py-3 bg-red-500 hover:bg-[#111] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest rounded-lg transition-colors w-fit mb-4 lg:mb-0 ml-14 lg:ml-0">
+                      Talk to us about your next print.
+                    </a>
                   </div>
                 ) : (
                   // === INACTIVE STATE (DESKTOP ONLY) ===
@@ -281,17 +329,8 @@ const IndoorServices = () => {
     },
     {
       id: 6,
-      title: "Other Branding Solutions",
-      description: (
-        <Fragment>
-          (Glowsign Board, Vinyl Printing, Customized Wallpaper, Retail Shop Branding, In-Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand).
-          <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Wide range of formats tailored to diverse branding needs.</li>
-            <li>High-quality materials ensure durability and professional presentation everywhere.</li>
-            <li>Customizable designs aligned with brand guidelines and campaign goals.</li>
-          </ul>
-        </Fragment>
-      ),
+      title: "More Branding Solutions",
+      description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
       icon: MoreIcon,
     },
   ];
@@ -358,9 +397,12 @@ const IndoorServices = () => {
                         {step.title}
                         </h3>
 
-                        <div className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
+                        <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                         {step.description}
-                        </div>
+                        </p>
+                        <a href="#contact" className="inline-block px-6 py-3 bg-red-500 hover:bg-[#111] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest rounded-lg transition-colors w-fit mb-4 lg:mb-0 ml-14 lg:ml-0">
+                          Talk to us about your next print.
+                        </a>
                     </div>
                     ) : (
                     // Inactive Content (Vertical Text - Desktop Only)

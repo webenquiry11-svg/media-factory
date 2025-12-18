@@ -17,6 +17,9 @@ import {
   Info,
   Award
 } from "lucide-react";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"], weight: "800" });
 
 // --- SLIDES DATA ---
 const SLIDES = [
@@ -316,9 +319,16 @@ export default function HeroSection() {
                 
                 {/* 1. HEADLINE */}
                 <div className="overflow-hidden pb-2">
-                   <h1 className={`text-4xl sm:text-5xl lg:text-5xl xl:text-7xl font-bold text-white leading-[1.1] sm:leading-[0.9] tracking-tight drop-shadow-lg block ${getMaskedContentClass(index, 'delay-700')}`}>
+                   <h1 className={`${montserrat.className} text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-black leading-[1.1] tracking-tight drop-shadow-xl block ${getMaskedContentClass(index, 'delay-700')}`}>
                     {slide.title.split('\n').map((line, i) => (
-                      <span key={i} className="block">{line}</span>
+                      <span key={i} className="block min-h-[1.2em]">
+                        <Typewriter 
+                          text={line} 
+                          isActive={index === currentSlide}
+                          startDelay={1000 + (i * 1200)}
+                          speed={70}
+                        />
+                      </span>
                     ))}
                   </h1>
                 </div>
@@ -438,6 +448,39 @@ function NavLink({ href, children, active }: { href: string; children: React.Rea
       <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${active ? 'scale-x-100' : ''}`} />
     </a>
   );
+}
+
+function Typewriter({ text, speed = 50, startDelay = 0, isActive }: { text: string; speed?: number; startDelay?: number; isActive: boolean }) {
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    let intervalId: NodeJS.Timeout;
+
+    if (isActive) {
+      setDisplayedText("");
+      timeoutId = setTimeout(() => {
+        let index = 0;
+        intervalId = setInterval(() => {
+          if (index < text.length) {
+            setDisplayedText((prev) => text.slice(0, index + 1));
+            index++;
+          } else {
+            clearInterval(intervalId);
+          }
+        }, speed);
+      }, startDelay);
+    } else {
+      setDisplayedText("");
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+  }, [isActive, text, speed, startDelay]);
+
+  return <span>{displayedText}</span>;
 }
 
 function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {

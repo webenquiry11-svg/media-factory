@@ -300,37 +300,91 @@ const IndoorServices = () => {
     {
       id: 1,
       title: "Double-Sided Roll-Up Standee",
-      description: "Double-sided roll up standees that showcase your message from every angle for maximum indoor visibility.",
+      description: (
+        <Fragment>
+          Double-sided roll up standees that showcase your message from every angle for maximum indoor visibility.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Prints visible from both sides for maximum engagement.</li>
+            <li>Stable base and premium mechanism for smooth operation.</li>
+            <li>Quick to install, carry, and reuse at events.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: StandeeIcon,
     },
     {
       id: 2,
       title: "Dealer Boards Manufacturing",
-      description: "Professional dealer boards crafted to elevate in-store branding, ensure high visibility, and strengthen dealer presence.",
+      description: (
+        <Fragment>
+          Professional dealer boards crafted to elevate in-store branding, ensure high visibility, and strengthen dealer presence.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Sturdy dealer boards designed for long-term outdoor performance.</li>
+            <li>Crisp printing for clear visibility of logos and offers.</li>
+            <li>Custom sizes and structures to match dealer location requirements.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: DealerBoardIcon,
     },
     {
       id: 3,
       title: "Promotional Umbrella",
-      description: "Weather-resistant promotional umbrellas that display your brand prominently at events, storefronts, and outdoor activations.",
+      description: (
+        <Fragment>
+          Weather-resistant promotional umbrellas that display your brand prominently at events, storefronts, and outdoor activations.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Large branding surface visible in crowded outdoor environments.</li>
+            <li>Weather-resistant fabric with long-lasting color and print quality.</li>
+            <li>Portable, easy to install for events and activations.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: UmbrellaIcon,
     },
     {
       id: 4,
       title: "Adjustable Banner Stand",
-      description: "Versatile adjustable banner stands that adapt to any indoor space, ensuring clear, professional brand visibility.",
+      description: (
+        <Fragment>
+          Versatile adjustable banner stands that adapt to any indoor space, ensuring clear, professional brand visibility.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Height and width adjustable to fit multiple banner sizes.</li>
+            <li>Strong frame ensures stability in indoor event conditions.</li>
+            <li>Reusable hardware for different campaigns and creative changes.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: BannerStandIcon,
     },
     {
       id: 5,
       title: "Promo Table",
-      description: "Engaging promo tables designed to showcase products, capture leads, and boost brand interaction at events.",
+      description: (
+        <Fragment>
+          Engaging promo tables designed to showcase products, capture leads, and boost brand interaction at events.
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Lightweight table with branding panels on all sides.</li>
+            <li>Ideal for sampling, lead capture, and info desks.</li>
+            <li>Easy to assemble, dismantle, and transport between venues.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: PromoTableIcon,
     },
     {
       id: 6,
-      title: "More Branding Solutions",
-      description: "Corporate Branding, Glowsign Board, Vinyl Printing, Customized Wallpaper Printing, Retail Shop Branding, In Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand.",
+      title: "Other Branding Solutions",
+      description: (
+        <Fragment>
+          (Glowsign Board, Vinyl Printing, Customized Wallpaper, Retail Shop Branding, In-Shop Branding, X Banner Stand, Table Top Roll Up Stand, Catalogue Stand, Canopy, Cut Out Stand)
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Wide range of formats tailored to diverse branding needs.</li>
+            <li>High-quality materials ensure durability and professional presentation everywhere.</li>
+            <li>Customizable designs aligned with brand guidelines and campaign goals.</li>
+          </ul>
+        </Fragment>
+      ),
       icon: MoreIcon,
     },
   ];
@@ -397,12 +451,14 @@ const IndoorServices = () => {
                         {step.title}
                         </h3>
 
-                        <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
+                        <div className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-4 lg:mb-6 pl-14 lg:pl-0">
                         {step.description}
-                        </p>
-                        <a href="#contact" className="inline-block px-6 py-3 bg-red-500 hover:bg-[#111] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest rounded-lg transition-colors w-fit mb-4 lg:mb-0 ml-14 lg:ml-0">
-                          Talk to us about your next print.
-                        </a>
+                        </div>
+                        {step.id !== 6 && (
+                          <a href="#contact" className="inline-block px-6 py-3 bg-red-500 hover:bg-[#111] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest rounded-lg transition-colors w-fit mb-4 lg:mb-0 ml-14 lg:ml-0">
+                            Talk to us about your next print.
+                          </a>
+                        )}
                     </div>
                     ) : (
                     // Inactive Content (Vertical Text - Desktop Only)

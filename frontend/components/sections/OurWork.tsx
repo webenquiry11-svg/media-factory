@@ -60,8 +60,8 @@ const OurWork = () => {
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-gray-500 font-bold text-[10px] sm:text-[12px] tracking-[0.2em] uppercase mb-4">
-            How We Work
+          <span className="block font-bold text-[10px] sm:text-[12px] tracking-[0.2em] uppercase mb-4">
+            <span className="text-red-500">How</span> <span className="text-[#111]">We Work</span>
           </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111] uppercase leading-[1.1] mb-6">
@@ -78,9 +78,6 @@ const OurWork = () => {
           {machines.map((machine, index) => (
             <div
               key={index}
-              // RESPONSIVE LOGIC:
-              // Mobile: relative (scrolls normally), mb-0 (gap handled by parent)
-              // Desktop (lg): sticky (stacks), top-32
               className={`
                 relative 
                 lg:sticky lg:top-32 
@@ -89,30 +86,28 @@ const OurWork = () => {
               `}
               style={{
                 zIndex: index + 1,
-                // Only fade/slide in if the section is in view
                 opacity: inView ? 1 : 0,
                 transform: inView ? "none" : "translateY(50px)",
               }}
             >
               <div className="flex flex-col lg:flex-row items-center lg:items-start group">
                 {/* 1. IMAGE AREA */}
-                {/* Mobile: Full Width, Fixed Height. Desktop: 60% Width */}
-                <div className="w-full lg:w-[60%] relative z-10 shadow-lg lg:shadow-none rounded-t-xl lg:rounded-none overflow-hidden">
-                  <div className="relative h-[250px] sm:h-[350px] lg:h-[550px] bg-gray-50 border border-gray-100">
+                <div className="w-full lg:w-[60%] relative z-10 rounded-t-xl lg:rounded-none overflow-hidden">
+                  {/* Added 'bg-white' to make it a white box, but NO shadow classes */}
+                  <div className="relative h-[250px] sm:h-[350px] lg:h-[550px] bg-white">
                     <img
                       src={machine.image}
                       alt={machine.title}
+                      // Added padding back so it sits nicely inside the white box
                       className="w-full h-full object-contain p-6 sm:p-10 transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                 </div>
 
                 {/* 2. TEXT CONTENT AREA */}
-                {/* Mobile: Stacks below image, no negative margin, full width.
-                   Desktop: 50% width, pulls left (-ml-20) to overlap image.
-                */}
                 <div className="w-full lg:w-[50%] lg:-ml-20 relative z-20 mt-0 lg:mt-16">
-                  <div className="bg-white shadow-xl lg:shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative overflow-hidden rounded-b-xl lg:rounded-sm border-t lg:border-t-0 border-gray-100">
+                  {/* 'bg-white' is present, but NO 'shadow' classes */}
+                  <div className="bg-white relative overflow-hidden rounded-b-xl lg:rounded-sm border-t lg:border-t-0 border-gray-100">
                     {/* Glow Effect */}
                     <div
                       className={`absolute -top-20 -right-20 w-[250px] h-[250px] bg-gradient-to-bl ${machine.color} via-transparent to-transparent rounded-full pointer-events-none blur-3xl opacity-50 lg:opacity-80`}

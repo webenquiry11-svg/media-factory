@@ -148,7 +148,7 @@ const About = () => {
 
             {/* Floating "Awards" Badge */}
             {/* Mobile: Top-Left overlapping image slightly | Desktop: floating out left */}
-            <div className={`absolute top-8 left-4 sm:-left-4 md:-left-10 bg-white p-4 sm:p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm min-w-[140px] sm:min-w-[180px] text-center z-20 transition-all duration-1000 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '500ms' }}>
+            <div className={`absolute top-8 left-4 sm:-left-4 md:-left-10 bg-white p-4 sm:p-6 md:p-8 rounded-sm min-w-[140px] sm:min-w-[180px] text-center z-20 transition-all duration-1000 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '500ms' }}>
                <div className="flex justify-center mb-2">
                  <Award className="w-8 h-8 sm:w-10 sm:h-10 text-red-500 stroke-[1.5]" />
                </div>
@@ -166,16 +166,14 @@ const About = () => {
         </div>
 
         {/* --- TRUSTED BY SECTION --- */}
-        <div className={`border border-gray-200 p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 transition-all duration-1000 delay-[800ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* <div className={`border border-gray-200 p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 transition-all duration-1000 delay-[800ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           
-          {/* Left Text */}
           <div className="w-full md:w-auto flex-shrink-0 flex items-center justify-center md:justify-start md:pr-12 md:border-r border-gray-200 pb-4 md:pb-0 border-b md:border-b-0">
              <h4 className="font-extrabold text-[#111] uppercase leading-tight text-[12px] sm:text-[13px] tracking-wide text-center md:text-left">
                Trusted By <br className="hidden md:block"/> Top Companies
              </h4>
           </div>
 
-          {/* Right Logo Row */}
           <div className="flex-1 w-full flex flex-wrap justify-center md:justify-between items-center gap-8">
              {companies.map((company, index) => (
                 <img 
@@ -186,8 +184,7 @@ const About = () => {
                 />
              ))}
           </div>
-
-        </div>
+        </div> */}
 
       </div>
     </section>

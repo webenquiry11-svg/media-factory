@@ -1,11 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { 
-  Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle, 
-  Facebook, Twitter, Instagram, Linkedin,
-  // Media Icons
-  Clapperboard, Mic, Video, Radio, Tv, Music, Megaphone, Play, Film, Camera, Aperture, Cast
-} from 'lucide-react';
+import { Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -209,66 +204,38 @@ const Contact = () => {
       </section>
 
       {/* =========================================
-          FOOTER SECTION (UPDATED: "MEDIA STUDIO" ANIMATION)
+          FOOTER SECTION (UPDATED: KINETIC TYPOGRAPHY)
       ========================================= */}
-      <footer className="relative bg-white pt-24 pb-12 overflow-hidden text-[#111]">
+      <footer className="relative bg-white pt-24 pb-12 overflow-hidden text-[#111] w-full border-t border-gray-100">
         
-        {/* --- ANIMATED BACKGROUND (Floating Media Icons) --- */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden z-0 bg-white select-none pointer-events-none">
+        {/* --- KINETIC TYPOGRAPHY BACKGROUND --- */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden z-0 bg-white select-none pointer-events-none flex flex-col justify-center opacity-[0.04]">
             
-            {/* --- ICON GROUP 1 (Large, Very Faint) --- */}
-            <div className="absolute top-[10%] left-[5%] text-gray-100 animate-float-slow opacity-60">
-                <Clapperboard size={180} strokeWidth={1} />
-            </div>
-            <div className="absolute bottom-[20%] right-[10%] text-gray-100 animate-float-medium opacity-60">
-                <Mic size={160} strokeWidth={1} className="rotate-12" />
-            </div>
-             <div className="absolute top-[40%] left-[40%] text-gray-50 animate-float-fast opacity-50">
-                <Aperture size={250} strokeWidth={0.5} className="animate-spin-slow" />
+            {/* Row 1: Left Scroll */}
+            <div className="w-[200%] whitespace-nowrap animate-scroll-left text-[8rem] font-black leading-none uppercase text-transparent tracking-tighter" style={{ WebkitTextStroke: '2px #111' }}>
+                Strategy <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Design <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Production <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Strategy <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Design <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Production <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span>
             </div>
 
-            {/* --- ICON GROUP 2 (Medium, Subtle Red Accent) --- */}
-            <div className="absolute top-[20%] right-[20%] text-red-50 animate-float-medium delay-1000 opacity-80">
-                <Video size={80} strokeWidth={1.5} />
-            </div>
-            <div className="absolute bottom-[10%] left-[20%] text-red-50 animate-float-slow delay-2000 opacity-80">
-                <Megaphone size={90} strokeWidth={1.5} className="-rotate-12" />
-            </div>
-             <div className="absolute top-[60%] right-[40%] text-gray-100 animate-float-fast delay-500 opacity-70">
-                <Tv size={100} strokeWidth={1} />
+            {/* Row 2: Right Scroll (Offset) */}
+            <div className="w-[200%] whitespace-nowrap animate-scroll-right text-[10rem] font-black leading-none uppercase text-transparent tracking-tighter ml-[-200px]" style={{ WebkitTextStroke: '2px #ef4444' }}>
+                Media Factory <span className="text-[#111]" style={{ WebkitTextStroke: '0px' }}>•</span> Innovation <span className="text-[#111]" style={{ WebkitTextStroke: '0px' }}>•</span> Impact <span className="text-[#111]" style={{ WebkitTextStroke: '0px' }}>•</span> Media Factory <span className="text-[#111]" style={{ WebkitTextStroke: '0px' }}>•</span> Innovation <span className="text-[#111]" style={{ WebkitTextStroke: '0px' }}>•</span> Impact <span className="text-[#111]" style={{ WebkitTextStroke: '0px' }}>•</span>
             </div>
 
-            {/* --- ICON GROUP 3 (Small, Detail) --- */}
-            <div className="absolute top-[15%] left-[25%] text-gray-200 animate-pulse-slow">
-                <Play size={40} strokeWidth={2} />
-            </div>
-            <div className="absolute bottom-[30%] right-[5%] text-gray-200 animate-pulse-slow delay-1000">
-                <Music size={35} strokeWidth={2} />
-            </div>
-            <div className="absolute top-[5%] right-[50%] text-gray-200 animate-bounce-slow">
-                <Radio size={45} strokeWidth={2} />
-            </div>
-            <div className="absolute bottom-[5%] left-[50%] text-red-100 animate-float-medium">
-                <Film size={50} strokeWidth={2} />
-            </div>
-            <div className="absolute top-[80%] right-[5%] text-gray-200 animate-float-slow">
-                <Cast size={60} strokeWidth={1} />
-            </div>
-            <div className="absolute top-[30%] left-[80%] text-gray-200 animate-spin-reverse-slow">
-                <Camera size={55} strokeWidth={1.5} />
+            {/* Row 3: Left Scroll */}
+            <div className="w-[200%] whitespace-nowrap animate-scroll-left text-[8rem] font-black leading-none uppercase text-transparent tracking-tighter" style={{ WebkitTextStroke: '2px #111' }}>
+                Outdoor <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Indoor <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Digital <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Outdoor <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Indoor <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span> Digital <span className="text-red-600" style={{ WebkitTextStroke: '0px' }}>•</span>
             </div>
 
-            {/* --- Subtle Grain Texture Overlay for Professional Feel --- */}
-             <div className='absolute inset-0 bg-transparent opacity-[0.4] mix-blend-overlay' style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-
-             {/* --- Bottom Fade Gradient --- */}
-             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white via-transparent to-transparent"></div>
         </div>
+
+        {/* Gradient Fades for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-0 pointer-events-none opacity-50"></div>
 
         <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-20">
           
           {/* Top Row: Logo & Subscribe */}
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8 border-b border-gray-100 pb-12">
+          <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8 border-b border-gray-200 pb-12">
             <a href="/" className="flex items-center">
                <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
             </a>
@@ -276,7 +243,7 @@ const Contact = () => {
                <input 
                   type="email" 
                   placeholder="Email address" 
-                  className="w-full bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full py-4 pl-8 pr-40 text-sm text-gray-800 placeholder-gray-400 focus:border-red-500 outline-none transition-colors shadow-sm"
+                  className="w-full bg-white/90 border border-gray-200 rounded-full py-4 pl-8 pr-40 text-sm text-gray-800 placeholder-gray-400 focus:border-red-500 outline-none transition-colors shadow-sm"
                />
                <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#111] hover:bg-red-500 text-white font-bold text-[11px] tracking-widest uppercase px-8 rounded-full transition-all duration-300 shadow-md">
                  Subscribe
@@ -304,7 +271,7 @@ const Contact = () => {
                        { name: 'Contact', href: '#contact' }
                     ].map((item) => (
                        <li key={item.name}>
-                          <a href={item.href} className="text-slate-600 hover:text-red-600 text-[15px] font-medium transition-colors">{item.name}</a>
+                          <a href={item.href} className="text-gray-500 hover:text-red-600 text-[15px] font-medium transition-colors">{item.name}</a>
                        </li>
                     ))}
                   </ul>
@@ -323,7 +290,7 @@ const Contact = () => {
               {/* 4. CONTACT */}
               <div className="lg:col-span-3">
                   <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">CONTACT</h4>
-                  <p className="text-slate-600 text-[15px] mb-4 leading-relaxed font-medium">
+                  <p className="text-gray-500 text-[15px] mb-4 leading-relaxed font-medium">
                     Ludhiana, Punjab, 141001
                   </p>
                   <div className="space-y-3">
@@ -340,7 +307,7 @@ const Contact = () => {
           </div>
 
           {/* Copyright Section */}
-          <div className="border-t border-gray-100 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="border-t border-gray-200 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
              <p className="text-gray-500 text-[13px] font-medium">
                  © Copyright 2025 by Media Factory.
              </p>
@@ -351,31 +318,22 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* CSS for Animations */}
+        {/* CSS for Kinetic Scroll */}
         <style jsx>{`
-            @keyframes float {
-                0%, 100% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-20px) rotate(5deg); }
+            @keyframes scroll-left {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
             }
-            @keyframes spin-slow {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
+            @keyframes scroll-right {
+                0% { transform: translateX(-50%); }
+                100% { transform: translateX(0); }
             }
-            @keyframes spin-reverse-slow {
-                from { transform: rotate(360deg); }
-                to { transform: rotate(0deg); }
+            .animate-scroll-left {
+                animation: scroll-left 40s linear infinite;
             }
-            @keyframes bounce-slow {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-15px); }
+            .animate-scroll-right {
+                animation: scroll-right 40s linear infinite;
             }
-            .animate-float-slow { animation: float 15s ease-in-out infinite; }
-            .animate-float-medium { animation: float 10s ease-in-out infinite reverse; }
-            .animate-float-fast { animation: float 8s ease-in-out infinite; }
-            .animate-spin-slow { animation: spin-slow 60s linear infinite; }
-            .animate-spin-reverse-slow { animation: spin-reverse-slow 50s linear infinite; }
-            .animate-pulse-slow { animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-            .animate-bounce-slow { animation: bounce-slow 6s ease-in-out infinite; }
         `}</style>
       </footer>
     </div>

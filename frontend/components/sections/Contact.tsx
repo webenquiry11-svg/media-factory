@@ -1,6 +1,11 @@
 "use client";
 import React, { useState } from 'react';
-import { Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { 
+  Building2, Phone, MapPin, Mail, Send, Loader2, CheckCircle, AlertCircle, 
+  Facebook, Twitter, Instagram, Linkedin,
+  // Media Icons
+  Clapperboard, Mic, Video, Radio, Tv, Music, Megaphone, Play, Film, Camera, Aperture, Cast
+} from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +76,6 @@ const Contact = () => {
              </p>
           </div>
 
-          {/* Cards & Form removed for brevity, assuming you keep the same code from previous steps here... */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {/* Card 1: About Us */}
             <div className="bg-white p-10 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
@@ -205,28 +209,66 @@ const Contact = () => {
       </section>
 
       {/* =========================================
-          FOOTER SECTION (EXACT REPLICA)
+          FOOTER SECTION (UPDATED: "MEDIA STUDIO" ANIMATION)
       ========================================= */}
-      {/* Container is White to match content area */}
-      <footer className="relative bg-white pt-24 pb-0 overflow-hidden text-[#111]">
+      <footer className="relative bg-white pt-24 pb-12 overflow-hidden text-[#111]">
         
-        {/* --- DECORATIVE DOTS & CIRCLES (From Image) --- */}
-        {/* Red Circle (Bottom Right above wave) */}
-        <div className="absolute right-[15%] bottom-[120px] w-8 h-8 rounded-full border-2 border-red-500 z-20" />
-        
-        {/* Striped Circle (Right Side) */}
-        <div className="absolute right-0 top-[20%] w-24 h-24 z-0 opacity-60">
-           <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-              {[...Array(8)].map((_, i) => (
-                 <line key={i} x1="0" y1={20 + i * 10} x2={80 - i * 10} y2="100" stroke="#fca5a5" strokeWidth="2" />
-              ))}
-           </svg>
+        {/* --- ANIMATED BACKGROUND (Floating Media Icons) --- */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden z-0 bg-white select-none pointer-events-none">
+            
+            {/* --- ICON GROUP 1 (Large, Very Faint) --- */}
+            <div className="absolute top-[10%] left-[5%] text-gray-100 animate-float-slow opacity-60">
+                <Clapperboard size={180} strokeWidth={1} />
+            </div>
+            <div className="absolute bottom-[20%] right-[10%] text-gray-100 animate-float-medium opacity-60">
+                <Mic size={160} strokeWidth={1} className="rotate-12" />
+            </div>
+             <div className="absolute top-[40%] left-[40%] text-gray-50 animate-float-fast opacity-50">
+                <Aperture size={250} strokeWidth={0.5} className="animate-spin-slow" />
+            </div>
+
+            {/* --- ICON GROUP 2 (Medium, Subtle Red Accent) --- */}
+            <div className="absolute top-[20%] right-[20%] text-red-50 animate-float-medium delay-1000 opacity-80">
+                <Video size={80} strokeWidth={1.5} />
+            </div>
+            <div className="absolute bottom-[10%] left-[20%] text-red-50 animate-float-slow delay-2000 opacity-80">
+                <Megaphone size={90} strokeWidth={1.5} className="-rotate-12" />
+            </div>
+             <div className="absolute top-[60%] right-[40%] text-gray-100 animate-float-fast delay-500 opacity-70">
+                <Tv size={100} strokeWidth={1} />
+            </div>
+
+            {/* --- ICON GROUP 3 (Small, Detail) --- */}
+            <div className="absolute top-[15%] left-[25%] text-gray-200 animate-pulse-slow">
+                <Play size={40} strokeWidth={2} />
+            </div>
+            <div className="absolute bottom-[30%] right-[5%] text-gray-200 animate-pulse-slow delay-1000">
+                <Music size={35} strokeWidth={2} />
+            </div>
+            <div className="absolute top-[5%] right-[50%] text-gray-200 animate-bounce-slow">
+                <Radio size={45} strokeWidth={2} />
+            </div>
+            <div className="absolute bottom-[5%] left-[50%] text-red-100 animate-float-medium">
+                <Film size={50} strokeWidth={2} />
+            </div>
+            <div className="absolute top-[80%] right-[5%] text-gray-200 animate-float-slow">
+                <Cast size={60} strokeWidth={1} />
+            </div>
+            <div className="absolute top-[30%] left-[80%] text-gray-200 animate-spin-reverse-slow">
+                <Camera size={55} strokeWidth={1.5} />
+            </div>
+
+            {/* --- Subtle Grain Texture Overlay for Professional Feel --- */}
+             <div className='absolute inset-0 bg-transparent opacity-[0.4] mix-blend-overlay' style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
+
+             {/* --- Bottom Fade Gradient --- */}
+             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white via-transparent to-transparent"></div>
         </div>
 
-        <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-20 mb-32">
+        <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-20">
           
           {/* Top Row: Logo & Subscribe */}
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center mb-16 gap-8 border-b border-gray-100 pb-12">
             <a href="/" className="flex items-center">
                <img src="/logo.png" alt="Cilox Logo" className="h-12 w-auto" />
             </a>
@@ -234,7 +276,7 @@ const Contact = () => {
                <input 
                   type="email" 
                   placeholder="Email address" 
-                  className="w-full bg-white border border-gray-200 rounded-full py-4 pl-8 pr-40 text-sm text-gray-800 placeholder-gray-400 focus:border-red-500 outline-none transition-colors shadow-sm"
+                  className="w-full bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full py-4 pl-8 pr-40 text-sm text-gray-800 placeholder-gray-400 focus:border-red-500 outline-none transition-colors shadow-sm"
                />
                <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#111] hover:bg-red-500 text-white font-bold text-[11px] tracking-widest uppercase px-8 rounded-full transition-all duration-300 shadow-md">
                  Subscribe
@@ -243,17 +285,17 @@ const Contact = () => {
           </div>
 
           {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative mb-16">
               {/* 1. INTRO */}
               <div className="lg:col-span-4">
-                 <h3 className="text-lg font-bold text-[#111] leading-relaxed mb-4 max-w-xs">
+                  <h3 className="text-lg font-bold text-[#111] leading-relaxed mb-4 max-w-xs">
                     Welcome to Media Factory, your trusted partner for impactful indoor and outdoor advertising.
-                 </h3>
+                  </h3>
               </div>
               {/* 2. EXPLORE */}
               <div className="lg:col-span-2">
-                 <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">EXPLORE</h4>
-                 <ul className="space-y-3">
+                  <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">EXPLORE</h4>
+                  <ul className="space-y-3">
                     {[
                        { name: 'Home', href: '#' },
                        { name: 'About Us', href: '#about' },
@@ -265,26 +307,26 @@ const Contact = () => {
                           <a href={item.href} className="text-slate-600 hover:text-red-600 text-[15px] font-medium transition-colors">{item.name}</a>
                        </li>
                     ))}
-                 </ul>
+                  </ul>
               </div>
               {/* 3. FOLLOW US */}
               <div className="lg:col-span-3">
-                 <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">FOLLOW US</h4>
-                 <div className="flex gap-3">
+                  <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">FOLLOW US</h4>
+                  <div className="flex gap-3">
                     {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                       <a key={i} href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-[#111] hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300">
+                       <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#111] hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                           <Icon className="w-4 h-4" />
                        </a>
                     ))}
-                 </div>
+                  </div>
               </div>
               {/* 4. CONTACT */}
               <div className="lg:col-span-3">
-                 <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">CONTACT</h4>
-                 <p className="text-slate-600 text-[15px] mb-4 leading-relaxed font-medium">
+                  <h4 className="font-extrabold text-sm mb-6 uppercase text-[#111] tracking-widest">CONTACT</h4>
+                  <p className="text-slate-600 text-[15px] mb-4 leading-relaxed font-medium">
                     Ludhiana, Punjab, 141001
-                 </p>
-                 <div className="space-y-3">
+                  </p>
+                  <div className="space-y-3">
                     <div className="flex items-center gap-3 group cursor-pointer">
                        <Phone className="w-4 h-4 text-red-600" />
                        <span className="text-[#111] text-[15px] group-hover:text-red-600 transition-colors font-bold">9814746565</span>
@@ -293,64 +335,48 @@ const Contact = () => {
                        <Mail className="w-4 h-4 text-red-600" />
                        <span className="text-[#111] text-[15px] group-hover:text-red-600 transition-colors font-medium">support@mediafactory.co.in</span>
                     </div>
-                 </div>
+                  </div>
               </div>
+          </div>
+
+          {/* Copyright Section */}
+          <div className="border-t border-gray-100 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+             <p className="text-gray-500 text-[13px] font-medium">
+                 © Copyright 2025 by Media Factory.
+             </p>
+             <div className="flex gap-6">
+                <a href="#" className="text-gray-500 hover:text-red-500 text-[13px] font-medium transition-colors">Privacy Policy</a>
+                <a href="#" className="text-gray-500 hover:text-red-500 text-[13px] font-medium transition-colors">Terms of Use</a>
+             </div>
           </div>
         </div>
 
-        {/* --- BOTTOM WAVE & COPYRIGHT --- */}
-        <div className="absolute bottom-0 left-0 w-full h-[180px] z-10">
-           {/* The Wave SVG matching the image shape */}
-           <svg className="absolute bottom-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
-              <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-              </defs>
-              <g className="parallax">
-                <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(31,31,31,0.3)" />
-                <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(31,31,31,0.5)" />
-                <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(31,31,31,0.7)" />
-                <use xlinkHref="#gentle-wave" x="48" y="7" fill="#1f1f1f" />
-              </g>
-           </svg>
-           
-           {/* Copyright Text Sitting Inside the Wave */}
-           <div className="absolute bottom-4 w-full text-center z-20">
-              <p className="text-gray-500 text-[13px] font-medium">
-                 © Copyright 2025 by Cilox HTML Template.
-              </p>
-           </div>
-
-           <style>{`
-             .parallax > use {
-               animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
-             }
-             .parallax > use:nth-child(1) {
-               animation-delay: -2s;
-               animation-duration: 7s;
-             }
-             .parallax > use:nth-child(2) {
-               animation-delay: -3s;
-               animation-duration: 10s;
-             }
-             .parallax > use:nth-child(3) {
-               animation-delay: -4s;
-               animation-duration: 13s;
-             }
-             .parallax > use:nth-child(4) {
-               animation-delay: -5s;
-               animation-duration: 20s;
-             }
-             @keyframes move-forever {
-               0% {
-                transform: translate3d(-90px,0,0);
-               }
-               100% { 
-                 transform: translate3d(85px,0,0);
-               }
-             }
-           `}</style>
-        </div>
-
+        {/* CSS for Animations */}
+        <style jsx>{`
+            @keyframes float {
+                0%, 100% { transform: translateY(0) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(5deg); }
+            }
+            @keyframes spin-slow {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            @keyframes spin-reverse-slow {
+                from { transform: rotate(360deg); }
+                to { transform: rotate(0deg); }
+            }
+            @keyframes bounce-slow {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-15px); }
+            }
+            .animate-float-slow { animation: float 15s ease-in-out infinite; }
+            .animate-float-medium { animation: float 10s ease-in-out infinite reverse; }
+            .animate-float-fast { animation: float 8s ease-in-out infinite; }
+            .animate-spin-slow { animation: spin-slow 60s linear infinite; }
+            .animate-spin-reverse-slow { animation: spin-reverse-slow 50s linear infinite; }
+            .animate-pulse-slow { animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+            .animate-bounce-slow { animation: bounce-slow 6s ease-in-out infinite; }
+        `}</style>
       </footer>
     </div>
   );
